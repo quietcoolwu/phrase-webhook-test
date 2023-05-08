@@ -9,8 +9,8 @@ jobs:
     env:
       WHITE_LIST: "piecehealth"
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
+        with: fetch-depth: 0
       - run: |
           CHANGED_FILES=$(git diff --name-only $(git merge-base main HEAD))
 
