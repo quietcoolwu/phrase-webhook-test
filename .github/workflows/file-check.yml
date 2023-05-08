@@ -10,11 +10,11 @@ jobs:
       WHITE_LIST: "piecehealth"
     steps:
       - run: |
-        CHANGED_FILES=$(git diff --name-only $(git merge-base main HEAD))
+          CHANGED_FILES=$(git diff --name-only $(git merge-base main HEAD))
 
-        if echo "$CHANGED_FILES" | grep -q --include='*.yml' '^config/locales/generated/'; then
-          if echo "$WHITE_LIST" | grep -qw "${{ github.actor }}"; then
-            echo "Error: User ${{ github.actor }} is not authorized to make changes."
-            exit 1
+          if echo "$CHANGED_FILES" | grep -q --include='*.yml' '^config/locales/generated/'; then
+            if echo "$WHITE_LIST" | grep -qw "${{ github.actor }}"; then
+              echo "Error: User ${{ github.actor }} is not authorized to make changes."
+              exit 1
+            fi
           fi
-        fi
