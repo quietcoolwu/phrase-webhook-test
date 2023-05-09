@@ -18,7 +18,11 @@ jobs:
 
           if echo "$CHANGED_FILES" | grep -q --include='*.yml' '^config/locales/generated/'; then
             if echo "$WHITE_LIST" | grep -qw "${{ github.actor }}"; then
+              echo "User ${{ github.actor }} is allowed to make changes."
+            else
               echo "Error: User ${{ github.actor }} is not authorized to make changes."
               exit 1
             fi
+          else
+            echo "no changes."
           fi
