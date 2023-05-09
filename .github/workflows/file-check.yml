@@ -11,8 +11,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - run: |
-          CHANGED_FILES=$(git diff --name-only $(git merge-base main HEAD))
+          CHANGED_FILES=$(git diff --name-only $(git merge-base remotes/origin/main HEAD))
 
           if echo "$CHANGED_FILES" | grep -q --include='*.yml' '^config/locales/generated/'; then
             if echo "$WHITE_LIST" | grep -qw "${{ github.actor }}"; then
