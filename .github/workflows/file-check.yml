@@ -15,6 +15,7 @@ jobs:
           fetch-depth: 0
       - run: |
           git pull origin main
+          git branch -a
           CHANGED_FILES=$(git diff --name-only $(git merge-base main HEAD))
 
           if echo "$CHANGED_FILES" | grep -q --include='*.yml' '^config/locales/generated/'; then
