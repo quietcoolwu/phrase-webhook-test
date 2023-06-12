@@ -1,2 +1,847 @@
-1
-2
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+
+en:
+  date:
+    formats:
+      # override default en date format https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/en.yml#L42
+      # to en_US style since we use en as default locale
+      default: "%m/%d/%Y"
+  hello: "Hello world"
+  activemodel:
+    errors:
+      messages:
+        record_invalid: "Validation failed: %{errors}"
+  activerecord:
+    models:
+      order_issue:
+        one: Order Issue
+        other: Order Issues
+      order:
+        one: Order
+        other: Orders
+      shipping_info: Shipping Information
+      user:
+        one: User
+        other: Users
+      product:
+        one: Product
+        other: Products
+      store_reception: Store Reception
+      transfer:
+        one: Transfer
+        other: Transfers
+      transfer_box:
+        one: Transfer Box
+        other: Transfer Boxes
+    attributes:
+      address:
+        address1: "Address1"
+        phone: "Phone"
+        name: "Name"
+        postal_code: "Postal Code"
+      brand:
+        name: Brand Name
+      order:
+        id: Order ID
+        number: Order Number
+        ext_order_id: Ext Order ID
+        purchase_order_number: Purchase Order Number
+        pon: PON
+        importance: Importance
+        statuses:
+          goat_received: GOAT Received
+          canceled_by_seller: Canceled by Seller
+      order_gift_card:
+        ext_gift_card_id: Gift Card
+      order_issue:
+        id: Order Issue ID
+        status: Order Issue Status
+        size: Size
+        is_fake: Is fake
+        is_mismatched: Is mismatched
+        shoe_condition: Shoe Condition
+        box_condition: Box Condition
+        has_odor: Has odor
+        has_discoloration: Has discoloration
+        has_defects: B-Grade
+        has_missing_insoles: Has missing insoles
+        has_scuffs: Has scuffs
+        has_tears: Has tears
+      order_issue/box_condition:
+        good_condition: good_condition
+        missing_lid: missing_lid
+        badly_damaged: badly_damaged
+        no_original_box: no_original_box
+      order_issue/shoe_condition:
+        new: new
+        used: used
+      order_issue/odor:
+        perfume: Perfume
+        cigarettes: Cigarettes
+        food: Food
+        used_smell: Used Smell
+      order_issue_item:
+        type: Order Issue Item Type
+      order_issue_item/subclasses:
+        "OrderIssueItems::InvalidProduct": Invalid Product
+        "OrderIssueItems::PropertyReturn": Property Return
+        "OrderIssueItems::WrongSize": Wrong Size
+        "OrderIssueItems::WrongSku": Wrong SKU
+        "OrderIssueItems::Accessories": Accessories
+        "OrderIssueItems::BGrade": B-Grade
+        "OrderIssueItems::BoxCondition": Box Condition
+        "OrderIssueItems::CanceledBySeller": Canceled By Seller
+        "OrderIssueItems::Creasing": Creasing
+        "OrderIssueItems::Defect": Defect
+        "OrderIssueItems::Fake": Fake
+        "OrderIssueItems::GlueStain": Glue Stain
+        "OrderIssueItems::Marking": Marking
+        "OrderIssueItems::MismatchedSize": Mismatched Size
+        "OrderIssueItems::Mold": Mold
+        "OrderIssueItems::Odor": Odor
+        "OrderIssueItems::OneShoe": One Shoe
+        "OrderIssueItems::Other": Other
+        "OrderIssueItems::ProductCondition": Product Condition
+        "OrderIssueItems::Tear": Tear
+        "OrderIssueItems::TriedOn": Tried On
+        "OrderIssueItems::Cracking": Cracking
+        "OrderIssueItems::Discoloration": Discoloration
+        "OrderIssueItems::NonGoatTags": Non GOAT Tags
+      product:
+        id: Product ID
+        number: Product Number
+        shoe_condition: Shoe Condition
+        box_condition: Box Condition
+        size: Size
+        sale_status: Sale Status
+        created_at: Created At
+        shelf_number: Shelf number
+        shelf: Shelf
+        ext_gift_card_id: Gift Card
+      product_template:
+        id: Product Template Id
+        sku: SKU
+        gender: Gender
+        color: Color
+        category: Category
+        brand_name: Brand
+        product_condition: Product Condition
+        box_condition: Box condition
+        name: Name
+        search_sku: SKU
+      shipping_info:
+        tracking_code: Tracking Code
+      shipping_preference/carrier:
+        usps: USPS
+        ups: UPS
+        dhl_express: DHL Express
+        rr_donnelley: RR Donnelley
+        fedex: Fedex
+        canada_post: Canada Post
+        seko: SEKO
+        dpd_nl: DPD NL
+        dpd_uk: DPD UK
+        aramex: Aramex
+        yamato: Yamato
+        jd_logistics: JD Logistics
+      shipping_segment:
+        license_plate_id: License Plate Id
+      sneakers_version/event:
+        update: updated
+        create: created
+        touch: touched
+        destroy: destroyed
+      store_reception:
+        id: Store Reception ID
+        status: Status
+      transfer:
+        id: Transfer ID
+        status: Status
+        origin_warehouse: Origin warehouse
+        destination_warehouse: Destination warehouse
+      transfer_box:
+        id: Box ID
+        status: Status
+        created_at: Created at
+        transport_id: "Transport ID (Truck/Tracking)"
+      transfer_product:
+        status: Transfer Status
+      transfer_product_import:
+        status: Status
+        transfer_box_id: Box ID
+      upc:
+        code: UPC
+        size: Size
+      user:
+        id: User ID
+        email: "Email"
+        password: "Password"
+        name: "Name"
+      cart_order:
+        id: Cart Order ID
+        number: Cart Order Number
+    errors:
+      messages:
+        record_invalid: "Validation failed: %{errors}"
+        postal_code_format_invalid: "only allows letters, digits, space and hyphen"
+    state_machines:
+      store_reception:
+        status:
+          states:
+            pending: Pending
+            in_progress: In Progress
+            completed: completed
+      transfer:
+        status:
+          states:
+            pending: Pending
+            picked: Picked
+            packed: Packed
+            in_transit: In Transit
+            received: Received
+            complete: Completed
+      transfer_box:
+        status:
+          states:
+            pending: Pending
+            receive : Receive
+            lost: Lost
+      transfer_product:
+        status:
+          states:
+            pending: Pending
+            picked: Picked
+            packed: Packed
+            shelved: Arrived
+            returned_to_seller: Returned to seller
+            lost: Lost
+      transfer_product_import:
+        status:
+          states:
+            pending: Pending
+            running: Running
+            complete: Completed
+  address:
+    errors:
+      phone_must_be_11_digits: "must be 11 digits."
+      address_validation_exception: "Address Validation Exception"
+      address_not_found: "The address as submitted could not be found. Please check for excessive abbreviations in the street address line or in the City name."
+  admin:
+    fulfillment:
+      bulk_receiving:
+        created: "Bulk receiving was successfully created"
+        products_added: "%{product_count} products added"
+        completed: "Bulk receiving was successfully marked as completed, unused products will be removed"
+        errors:
+          exceed_max_product_count: "Cannot create more than %{max_product_count} products at a time"
+          exceed_max_label_count: "Cannot print more than %{max_label_count} labels at a time"
+          missing_upc_code: "Please take product number %{product_number} to fulfillment triage: UPC code %{upc_code} does not exist"
+          barcodes_already_being_printed: "Some barcodes are already being printed"
+          completed_bulk_receiving: "Bulk receiving is already completed"
+      order_shipping_label_regenerations:
+        regenerate_label_success: "Regenerating shipping label for order #%{order_number}"
+        printing_replacement_label: "Tracking code found - a replacement label has been sent to your local printer."
+        errors:
+          cannot_regenerate_label: "Cannot regenerate label for order #%{order_number} - Moved to GOAT CHECK"
+          invalid_order_status: "Order #%{order_number} is not in a valid status (%{order_status})"
+          invalid_tracking_code_input: "Tracking code not found, please try again."
+          shipping_label_unavailable: "Shipping label is unavailable, please try again in 5 minutes."
+          invalid_order_unpaid: "Shipping label cannot be printed - order has not been paid out"
+      transfer:
+        created: "Transfer was successfully created"
+        product_packed: "Scanned product barcode %{product_barcode} into box ID %{transfer_box_id}. Name: %{product_name} Size: %{product_size}"
+        product_shelved: "Shelved product barcode %{product_barcode} into shelf %{shelf_number}"
+        packing_title: "Packing products for transfer ID %{transfer_id}"
+        packing_begin_prompt_no_box: "Scan a box to begin"
+        packing_begin_prompt_with_box: "Scan a product to pack it into box ID %{transfer_box_id}"
+        packing_transport_begin_prompt_with_transport_id: "Scan a box to associate it with transport ID %{transport_id}"
+        quick_scan_title: "Scanning products for transfer ID %{transfer_id}"
+        quick_scan_begin_prompt: "Scan a product in the transfer to mark it as in transit"
+        shelving_title: "Shelving products for transfer ID %{transfer_id}"
+        shelving_begin_prompt_no_shelf: "Scan a shelf to begin"
+        shelving_begin_prompt_with_shelf: "Scan a product onto shelf number %{shelf_number}"
+        transport_success: "Successfully added transport ID %{transport_id} to box ID %{transfer_box_id}"
+        transport_and_transfer_update_success: "Successfully added transport ID %{transport_id} to box ID %{transfer_box_id}. Transfer ID %{transfer_id} moved to in_transit"
+        transport_and_transfer_update_success_rts: "Successfully added transport ID %{transport_id} to box ID %{transfer_box_id}. RTS Transfer ID %{transfer_id} completed"
+        transfer_update_failed: "Successfully added transport ID %{transport_id} to box ID %{transfer_box_id}. Failed to move Transfer ID %{transfer_id} to in_transit"
+        transport_title: "Adding transport ID for transfer ID %{transfer_id}"
+        updated: "Transfer was successfully updated"
+        errors:
+          same_origin_and_destination_warehouse: "Origin and destination warehouse cannot be the same"
+          transfer_product_not_unique: "Transfer product already exists in the transfer"
+          failed_csv: "Failed to upload CSV file: %{error}"
+          scan_box_first: "Scan a box to get started"
+          scan_shelf_first: "Scan a shelf to get started"
+          scan_transport_id_first: "Scan a transport ID to begin"
+          transfer_box_does_not_match_transfer: "Transfer box ID %{transfer_box_id} does not belong to transfer ID %{transfer_id}"
+          invalid_product_scanned: "Invalid product barcode %{product_barcode}"
+          failed_to_pack: "Failed to pack product product barcode %{product_barcode} into box ID %{transfer_box_id}"
+          failed_to_shelve: "Failed to shelve product product barcode %{product_barcode} into shelf %{shelf_number}"
+          invalid_box_scanned: "Invalid box ID %{transfer_box_id}"
+          invalid_shelf_scanned: "Invalid shelf number %{shelf_number}"
+          box_belongs_to_another_transfer: "The scanned box ID %{transfer_box_id} belongs to another transfer ID %{transfer_id}"
+          failed_to_update: "Failed to update transfer"
+          transport_failed: "Failed to add transport ID %{transport_id} to box ID %{transfer_box_id}"
+      transfer_boxes:
+        created: "Transfer boxes were successfully created"
+        updated: "Transfer box was successfully updated"
+        received: "Transfer box ID %{transfer_box_id} was successfully received"
+        destroyed: "Transfer box was successfully deleted"
+        destroy_confirmation: "Are you sure you want to delete this box?"
+        errors:
+          invalid_bulk_create_transfer_box_count: "Bulk create box count has to be greater than 0"
+          delete_box_with_products: "Box cannot be deleted since it has products"
+          failed_to_receive: "Failed to receive transfer box ID %{transfer_box_id}"
+      transfer_products:
+        picked: "Product was successfully picked"
+        quick_scanned: "Product was successfully transitioned to in transit"
+        errors:
+          invalid_transfer_type: "Transfer type is invalid for this action"
+          failed_to_pick: "Failed to pick transfer product"
+          failed_to_rts: "Failed to rts transfer product IDs: %{transfer_product_id}"
+          failed_to_quick_scan: "Failed to transition product to in transit"
+          no_long_transferable: "Product barcode %{product_barcode} is not transferable anymore and deleted from this transfer"
+          transfer_box_has_different_transfer: "Transfer box belongs to a different transfer ID %{transfer_id}"
+          failed_fc_request: "Could not retrieve FC products"
+      batch_shipment:
+        created: "Batch shipment was successfully created"
+        started_processing: "Started generating labels, please check back later"
+        destroyed: "Batch shipment ID %{batch_shipment_id} was successfully destroyed"
+        errors:
+          being_processed: "Batch shipment is already being processed"
+          failed_to_destroy: "Batch shipment ID %{batch_shipment_id} is in progress so it couldn't be destroyed"
+          no_orders: "Batch shipment ID %{batch_shipment_id} has no orders"
+          min_batch_size: "Add at least %{order_count} orders for %{manual_fulfillment_strategy} batch shipment in %{warehouse}."
+      batch_shipment_order:
+        created: "Order was successfully added to shipment ID %{shipment_id}"
+        deleted: "Order ID %{order_id} has been removed successfully from shipment"
+        errors:
+          order_not_unique: "ID %{order_id} was already added to batch shipment ID %{batch_shipment_id}"
+          different_manual_fulfillment_strategy: "Order should not be fulfilled with %{shipment_strategy}"
+          no_in_progress_order: "No in progress order for product barcode %{product_barcode}"
+          no_china_id: "ID %{order_id} has no China ID"
+          no_phone_number: "ID %{order_id} has no phone number on its address"
+          order_in_invalid_status: "ID %{order_id} is not in %{valid_status}"
+          address_missing_city_state: "missing city or state for buyer address on order ID %{order_id}"
+          batch_shipment_not_pending: "ID %{batch_shipment_id} is being processed so order ID %{order_id} cannot be added"
+          order_already_has_label: "ID %{order_id} already has a to buyer shipping label"
+          storage_order: "Order is a storage order and should not be shipped"
+          acquire_order: "Order is marked for acquire and should not be shipped"
+      packing_checklist_items:
+        errors:
+          invalid_visibility_rules: "is invalid, allowed rules: %{valid_rules}"
+      packing_checklist:
+        errors:
+          goat_order_wrong_packing_mode: "Order ID %{order_id} is a Goat/WeChat order, please take it to the Goat/WeChat packing station to proceed"
+          fc_order_wrong_packing_mode: "Order ID %{order_id} is a FC/Tmall order, please take it to the FC/Tmall packing station to proceed"
+          missing_packing_mode: 'Please select a packing mode'
+      sh_hk_transfers:
+        transfer_consigned_product_to_hk_success: "Generating product barcode. This is a consigned product."
+        transfer_active_order_to_hk_success: "Generating product barcode. This is an active order."
+        generate_label_for_sh_success: "Generating shipping label for Mainland China order #%{order_number}. PLEASE PLACE PRODUCT ON THE \"GOAT PACKAGING\" RACK"
+        generate_label_for_sh_success_require_prepacking: "Generating shipping label for Mainland China order #%{order_number}. PLEASE MOVE TO PRE-PACKING STATION"
+        receive_consigned_products_at_hk_success: "This is a consigned product transferred between SH & HK warehouse. PLEASE PLACE PRODUCT ON THE \"ADD TO INVENTORY\" RACK"
+        errors:
+          invalid_product_barcode_input: "Product barcode not found."
+          invalid_transfer_product: "Product is not transferred from Mainland China."
+          invalid_order: "Order has not been verified."
+          invalid_order_unconsigned: "Order has not been consigned, please try again later."
+          invalid_order_unpaid: "Order has not been paid out, please try again later."
+          receive_at_hk_need_verification: "Order #%{order_number} needs verification."
+          receive_at_hk_no_orders: "No associated order found for this product."
+          receive_at_hk_goat_stand_by_orders: "Order #%{order_number} is in goat_stand_by."
+          receive_at_hk_goat_check_orders: "Order #%{order_number} is in goat_check."
+          cannot_generate_label_at_hk: "Cannot generate label for Mainland China order #%{order_number} - Moved to GOAT CHECK"
+      warehouse_dashboard:
+        updated_warehouse: "Sucessfully updated warehouse properties."
+        errors:
+          failed_to_update_warehoue: "Failed to update warehouse"
+          cant_enable_is: "Failed to update warehouse: Instant ship cannot be enabled if the warehouse is not visible in the backend or outbound shipping is disabled."
+    product_templates:
+      force_index_sync: "Successfully enqueued Algolia update. Search indexes should be updated in less than a minute"
+      confirm_clone: "Confirm to proceed clone?"
+      clone_processing: "Processing clone now"
+  cart:
+    errors:
+      cannot_put_item: "Unavailable for cart"
+      duplicate_item: "You can purchase only 1 pair of %{product_description} at a time. Therefore we've removed the extra ones for you."
+      exceed_upper_limit: "Cart is limited to %{upper_limit} items. Please review the carted items in order to continue."
+      cannot_checkout: "Please review your cart items."
+      price_change: "The price of one or more products in your cart has changed. Please review your cart items."
+      no_qualified_product: "One or more products in your cart are unavailable; please review your cart items."
+  customer_validator:
+    cn_id:
+      invalid_id_number: "Invalid ID Number"
+  common:
+    errors:
+      email_or_password_not_correct: "Email or password not correct."
+      login_info_not_correct: "Your login information is not correct. Please try again."
+      unknown_error: "An unknown error occurred. Please try again or contact %{email}."
+      login_mfa_error_message: "A confirmation link has been sent to %{send_to_email_addr}. You must confirm your identity from the email before proceeding."
+      vacation_mode:
+        under_min_interval: "You can only enable or disable Vacation Mode once every %{interval}."
+    or: "or"
+    tax: "tax"
+    vat: "vat"
+    surcharges: "surcharges"
+    duties: "duties"
+  order_issue:
+    desc:
+      fake: "replicas"
+      mismatched: "mismatched sizes"
+      wrong_size_sku: "wrong size or SKU"
+      shoe_used: "used shoe"
+      shoe_new: "new shoe"
+      box_good_condition: "good box condition"
+      box_missing_lid: "missing box lid"
+      box_badly_damaged: "badly damaged box"
+      box_no_original_box: "no original box"
+      odor: "odor"
+      discoloration: "discoloration"
+      defects: "craftsmanship"
+      missing_insoles: "missing insoles"
+      scuffs: "scuffs"
+      markings: "markings"
+      tears: "tears"
+      product_used: "used product"
+      product_new: "new product"
+      missing_accessories: "missing accessories"
+      default_wrong_item: "wrong item"
+      b_grade: "b-grade"
+      cracking: "cracking"
+      creasing: "creasing"
+      default: "product does not match listing description"
+      marking: "scuffs"
+      mismatched_size: "mismatched sizes"
+      mold: "mold"
+      one_shoe: "only received one shoe"
+      tried_on: "tried on"
+      join_comma: ", "
+      period_punctuation: ". "
+      glue_stain: "glue stain"
+      other: "other"
+      non_goat_tags: "tags from another company"
+  phone_verification:
+    errors:
+      error_phone_number_format: "Not a valid phone number"
+      error_sending_security_code: "Sorry. We were unable to send you a verification code. Please try again."
+      error_phone_number_already_existed: "This number is already registered, please go log in instead"
+      error_phone_number_not_existed: "This number is not registered, please go sign up instead"
+      verify_fail: "Invalid or expired code. Retry or resend."
+      phone_not_match: "Your phone number is not same as verified one"
+      timeout: "Your session is timeout, please retry"
+    messages:
+      current_otp_message: "%{current_otp} is your GOAT security code. This code will expire in 1 minute. Don't share this code with anyone; our employees will never ask for the code."
+      current_otp_message_new: "Do NOT share this code. We won't call or ask for code. ONLY enter code on GOAT site/app directly. Your GOAT security code is %{current_otp}. Code expires in 1 min."
+  phone_registration:
+    errors:
+      region_not_allowed: "Phone sign-up is not allowed from the region/country you selected, please reselect"
+  promo_code:
+    errors:
+      wrong_shipping_region: "Sorry! This coupon is only eligible for an order shipping to %{region}"
+      goat_storage_ineligible: "Sorry! This coupon is not eligible for putting into GOAT Storage"
+      invalid: "Promo Code is Invalid"
+      already_activated: "Promo Code Already Activated"
+      expired: "The promo code is no longer valid"
+      single_order_quantity_not_met: "Order value minimum for promotion not met"
+      cart_order_quantity_not_met: "Cart order purchase quantity minimum for promotion not met"
+      order_non_instant: "You must choose an instant ship product to apply this promo code."
+      order_non_fastest: "You must choose a fastest to you product to apply this promo code."
+      not_for_guest: "You must log in to your %{login_scope} account in order to activate this promo code."
+  country:
+    name:
+      CN: "Mainland China"
+  omni:
+    order_status:
+      sold: "You can cancel this order in 3 hours without extra charge."
+      seller_packaging: "Seller is preparing to ship out the package to GOAT facility for verification."
+      shipped_goat: "Package just left %{seller_loc}. Now it is shipping to %{warehouse} facility. ETA is around %{eta} working days."
+      delivered_goat: "GOAT experts will verify your sneaker as soon as possible."
+      goat_verifying: "The whole process may take 1-2 working days. We will contact you if there’s an issue within your sneaker."
+      goat_verified: "Your sneaker is authenticated. Please wait for GOAT to finishing the packaging."
+      goat_packaged_for_forwarding: "Your package is ready to leave GOAT warehouse and it’s now shipping to you."
+      shipped_forwarder: "Your package has left the %{warehouse} warehouse and it's now shipping to you."
+      delivered_forwarder: "GOAT staff will check your clearance information before transferring to China custom."
+      custom_clearance_for_forwarding: "Your package has arrived at custom. Pay attention to the coming calls in case GOAT staff needs your help on clearance."
+      assigned_to_carrier: "The package from %{seller_loc} has started the last mile delivery, under courier %{carrier}. Tracking number:%{tracking_code}."
+      pickedup_by_carrier: "Package from %{seller_loc} has arrived in Mainland China, and it is now shipping to %{buyer_loc}."
+      goat_packaged: "Your package is ready to leave %{warehouse} warehouse and it’s now shipping to China custom."
+      shipped_buyer: "Your package has assigned to a reliable courier, %{carrier}. The shipping number is %{tracking_code}."
+      custom_clearance: "Your package has arrived at custom. Pay attention to the coming calls in case %{carrier} staff needs your help on clearance."
+      out_for_delivery: "Do check whether there’s a damage on the outer box ASAP."
+      delivered: "Please check and report the issues on the outer box and the shoe box within 24 hours. Please contact us if you have question."
+      instant_consigned: "Your sneaker is kept in GOAT storage."
+      consigned: "Your verified sneaker is kept in GOAT storage."
+      buyer_confirmed: "Take a photo of your new shoe and share with your friends."
+  users:
+    two_factor_message: "%{otp} is your %{vendor} security code. This code will expire in 1 minute. Don't share this code with anyone; our employees will never ask for the code."
+    two_factor_message_new: "Do NOT share this code. We won't call or ask for code. ONLY enter code on %{vendor} site/app directly. Your %{vendor} security code is %{otp}. Code expires in 1 min."
+    invalid_china_phone: "the user phone %{phone} does not belong to China."
+    china_phone_not_unique: "the phone %{phone} has been used by multiple GOAT account."
+    invalid_phone_number: "the user does not register his phone number"
+  top_questions:
+    why_my_order_canceled: "Why was my order canceled?"
+    can_still_buy: "Can I still buy the item?"
+    how_verification_work: "How does the verification process work?"
+    cancel_order: "Can I cancel my order?"
+    will_able_return: "Will I be able to return this item?"
+    when_will_receive_order: "When will I receive my order?"
+    return_policy: "What's the return policy?"
+    calculate_currency_exchange: "Do you calculate foreign currency exchange rates?"
+    how_sell_stored: "How do I sell my stored items?"
+    how_get_stored: "How do I get my store items?"
+    return_policy_goat_storage: "What is the Return Policy for purchases that use GOAT Storage?"
+  credit_notes:
+    applied_to_order_issue: "Applied to Order Issue #%{order_number}"
+    charge_credit: "Charge credit"
+    cash_out_to_paypal: "Cash Out to PayPal: %{account}"
+    cash_out_to_direct_deposit: "Cash Out to Direct Deposit (ACH): %{account}"
+    drop_off_promotion: "Drop-off promotion Order #%{order_number}"
+    refund_cash_credit_for_order: "Refund cash credit for Order #%{order_number}"
+    refund_promo_credit_for_order: "Refund promo credit for Order #%{order_number}"
+    sales_from_order: "Sales from Order #%{order_number}"
+  products:
+    defects:
+      odors: "Odors"
+      discoloration: "Discoloration"
+      b-grade: "B-Grade"
+      missing_insoles: "Missing Insoles"
+      scuffs: "Scuffs"
+      tears: "Cuts or Tears"
+    shoe_condition:
+      new: "New"
+      used: "Used"
+    box_condition:
+      good_condition: "Good Condition"
+      missing_lid: "Missing Lid"
+      badly_damaged: "Badly Damaged"
+      no_original_box: "No Original Box"
+  name_format_validator:
+    must_contain_first_and_last_name: "must contain first and last name."
+    cannot_be_a_space: ": Enter your full name. Please note that the first and last character cannot be a space."
+    cannot_contain_numbers_and_special_characters: "cannot contain numbers and special characters."
+    cannot_contain_emojis: "cannot contain emojis"
+  automated_customer_support:
+    base_user_options:
+      all_needed: "No, that’s all"
+      another_issue: "I have another issue"
+      match_description: "Yes, my item matches its description"
+      have_issue: "No, there’s an issue with my order"
+      option_yes: "Yes"
+      option_no: "No"
+      yes_provide: "Yes, I'd like to provide feedback"
+      not_provide: "No, I don't want to provide feedback today"
+      sth_else: "Something else"
+    cancellation_user_options:
+      where_order: "Where is my order?"
+      sth_else: "Something else"
+      option_yes: "Yes"
+      option_no: "No"
+      incorrect_size: "I ordered the incorrect size"
+      incorrect_item: "I ordered the incorrect item"
+      accidentally_placed: "I didn’t mean to place this order"
+      not_self_placed: "This order was not placed by me"
+      changed_mind: "I changed my mind"
+      wrong_shipping_address: "I entered the wrong shipping address"
+    default_user_options:
+      option_yes: "Yes"
+      cancellation: "Order cancellation"
+      sth_else: "Something else"
+      order_status: "Order status"
+      yes_provide: "Yes, I'd like to provide feedback"
+      not_provide: "No, I don't want to provide feedback today"
+    return_user_options:
+      not_working_out: "It’s not working out"
+      different_condition: "It’s in a different condition than expected"
+      wrong_item: "I received the wrong item"
+      changed_mind: "I changed my mind"
+      color_or_style: "The color or style is different than I expected"
+      late_delivery: "The order arrived too late"
+      not_fit: "The item does not fit correctly"
+      damaged_box: "Damaged Box"
+      defective_shoe: "Defective Shoe"
+      discoloration: "Discoloration"
+      missing_accessories: "Missing Accessories"
+      missing_insoles: "Missing Insoles"
+      missing_box_lid: "Missing Box Lid"
+      missing_box: "Missing Box"
+      odor: "Odor"
+      scuffs_or_stains: "Scuffs / Stains"
+      stains: "Stains"
+      visible_creasing: "Visible Creasing"
+      looks_used: "Looks Used"
+      take_picture_now: "Yes, I can take photos of the item now"
+      take_picture_later: "No, I'll take photos later"
+      option_yes: "Yes"
+      option_no: "No"
+    direct_general_options:
+      option_yes: "Yes"
+      option_no: "No"
+      match_description: "Yes, my item matches its description"
+      have_issue: "No, there’s an issue with my order"
+      that_all: "No, that’s all"
+      take_picture_now: "Yes, I can take photos of the item now"
+      take_picture_later: "No, I'll take photos later"
+      yes_provide: "Yes, I'd like to provide feedback"
+      not_provide: "No, I don't want to provide feedback today"
+    direct_reason_options:
+      not_as_described: "The item is not as described"
+      inauthentic: "I believe the item to be inauthentic"
+      not_correct_item: "I did not receive the correct item"
+      miss_key_feature: "The item is missing a key feature"
+      condition_not_described: "Condition is not as described"
+      wrong_color_style: "Wrong color / style"
+      size_label_incorrect: "Size labeled incorrectly"
+    errors:
+      missing_step_name: "Missing step name"
+      invalid_selection_keys: "Invalid selection keys"
+      invalid_format_for_user_selections: "Invalid format for user selections"
+      invalid_step_name: "Invalid step name"
+      no_eligible_orders: "No eligible orders"
+      missing_current_selections: "Missing current selections"
+      invalid_current_selections: "Invalid current selections"
+      contain_invalid_selection_key: "Current selection keys contain invalid selection key"
+      missing_info_to_submit_zendesk_ticket: "Missing information to submit a zendesk ticket"
+      invalid_order_for_credit_calculation: "Invalid order value for goat return credit calculation"
+    bot_lines:
+      what_would_you_like_to_know: "What would you like to know about your order?"
+      no_order_suggestion: "Okay, I would suggest that you tap on the button below to view our support topics"
+      eligible_orders_guide: "Can I help you with one of the below orders?"
+      view_support_topics_suggestion: "Okay, I would suggest tapping the button below to view all support topics"
+      claim_received: "We have received your claim"
+      thanks_for_patience: "Thanks in advance for your patience, and hopefully this issue will be resolved shortly"
+      is_else_help_needed: "Is there anything else I can help you with today?"
+      return_in_progress: "Your return is in progress"
+      provide_feedback_suggestion: "If you'd like, you can provide feedback on your experience with this order"
+      explain_why_feedback: "By doing so, we will be able to better rate the seller of your item and improve our overall experience"
+      did_order_match: "Did your order match its description?"
+      ask_has_item_delivered: "Has your item been delivered?"
+      common_line: "If you have a question about this order, I would suggest tapping the button below to view all support topics"
+      ask_question_about_process: "If you have a question about the return process, I would suggest tapping the button below to view all support topics"
+      ask_any_other_questions: "If you have any other questions, I would suggest tapping the button below to view all support topics"
+      order_been_canceled: "This order has been canceled"
+      courier_deliver_unsuccessful: "It looks like the courier attempted to deliver this order and was unsuccessful"
+      submit_request_to_agent_suggestion: "I would suggest tapping the button below to submit a request to a GOAT agent"
+      item_in_storage: "The item from this order is in GOAT Storage"
+      if_have_difficulty_listing: "If you are having difficulty listing the item or shipping the item to you, I would suggest tapping the button below to view all support topics"
+      return_was_approved: "Your return was approved"
+      return_was_denied: "Your return was denied because it does not qualify for a return under our policy"
+      apologize: "I apologize"
+      issue_with_order: "There is an issue with the courier for this order under investigation"
+      apologize_for_the_issue: "I apologize for the issue with this order"
+      specialist_will_reach: "A GOAT specialist will reach out via email shortly"
+      have_received_return: "We have received your return request and will keep you informed via email"
+      thank_you_for_paticence: "Thank you for your patience"
+      order_delivered_on: "This order was delivered on %{delivered_date}"
+      order_can_be_canceled: "An order can be canceled within 3 hours of the order being placed or before the seller confirms the order - whichever comes first"
+      ask_would_cancel_order: "Would you like me to cancel this order?"
+      late_to_cancel: "I’m sorry, but it’s too late to cancel this order"
+      tap_to_view_full_list: "Okay, please tap on the button below to view our full list of support topics"
+      ask_want_to_cancel_order: "Are you sure you want to cancel this order?"
+      will_help_with: "Okay, I can help you with that"
+      ask_why_cancel: "Before we cancel, can you describe why you’re cancelling this order please?"
+      no_problem: "No problem"
+      order_been_confirmed_by_seller: "I apologize, this order has now been confirmed by the seller and cannot be canceled"
+      initiate_return_suggestion: "You can initiate a return if you’re not happy with the order when it arrives"
+      order_cannot_be_canceled: "I apologize, it is now outside the cancellation window so this order cannot be canceled"
+      understood: "Okay, understood"
+      have_canceled_order: "I’ve canceled this order for you"
+      having_trouble_cancel_order: "I apologize, I am having trouble cancelling this order"
+      try_again_suggestion: "Please come back to try again later"
+      try_agian: "Please come back later to try again"
+      need_help_with_order: "Do you need help with this order?"
+      what_question_about: "Can you let me know what your question is about?"
+      conversation_closing: "Great, have a wonderful day"
+      apologize_order_not_received: "I'm sorry that you have not yet received your order. Hopefully I can help fix this issue"
+      apolotize_unable_claim_for_incorrect_address: "Unfortunately, we are unable to initiate a claim with our customer service team in instances where the shipping address provided is incorrect"
+      confirm_correctness_of_address: "This is the shipping address we have on file for this order. Is this address correct?"
+      confirm_desc_of_order: "Did your order match its description?"
+      okay: "Okay"
+      thank_you: "Thank you"
+      offer_claim_help: "I can help you submit a claim, which will be reviewed by one of our agents"
+      recommend_waiting_before_claim: "However, we do recommend waiting 2-3 days to see if your package arrives before opting to file a claim"
+      recommend_reach_out_carrier_directly: "While we are unable to provide any further assistance in this situation, we recommend that you reach out to the shipping carrier directly"
+      ask_whether_continue_to_claim: "Would you like me to go ahead and submit a claim with the carrier now?"
+      done_creat_request_for_specialist_review: "I've created a request for a GOAT specialist to review"
+      note_time_to_investigate: "We’ll keep you informed via email, but it may take 1-2 business days for our team to investigate and get back to you"
+      issue_create_request_for_specialist_review: "I am having trouble creating a request for a GOAT specialist to review"
+      recommend_try_again_later: "Please come back later to try again"
+      appreciate_and_hope_package_arrive: "We appreciate your patience and hope your package arrives soon"
+      great: "That’s great!"
+      ask_for_more_about_order: "Can you tell me a bit more about the issue with the order, please?"
+      ask_for_more_information: "Okay, could you provide a little more information, please?"
+      prefix_ask_about_item: "Is the item:"
+      ask_for_photos_of_item: "To resolve the issue as quickly as possible, it would help if you could take some photos of the item for me"
+      ask_for_taking_photos: "Could you take some photos now?"
+      ask_for_highlight_issues: "Great, please do your best to highlight the issues you mentioned above"
+      note_come_back_with_photos: "Come back when you’re able to take photos, and I’ll help get your order issue resolved as quickly as possible"
+      done_submit_request_for_specialist_review: "I’ve submitted a request for a GOAT specialist to review"
+      that_is_great: "That's great!"
+      recommend_rating_order: "Please rate your order so that we can provide helpful feedback to our sellers and improve your overall experience"
+      ask_whether_order_expected: "Did you receive your order in the timeframe you expected?"
+      ask_how_item_packaging: "How was the item’s packaging? Did its quality meet your expectations?"
+      ask_whether_item_match_photos: "Did the item match its photos and description?"
+      ask_whether_meet_expectations: "Did the item fully meet your expectations?"
+      apologize_item_not_match: "I’m sorry that the item you received didn’t match what was described"
+      ask_for_help_resolve_issue: "Would you like me to help resolve the issue?"
+      thank_you_for_feedback: "Thank you for your feedback!"
+      note_about_feedback: "The information you provided will help improve our seller expectations and overall experience"
+      apologize_issue_with_order: "I am sorry to hear that you have an issue with an order"
+      info_item_purchased_as_final_sale: "This item was purchased as final sale"
+      return_window_passed: "The return window for this item has passed"
+      ask_for_issue_with_order: "Can you please tell me what is wrong with your order?"
+      ask_for_information: "Okay, I’m going to need a bit more information so I can best help you"
+      ask_for_what_not_working: "What exactly is not working out?"
+      sorry_to_hear: "I’m sorry to hear that"
+      ask_for_bit_more_information: "I’m going to need a bit more information so I can best help you"
+      ask_for_why_order_not_match: "What about the order didn’t meet your expectations?"
+      apologize_order_not_meet: "I'm sorry this order didn't meet your expectations"
+      ask_whether_return: "If you’d like to return this item I can process a refund for you"
+      note_about_refund: "The refund will be for the purchase amount, minus the shipping costs to and from you"
+      note_about_cost: "The shipping cost comes out to %{shipping_cost_display}, for a total refund of %{refund_amount_display} in the form of GOAT Credit"
+      confirm_proceed_return: "Would you like to proceed with this return?"
+      apologize_about_that: "Okay, sorry about that"
+      note_offer_return_in_credit: "The good news is that I’m able to offer you %{return_credit_display} in GOAT Credit"
+      note_able_to_use_credit_immediately: "You’ll be able to use your GOAT Credit immediately on any future purchase"
+      note_start_return_process: "Alternatively, I could start the returns process if you’d like"
+      note_return_policy: "Per our return policy, we can offer a refund, less the total shipping costs to and from you"
+      note_shipping_cost: "The total shipping cost comes out to %{shipping_cost_display} for a refund of %{refund_amount_display} in the form of GOAT Credit"
+      ask_proceed_credit_or_return: "Would you like to proceed with the %{return_credit_display} in GOAT Credit or start a return?"
+      done_add_in_goat_credit: "Sounds good, I’ve added %{return_credit_display} in GOAT Credit to your account, it’s ready for immediate use"
+      apologize_for_connectivity_issue: "I apologize, I am having connectivity issues"
+      sounds_good: "Sounds good"
+      notify_start_return: "I have started a return for you"
+      notify_check_email: "Please check your email for instructions on next steps"
+      apologize_issues_start_return: "I apologize, I am having issues starting a return"
+      seller_packaging: 'Your order is currently being packaged by the seller and will ship to a GOAT facility soon.'
+      shipped_goat: 'Your order is in transit to one of our GOAT facilities for verification.'
+      delivered_goat: 'Your order has been delivered to one of our GOAT facilities and is currently awaiting verification.'
+      goat_received: 'We have received your order at one of our GOAT facilities. It is now awaiting verification.'
+      goat_recieved_sla_violation: 'A GOAT facility has marked your order as received. It is now awaiting verification.'
+      goat_stand_by: 'We have received your order at one of our GOAT facilities. It is now awaiting verification.'
+      goat_pick: 'Your order has been verified by our team of specialists and is now awaiting shipment.'
+      goat_verifying: "Your order is currently being verified by our team of specialists."
+      goat_verified: 'Your order has been verified by our specialists and is now being prepared for shipment.'
+      goat_packaged: 'Your order has been verified by our team of specialist and is now awaiting shipment.'
+      with_courier: "Your order has been shipped and is currently in transit."
+      sla_tracking: "Your tracking number can be found in the orders tab of your profile."
+      goat_other: 'Your order is currently being processed. We’ll provide an update as soon as it’s been shipped out.'
+      confirm_seller: "We will send you a confirmation email once your order has been received and successfully verified."
+      confirm_marked: "We will send you a confirmation email once your order has been marked as received and successfully verified."
+      confirm_received: "We will send you a confirmation email once your order has been successfully verified."
+      package_scan: "Once your package is scanned by the courier, we will send you a confirmation email with your tracking information."
+      faq_questions: 'For additional help and information, you can tap the button below to view our support topics.'
+      sla_violation_sorry_one: "I'm sorry that you have not yet received your order. Hopefully I can help fix this issue."
+      sla_violation_sorry_two: "Please wait one moment while I check on your order."
+      customer_zendesk: "Because this order is taking longer than usual, I’ve created a request for one of our Customer Experience Specialists to review."
+      credit_fail_one: "It will take our team approximately 1-2 business days to look over the issue and get back to you. We will be sure to send updates concerning your order via email."
+      credit_fail_two: "Thanks in advance for your patience, and hopefully this issue will be resolved shortly."
+      credit_succ_one: "It will take our team approximately 1-2 business days to look over the issue and get back to you."
+      credit_succ_two: "As a thank you for your patience, the amount you paid for shipping will be deposited into your account in the form of GOAT Credit. GOAT Credit can be used on any future purchase and does not expire."
+      credit_succ_three: "We will be sure to send any updates concerning your order via email."
+      account_security_steps: "I am also going to take additional steps to protect your account as you noted this order was not placed by you. In a moment, we will log you out of all active sessions on GOAT as well as email you a link to reset your password. Doing this will allow us to help further secure your GOAT account."
+    additional_option:
+      eligible_order_not_in_list: "The order I have a question about is not here"
+    header:
+      order_delivered: "Your order was delivered"
+    body:
+      ask_for_experience: "Tell us about your experience"
+    rating:
+      too_slow: "Too slow"
+      as_expected: "As expected"
+      very_fast: "Very fast"
+      poor_quality: "Poor quality"
+      great_quality: "Great quality"
+      not_really: "Not really"
+      matched_exactly: "Matched exactly"
+      looks_better: "Looks better"
+      worse_than_expected: "Worse than expected"
+      better_than_expected: "Better than expected"
+      title_speed: "Speed"
+      title_packaging: "Packaging"
+      title_item: "Item"
+      title_order_experience: "Order Experience"
+  landed_cost:
+    no_additional_tax: "No additional tax should be charged upon arrival."
+    no_additional_duties_or_tax: "No additional import duties or tax should be charged upon arrival."
+    duties_not_included: "Import duties are not included in total price. You may be responsible for them upon arrival."
+    duties_and_tax_not_included: "Import duties and tax are not included in total price. You may be responsible for them upon arrival."
+  # view translations
+  api:
+    v1:
+      users:
+        process_cash_out:
+          forbid_OBO_seller: "This GOAT account has been linked to an alias account. Please cash out on alias instead."
+        notification_preferences:
+          sneaker_size_available: "Sneaker size available"
+          your_sneaker_sold: "Your sneaker sold"
+          sneaker_shipped_for_verification: "Sneaker shipped for verification"
+          sneaker_shipped_to_you: "Sneaker shipped to you"
+          someone_liked_your_onfeet_photo: "Someone liked your onfeet photo"
+          someone_commented_on_your_post: "Someone commented on your post"
+          updates_on_your_seller_status: "Updates on your seller status"
+          available_funds_to_withdraw: "Available funds to withdraw"
+          updates_on_your_sneakers_for_sale: "Updates on your sneakers for sale"
+          updates_on_your_offers: 'Updates on your offers'
+        account_deletions:
+            duplicate_request: "Your account deletion request has already been submitted. Please check your email to confirm the request."
+  push_notification:
+    push_funds_available:
+      direct_shipping_payout: "Your Direct to Buyer item was delivered. You now have %{payout_amounts} available for cash out."
+      instant_payout: "Congratulations! You have been paid out instantly for order #%{order_number}."
+      notify_verification_payout: "Your item was authenticated. You now have %{payout_amounts} available for cash out."
+    push_selling_update:
+      global_offer_price_close: "Your price is %{rate}% away from the highest offer for the size %{size} %{product_template_name}."
+      no_longer_high_demand: "You are no longer at the High Demand price for the size %{size} %{product_template_name}."
+      no_longer_high_demand_v2: "Your size %{size} %{product_template_name} is no longer listed at the current Global Indicator price."
+      no_longer_high_demand_v2_consigned: "Your consigned size %{size} %{product_template_name} is no longer listed at the current Global Indicator price."
+      price_not_lowest: "You no longer have the lowest price for the size %{size} %{product_template_name}."
+    push_selling_update_rejected:
+      listing_issue: "Listing Issue: We sent you an email regarding the size %{size} %{product_template_name}."
+    push_sneaker_sold:
+      accept_reject_discount_reminder: "Order Issue Reminder: Please review price adjustment."
+      buyer_refund: "Order Issue: Please select a refund option."
+      consign_return_reminder: "Order Issue Reminder: Please select an option to proceed."
+      discount_offered: "Order Issue: The seller has offered a discount."
+      drop_off_reminder: "Reminder: Drop off your %{product_text} order now."
+      drop_off_reminder_multiple: "Reminder: Drop off your %{product_text} orders now."
+      order_issue: "Order Issue: Please review the orders screen or your email for more details."
+      pay_invoice_reminder: "Invoice Reminder: Please pay the invoice, so we can return your sneakers."
+      refund_reminder: "Order Issue Reminder: Please select a refund option."
+      return_to_seller: "We are preparing an item to be shipped back to you. We’ll send an email with a tracking number once it’s shipped."
+      select_discount_reminder: "Order Issue Reminder: Please select price adjustment."
+      seller_confirm_reminder: "Reminder: Confirm your %{product_text} order now."
+      seller_confirm_reminder_multiple: "Reminder: Confirm your %{product_text} orders now."
+      seller_discount: "Order Issue: You can offer the buyer a price adjustment."
+      seller_discount_accepted: "Order Issue: The buyer has accepted and will proceed."
+      ship_goat_reminder: "Reminder: Ship your %{product_text} order now."
+      ship_goat_reminder_multiple: "Reminder: Ship your %{product_text} orders now."

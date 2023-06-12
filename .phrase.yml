@@ -1,0 +1,21 @@
+# Install phrase-cli: https://help.phrase.com/help/phrase-in-your-terminal
+phrase:
+  access_token: c5f22099cfd41292268af266923f4a4bf2929634169ce809b2446b4e691f7021
+  project_id: 35f4b4f8b0e5ac498ed4860d40842baf
+  file_format: yml
+  # Run `phrase push` to push en translations to Phrase
+  push:
+    sources:
+    - file: ./config/locales/**/*en.yml
+      params:
+        update_translations: true
+    - file: ./config/locales/en.yml
+      params:
+        update_translations: true
+  # Run `phrase pull` to pull translations from Phrase.
+  # Could comment/uncomment sepcify language to get the corresponding translations.
+  pull:
+    targets:
+    - file: ./config/locales/generated/zh-CN.yml
+      params:
+        locale_id: a7a1e3659fe4ee0dd57a30ffd81db8d3 # Simplified Chinese

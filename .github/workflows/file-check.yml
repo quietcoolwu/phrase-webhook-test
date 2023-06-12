@@ -7,7 +7,7 @@ jobs:
   check:
     runs-on: ubuntu-latest
     env:
-      WHITE_LIST: "piecehealth,herryz"
+      WHITE_LIST: "piecehealth, herryz, quietcoolwu"
     steps:
       - name: Checkout
         uses: actions/checkout@v3

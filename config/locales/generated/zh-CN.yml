@@ -1,1 +1,3052 @@
-2
+---
+zh-CN:
+  accepted_drop_off_consignment:
+    body: "@%{username}，您好！<br/><br/>感谢您将%{product_template_name}交由平台寄售。经我们专家鉴定，您的商品为正品，
+      同时<a href='%{branch_redirect}'>您的上架商品</a>现已在alias中激活。您可以在您账户的“上架中”页面找到您的上架商品。借助alias应用程序，您可以管理您的商品并更改价格。<br/><br/>商品将在售出后直接从平台运营点发货。您的订单收入将自动存入您的账户。<br/><br/>如果您有任何疑问，请随时联系我们的<a
+      href='https://supportalias.zendesk.com/hc/en-us/requests/new'>客户支持团队</a>。<br/><br/>%{brand_signature}"
+    subject: 商品寄售已受理
+  activate_in_review:
+    body: |-
+      %{username}，您好！<br/><p>您的上架商品已审核通过，现已激活！您可以点按<a href='%{branch_redirect}'>此处</a>查看您的上架商品。</p>
+      alias
+    subject: 您的%{product_template_name}已激活上架
+  activemodel:
+    errors:
+      messages:
+        record_invalid: 验证失败：%{errors}
+  activerecord:
+    attributes:
+      address:
+        address1: 地址1
+        name: 名称
+        phone: 手机
+        postal_code: 邮政编码
+      brand:
+        name: 品牌名称
+      order:
+        ext_order_id: 外部订单ID
+        id: 订单ID
+        importance: 重要性
+        number: 订单编号
+        pon: PON
+        purchase_order_number: 购买订单编号
+        statuses:
+          canceled_by_seller: 已被卖家取消
+          goat_received: GOAT Received
+      order_gift_card:
+        ext_gift_card_id: 礼品卡
+      order_issue:
+        box_condition: 鞋盒状况
+        has_defects: B品
+        has_discoloration: 有褪色
+        has_missing_insoles: 没有鞋垫
+        has_odor: 有异味
+        has_scuffs: 有磨损
+        has_tears: 有开裂
+        id: 订单问题ID
+        is_fake: 为仿品
+        is_mismatched: 不匹配
+        shoe_condition: 鞋子状况
+        size: 尺码
+        status: 订单问题状态
+      order_issue/box_condition:
+        badly_damaged: 严重破损
+        good_condition: 状况完好
+        missing_lid: 没有鞋盒盖子
+        no_original_box: 无原装鞋盒
+      order_issue/odor:
+        cigarettes: 香烟
+        food: 食物气味
+        perfume: 香水
+        used_smell: 二手气味
+      order_issue/shoe_condition:
+        new: 新品
+        used: 二手
+      order_issue_item:
+        type: 订单问题项类型
+      order_issue_item/subclasses:
+        OrderIssueItems::Accessories: 配件
+        OrderIssueItems::BGrade: B品
+        OrderIssueItems::BoxCondition: 鞋盒状况
+        OrderIssueItems::CanceledBySeller: 已被卖家取消
+        OrderIssueItems::Cracking: 开裂
+        OrderIssueItems::Creasing: 折痕
+        OrderIssueItems::Defect: 瑕疵
+        OrderIssueItems::Discoloration: 褪色
+        OrderIssueItems::Fake: 仿品
+        OrderIssueItems::GlueStain: 胶水痕迹
+        OrderIssueItems::InvalidProduct: 无效产品
+        OrderIssueItems::Marking: 痕迹
+        OrderIssueItems::MismatchedSize: 尺码不匹配
+        OrderIssueItems::Mold: 发霉
+        OrderIssueItems::NonGoatTags: 非GOAT品牌标签
+        OrderIssueItems::Odor: 异味
+        OrderIssueItems::OneShoe: 仅收到一只鞋
+        OrderIssueItems::Other: 其他
+        OrderIssueItems::ProductCondition: 产品状况
+        OrderIssueItems::PropertyReturn: 物品退还
+        OrderIssueItems::Tear: 开裂
+        OrderIssueItems::TriedOn: 穿着痕迹
+        OrderIssueItems::WrongSize: 尺码错误
+        OrderIssueItems::WrongSku: SKU错误
+      product:
+        box_condition: 鞋盒状况
+        created_at: 创建于
+        ext_gift_card_id: 礼品卡
+        id: 产品ID
+        number: 产品编号
+        sale_status: 销售状态
+        shoe_condition: 鞋子状况
+        size: 尺码
+      product_template:
+        box_condition: 鞋盒状况
+        brand_name: 品牌
+        category: 类别
+        color: 颜色
+        gender: 性别款式
+        id: PT ID
+        product_condition: 产品状况
+        sku: SKU
+      shipping_info:
+        tracking_code: 追踪代码
+      shipping_preference/carrier:
+        aramex: Aramex
+        canada_post: Canada Post
+        dhl_express: DHL Express
+        dpd_nl: DPD NL
+        dpd_uk: DPD UK
+        fedex: Fedex
+        jd_logistics: 京东物流
+        rr_donnelley: RR Donnelley
+        seko: SEKO
+        ups: UPS
+        usps: USPS
+        yamato: Yamato
+      shipping_segment:
+        license_plate_id: License Plate Id
+      upc:
+        code: UPC
+      user:
+        email: 邮箱
+        id: 用户ID
+        name: 名称
+        password: 密码
+    errors:
+      messages:
+        invalid: " 无效"
+        postal_code_format_invalid: 仅允许使用字母、数字、空格和连字符
+        postal_code_length_invalid: 最少应为%{count}个字符
+        record_invalid: 验证失败：%{errors}
+    models:
+      order:
+        other: 订单
+      order_issue:
+        other: 订单问题
+      product:
+        other: 产品
+      shipping_info: 配送信息
+      user:
+        other: 用户
+    state_machines:
+      transfer_product:
+        status:
+          states:
+            returned_to_seller: 已回寄给卖家
+  address:
+    errors:
+      address_not_found: 无法找到提交的地址。请检查街道地址行或城市名称中是否包含过多的缩写词。
+      address_validation_exception: 地址验证异常
+      phone_must_be_11_digits: 必须为11位数字。
+  admin:
+    country_of_origins:
+      new:
+        barcode_placeholder: 条形码
+        box_label: 鞋盒
+        canceled_label: 已取消
+        clear: 清除
+        condition_label: 状况
+        country_name_placeholder: 选择国家/地区
+        country_of_origin: 输入鞋子标签上的原产地
+        fake_label: 仿品
+        heading: 验证
+        importance: 重要
+        product_id_label: 产品ID
+        rejected_label: 已拒绝
+        search_submit: 搜索
+        seller_label: 卖家
+        size_label: 尺码
+        sku_label: SKU
+        sold_label: 已售出
+        special_type_label: 特殊类型
+        submit: 提交
+    fulfillment:
+      batch_shipment:
+        created: 已成功创建批量装运
+        destroyed: 批量装运ID%{batch_shipment_id}已成功销毁
+        errors:
+          being_processed: 批量装运已在处理中
+          failed_to_destroy: 批量装运ID %{batch_shipment_id}正在处理中，无法销毁
+          min_batch_size: 添加至少%{order_count}个订单添加到%{warehouse}的%{manual_fulfillment_strategy}批量装运中。
+          no_orders: 批量装运ID %{batch_shipment_id}没有订单
+        started_processing: 开始生成标签，请稍后核对
+      batch_shipment_order:
+        created: 订单已成功添加至装运ID%{shipment_id}
+        deleted: 订单ID %{order_id}已成功从装运中删除
+        errors:
+          acquire_order: 订单标记为GOAT ACQUIRED (GOAT拥有)，不应发货。
+          address_missing_city_state: 订单ID %{order_id}的买家地址未填写城市或省/市/州
+          batch_shipment_not_pending: 无法添加订单ID %{order_id}，因为ID %{batch_shipment_id}正在处理中
+          different_manual_fulfillment_strategy: 订单不适合通过%{shipment_strategy}履行
+          no_china_id: ID %{order_id}没有中国大陆身份证
+          no_in_progress_order: 产品条码%{product_barcode}没有正在进行的订单
+          no_phone_number: ID %{order_id}的地址中没有电话号码
+          order_already_has_label: ID %{order_id}已存在to buyer (发往买家) 物流标签
+          order_in_invalid_status: ID %{order_id}不是%{valid_status}状态
+          order_not_unique: ID %{order_id}已添加到批量装运ID %{batch_shipment_id}
+          storage_order: 订单为寄存订单，不应装运
+      bulk_receiving:
+        completed: 批量收货已成功标记为已完成，未使用的产品将被移除
+        created: 已成功创建批量收货
+        errors:
+          barcodes_already_being_printed: 部分条形码已在打印
+          completed_bulk_receiving: 批量收货已完成
+          exceed_max_label_count: 一次不能打印超过%{max_label_count}个标签
+          exceed_max_product_count: 一次不能创建超过%{max_product_count}个产品
+          missing_upc_code: 请将产品编号%{product_number}移至履行分类：UPC代码%{upc_code}不存在
+        products_added: 已添加%{product_count}件产品
+      bulk_receiving_products:
+        barcode_printed: 正在打印%{barcode_count}条形码
+        errors:
+          product_not_in_any_bulk_receiving: 产品编号%{product_number}不在任何批量收货中
+          upc_fields_not_present: UPC代码、尺码和SKU缺一不可
+        product_updated: 产品编号%{product_number}更新成功
+      order_shipping_label_regenerations:
+        errors:
+          cannot_regenerate_label: 无法为订单#%{order_number}重新生成标签 - 已移至GOAT CHECK
+          invalid_order_status: 订单#%{order_number}不是有效状态 (%{order_status})
+          invalid_order_unpaid: 无法打印物流标签 - 订单尚未支付
+          invalid_tracking_code_input: 未找到追踪代码，请再试一次。
+          shipping_label_unavailable: 物流标签不可用，请在5分钟后再试一次。
+        printing_replacement_label: 找到追踪代码 - 替换标签已发送至您的本地打印机。
+        regenerate_label_success: 正在为订单#%{order_number}重新生成物流标签
+      packing_checklist:
+        errors:
+          fc_order_wrong_packing_mode: 订单ID %{order_id} 为FC/天猫订单，请移交至FC/天猫打包站继续处理
+          goat_order_wrong_packing_mode: 订单ID%{order_id}为GOAT/微信订单，请移交至GOAT/微信打包点继续处理
+          missing_packing_mode: 请选择打包模式
+      packing_checklist_items:
+        errors:
+          invalid_visibility_rules: 无效，允许的规则为：%{valid_rules}
+      sh_hk_transfers:
+        errors:
+          cannot_generate_label_at_hk: 无法为中国大陆订单#%{order_number}生成标签 - 已移至GOAT CHECK
+            (GOAT查验)
+          invalid_order: 订单尚未经过验证。
+          invalid_order_unconsigned: 订单尚未寄售，请稍后再试一次。
+          invalid_order_unpaid: 订单尚未付款，请稍后再试一次。
+          invalid_product_barcode_input: 未找到产品条形码。
+          invalid_transfer_product: 产品非从中国大陆转运。
+          receive_at_hk_goat_check_orders: 订单#%{order_number}为goat_check状态。
+          receive_at_hk_goat_stand_by_orders: 订单#%{order_number}为goat_stand_by状态。
+          receive_at_hk_need_verification: 订单#%{order_number}需要查验。
+          receive_at_hk_no_orders: 未找到此产品相关的订单。
+        generate_label_for_sh_success: 正在为中国大陆订单#%{order_number}生成物流标签。请将产品放置于GOAT
+          PACKAGING (GOAT打包) 货架。
+        generate_label_for_sh_success_require_prepacking: 正在为中国大陆订单#%{order_number}生成物流标签。请移至预包装点。
+        receive_consigned_products_at_hk_success: 这是一款在上海和香港仓库之间转运的寄售产品。请将产品放置于ADD
+          TO INVENTORY (添加至库存) 货架。
+        transfer_active_order_to_hk_success: 正在生成产品条形码。这是一个有效订单。
+        transfer_consigned_product_to_hk_success: 正在生成产品条形码。这是一件寄售产品。
+      transfer:
+        created: 转运已成功创建
+        errors:
+          box_belongs_to_another_transfer: 扫描的转运箱ID %{transfer_box_id}属于另一个转运ID %{transfer_id}
+          failed_csv: 上传CSV文件失败：%{error}
+          failed_to_pack: 无法将产品 (产品条形码%{product_barcode}) 打包至转运箱ID %{transfer_box_id}
+          failed_to_shelve: 产品条形码%{product_barcode}存入货架%{shelf_number}失败
+          failed_to_update: 更新转运失败
+          invalid_box_scanned: 无效转运箱ID%{transfer_box_id}
+          invalid_product_scanned: 无效产品条形码%{product_barcode}
+          invalid_shelf_scanned: 无效货架编号%{shelf_number}
+          same_origin_and_destination_warehouse: 出发地仓库和目的地仓库不能是同一个
+          scan_box_first: 扫描鞋盒以开始
+          scan_shelf_first: 扫描货架以开始
+          transfer_product_not_unique: 转运产品已在转运清单中
+        packing_begin_prompt_no_box: 扫描鞋盒以开始
+        packing_begin_prompt_with_box: 扫描产品已将其打包至转运箱ID %{transfer_box_id}
+        packing_title: 正在为转运ID %{transfer_id}打包产品
+        product_packed: 已将产品条形码%{product_barcode}扫描至转运箱 ID%{transfer_box_id}
+        product_shelved: 已将产品条形码%{product_barcode}存入货架%{shelf_number}
+        quick_scan_begin_prompt: 扫描转运中的产品，以将其标记为运输中
+        quick_scan_title: 扫描转运ID%{transfer_id}的产品
+        shelving_begin_prompt_no_shelf: 扫描货架以开始
+        shelving_begin_prompt_with_shelf: 扫描产品并存入货架编号%{shelf_number}
+        shelving_title: 转运ID%{transfer_id}的货架产品
+        updated: 转运已成功更新
+      transfer_boxes:
+        created: 转运箱已成功创建
+        destroyed: 转运箱已成功移除
+        destroy_confirmation: 您确定要删除这个转运箱吗？
+        errors:
+          delete_box_with_products: 转运箱无法删除，因为它含有产品
+          failed_to_receive: 无法接收转运箱ID %{transfer_box_id}
+          invalid_bulk_create_transfer_box_count: 批量创建的转运箱数量必须大于0
+        received: 已成功接收转运箱ID%{transfer_box_id}
+        updated: 转运箱已成功更新
+      transfer_products:
+        errors:
+          failed_fc_request: 无法检索FC产品
+          failed_to_pick: 无法分拣转运产品
+          failed_to_quick_scan: 无法在运输途中转运产品。
+          no_long_transferable: 产品条形码%{product_barcode}无法再进行转运，并已从此次转运中移除
+          transfer_box_has_different_transfer: 转运箱属于不同的转运ID %{transfer_id}
+        picked: 产品已成功分拣
+        quick_scanned: 产品已成功进入运输状态
+    fulfillment_triages:
+      async:
+        invalid_value_for_scope: 无效范围值：%{collection_scope}
+      consign_product:
+        already_consigned: 产品已寄售
+        can_not_consigned_in_status: 此状态下的产品不能寄售 (%{status})
+        consigned_successfully: 已成功寄售产品%{product_id}
+      create_product:
+        created_successfully: 已成功创建并寄售产品%{product_id}
+        created_successfully_and_ask_for_replace: 已成功创建并寄售产品%{product_id}。请将产品放置于Inventory
+          (库存) 货架。
+      index:
+        active_products_matching_condition: 符合条件的有效产品
+        can_not_find_active_orders_on: 我们未找到符合以下条件的有效订单：
+        can_not_find_orders_on: 我们无法找到任何符合以下条件的订单：
+        can_not_find_pending_or_active_products_on: 我们未找到符合以下条件的待处理或有效产品：
+        headers:
+          buyer: 买家
+          if_returned: 已退货？
+          notes: 备注
+          pid: PID
+          purchased: 已购买
+          seller: 卖家
+          shoe_or_box: 鞋子/鞋盒
+          status: 状态
+          warehouse: 仓库
+        headings:
+          active_orders_by: 有效订单筛选：
+          custom_product: 定制产品
+          orders_by: 订单筛选：
+          order_received: 订单已接收
+          pending_or_active_products_by: 待处理/有效产品筛选：
+          product_consigned: 产品已寄售
+          shoe_size: 鞋子尺码
+        no_search_result_and_suggest_create: 没有找到符合您搜索条件的产品。您想创建一个新的吗？
+        orders_matching_condition: 符合条件的订单
+        order_received_by_you: 您已收到此订单。
+        pending_or_active_products_matching_condition: 符合条件的待处理或有效产品
+        product_consigned_by_you: 该产品由您寄售。
+        resource_not_found_by_key: 未找到与%{key}关联的%{name}
+        returned_by: 退货人
+        search_criteria_not_enough: "%{current_criteria}无法作为唯一的搜索条件，您还必须搜索%{criteria_needed}"
+        shoe_or_box: 鞋子/鞋盒
+        sold_by: 销售人
+        success: 产品 (条形码 %{product_barcode}) 已完成预包装。请送往打包点。
+        success_shanghai1: 产品条形码%{product_barcode}已成功完成预包装。请送往Transfer to HK Station
+          (转运至香港站)。
+        success_yamato: 产品条形码%{product_barcode}已完成预包装。请前往Yamato打包区。
+        viewing_orders_and_products: 查看订单和产品
+      order:
+        canceled_order_for_order_number: 订单%{number}为已取消订单。
+        mismatched_at: 不匹配录入日期
+        p2p_order_has_no_image: 此订单为P2P，没有图像。
+        you_entered: 您已输入
+      receive_order:
+        received_order_successfully: 已成功接收订单%{order_number}。
+        replace_product_on_auth_rack: 请将产品放置于AUTH (鉴别) 货架。
+        replace_product_on_packaging_rack: 请将产品放置于PACKAGING (正在打包) 货架。
+        specific_status_order_can_not_be_received: 订单处于无法接收的状态：%{staus}
+      reprint_order:
+        reprint_successfully: 订单%{order_id}重新打印成功。
+        reprint_successfully_and_ask_for_replace: 订单%{order_id}重新打印成功。请放置于 AUTH (鉴别)
+          货架。
+      reprint_product:
+        reprint_successfully: 产品%{product_id}重新打印成功。
+        reprint_successfully_and_ask_for_replace: 产品%{product_id}重新打印成功。请放置于 AUTH
+          (鉴别) 货架。
+      search:
+        apparel: 服装
+        form:
+          clear_form: 清除表单
+          enter_id: 输入ID
+          enter_id_here: 在此处输入ID
+          enter_product_info: 输入产品信息
+          enter_shoe_info: 输入鞋子信息
+          or: 或
+          step: 步骤
+        shoes: 鞋子
+        station: 站点
+        tracking_code: 追踪代码
+        upc_code: UPC
+    labels:
+      add_note: 添加备注
+      add_notes: 添加备注
+      back: 返回
+      cancel: 取消
+      confirm: 确认
+      confirmation: 您确定吗？
+      consign: 寄售
+      create: 创建
+      delete: 删除
+      edit: 编辑
+      load: 加载
+      next: 下一步
+      none: 无
+      notes: 备注
+      receive_and_print: 接收并打印
+      reprint: 重新打印
+      search: 搜索
+      select: 选择
+      submit: 提交
+    light_verifications:
+      buttons:
+        auth_and_qc_button: 鉴别和质控
+        auth_button: 鉴别
+        missing_accessories: 没有配件
+        qc_button: 质控
+        qc_check_label: 质控检查
+        submission_status: 正在提交…
+        submit: 提交
+        unauth_button: 取消鉴别
+        unqc_button: 取消质控
+      index:
+        heading: 产品条形码
+      new:
+        product_notes_header: 产品备注
+      product_issues_modal:
+        add_notes_placeholder: 在这里添加产品备注
+        add_note_button: 添加备注
+        create_notes_text: 创建产品问题备注
+        product_issues_button: 产品问题
+      search_bar:
+        change_button: 更改
+        heading: 简易查验
+        product_number_label: 产品编号
+        product_number_placeholder: 产品编号
+        search_button: 搜索
+      sidebar:
+        authentication_guide_link: 链接至《鉴别指南》
+        box_label: 鞋盒
+        brand_name: 品牌名称
+        condition_label: 状况
+        fc_pid_label: FC ID
+        gender_label: 性别款式
+        goat_product_number_label: 产品编号
+        has_defects_label: 存在瑕疵
+        last_authed_label: 最近鉴别
+        last_qced_label: 最近质控
+        main_color: 主色
+        missing_items_label: 缺失商品
+        product_type: 产品类型
+        sale_status_label: 销售状态
+        size_label: 尺码
+        sku_label: SKU
+        special_type_label: 特殊类型
+    messages:
+      hi: "@%{username}，您好，"
+      loading_data: 正在加载数据...
+      sorry: 抱歉
+    orders:
+      index:
+        button:
+          is_missing: "(缺失？)"
+          receive: 收货
+          verify_and_print: 查验并打印
+        content:
+          count_disabled: 计数目前被禁用
+          modal_title_product_missing: 是否有缺失的商品？
+          not_purchased: 未购买
+          no_label_caused_by_fake_product: 致买家：此产品为仿品。 没有可用的物流标签。
+          no_label_caused_by_goat_issue: 致买家：此产品目前在goat_issue。没有可用的物流标签。
+          no_order_with_barcode: 没有与此产品条形码关联的有效订单！
+          verify_and_print_confirm: 您确定要进行GOAT Verify (GOAT验证) 并打印此订单的买家物流标签吗？
+        label:
+          apparel_only: 仅限服装
+          auth_ed_at: 已鉴别
+          buyer: 买家
+          buyer_packing_slip: 买家装箱单
+          ceva: CEVA
+          claim: 领取
+          commercial_invoice: 商业发票
+          condition: 状况
+          day:
+            other: "%{count}天"
+          flight_club_only: 仅限Flight Club
+          goat_only: 仅限GOAT
+          has_note: 有备注
+          if_receive: 收货？
+          issue: 问题
+          label: 标签
+          labels_or_tracking: 标签/运单追踪
+          need_auth_only: 仅需要鉴别
+          need_qc_only: 仅需要质控
+          product: 产品
+          product_id: 产品ID
+          product_number: 产品编号
+          purchased_at: 购买时间
+          qc_by: 质控人员
+          qc_ed_at: 已质控
+          review: 审核
+          search: 搜索
+          seller: 卖家
+          seller_packing_slip: 卖家装箱单
+          serialized_id: 序列化ID
+          shelf: 货架
+          shelf_number: 货架编号
+          shipping_to_china: 发往中国
+          size: 尺码
+          sku: SKU
+          sku_or_name: SKU/名称
+          tagged: 标记状态
+          tracking: 运单追踪
+          transaction: 交易
+          view_p2p_label: 查看P2P标签
+          warehouse: 仓库
+        placeholder:
+          product_barcode: 产品条形码
+          search_term: 搜索词
+        prompt:
+          any: 任何
+          select_collection: 选择系列
+          select_warehouse: 选择仓库
+          size: 尺码
+      messages:
+        authenticated_failed: 产品编号%{product_number}的订单状态为“鉴别未成功”。
+        authenticated_success: 产品编号%{product_number}的订单状态为已成功通过鉴别。
+        authenticate_return_failed: 产品编号%{product_number}的退货订单状态为未成功通过鉴别。
+        authenticate_return_success: 产品编号%{product_number}的退货订单状态为已成功通过鉴别。
+        can_not_determine_shipment_direction: 无法确定配送目的地，已选择以下配送目的地：%{destination}
+        can_not_force_goat_verify: 不得强制设置为goat_verify
+        can_not_generate_shipping_info_for_internaitonal_orders: 无法为国际订单自动创建配送信息。请使用Create
+          Custom Shipping Info (创建自定义配送信息) 按钮
+        can_not_generate_shipping_info_for_tmall_orders: 无法自动为天猫订单创建新的发货信息。
+        can_not_swap: 此订单不可换货
+        created_success: 已成功创建订单。
+        deprecated_feature: 此功能已被弃用
+        enqueued_resend_ceva_order_job: 重新发送的CEVA订单作业已进入队列。
+        generate_label_failed: 无法生成标签，请联系支持人员
+        generate_label_success: 标签已生成。
+        goat_issue_create_error: 为产品编号%{product_number}创建订单问题时出错。订单状态为：%{status}。
+        goat_issue_create_failed: 产品编号%{product_number}的问题状态未成功更新。状态为：%{status}。
+        goat_issue_create_success: 已为产品编号%{product_number}创建订单问题。 订单状态为：%{status}。
+        goat_outbound_shipping_info_blank: 产品#%{product_barcode}的订单的买家物流标签存在问题。没有标签。没有标签发送至编号%{station}的打印点。
+        has_no_shippping_info: 订单目前没有%{destination}的配送信息。
+        invoice_amount_must_greater_than_zero: 发票金额必须大于0
+        label_refunded: "%{destination}标签已退款。"
+        model_not_found_by_key: 无法找到%{key}的%{model}。
+        must_in_goat_received_before_passthrough: 产品编号%{product_number}的订单必须为GOAT
+          RECEIVED (GOAT已收货) 状态，才能继续或跳过QC (质控) 流程。
+        no_order_to_review: 没有更多需要审核的订单。
+        no_permission_to_authenticate_apparel: 您没有鉴别服装的权限，请向经理或主管确认
+        no_permission_to_authenticate_shoes: 您没有鉴别球鞋的权限，请向经理或主管确认
+        no_permission_to_verify_apparel: 您没有查验服装的权限，请向经理或主管确认
+        no_permission_to_verify_shoes: 您没有查验球鞋的权限，请向经理或主管确认
+        omni_refund_only_support_wechat: 仅支持全额退款的微信订单
+        only_support_ceva: 仅支持CEVA订单
+        only_support_wechat: 仅支持微信订单
+        order_can_not_route: 产品编号%{product_number}的订单尚未准备好分派。
+        order_changed: 订单%{order_id}已更改。请再试一次。
+        order_transfer_failed: 订单转运失败：%{message}订单未转运。
+        order_transfer_success: 订单已成功转至用户%{username} (邮箱：%{email})
+        partial_refund_request_sent_to_omni: 部分退款请求已发送至OMNI
+        passthrough_qc_failed: 产品编号%{product_number}的订单直接通过质控不成功。
+        passthrough_qc_success: 产品编号%{product_number}的订单已成功通过质控。
+        paypal_invoice_sent: Paypal账单已发送至%{email}
+        pid_mismatch: PID不匹配，重打印请求已被拒绝，请在 Packing Screen (打包屏幕) 重新扫描PID
+        print_barcode: 产品#%{product_barcode}的订单条形码已发送至编号%{station}的打印点。
+        print_label: 产品#%{product_barcode}的订单的买家物流标签已发送至编号%{station}的打印点。
+        product_barcode_mismatch: 产品条形码不匹配，重打印请求已被拒绝，请在 Packing Screen (打包屏幕) 重新扫描产品条形码
+        product_not_match: 产品%{product_id}与订单不匹配
+        qc_failed: 产品编号%{product_number}的订单状态为质控未成功。
+        qc_failed_for_non_p2p: 产品编号%{product_number}的订单为非P2P订单，不可直接通过 QC (质控)。
+        qc_success: 产品编号%{product_number}的订单状态已成功完成质控。
+        refund_label_error: 退回标签时发生错误：%{exception}
+        refund_request_sent_to_omni: 退款请求已发送至OMNI
+        role_unpermitted: 您的角色不允许您%{action}
+        search_criteria_blank: 请输入搜索条件
+        specify_fulfillment_strategy_only: 这是一个%{strategy}订单。请使用%{strategy}发货流程。
+        status_update_failed: 产品编号%{product_number}的订单状态未成功更新。状态为：%{status}。
+        status_update_success: 产品编号%{product_number}的订单状态已成功更新为：%{status}。
+        status_update_success_with_order_number: 订单%{order_number}已成功更新
+        unauthenticated_failed: 产品编号%{product_number}的订单状态为“取消鉴别未成功”。
+        unauthenticated_success: 产品编号%{product_number}的订单状态已成功取消鉴别。
+        undo_qc_failed: 产品编号%{product_number}的订单状态为“取消质控未成功”。
+        undo_qc_success: 产品编号%{product_number}的订单状态已成功取消质控。
+        unknown_packing_mode_for_sales_channel: 销售渠道%{sales_channel}的未知打包模式
+        unverify_failed: 产品编号%{product_number}的订单取消查验失败：%{error}
+        unverify_success: 产品编号%{product_number}的订单状态为成功取消查验。
+        updated_error: 更新订单时发生错误：%{exception}
+        updated_success: 已成功更新订单。
+      new_verification:
+        authentication_guide_link: "《鉴别指南》链接"
+        auth_and_qc: 鉴别和质控
+        barcode_placeholder: 条形码
+        box_label: 鞋盒
+        brand_name: 品牌名称
+        canceled_label: 已取消
+        condition_label: 状况
+        country_of_origin: 原产国家/地区
+        defect_label: 瑕疵
+        fake_label: 仿品
+        gender_label: 性别款式
+        goat_issues_label: GOAT Issues
+        heading: 查验
+        high_value_order_instructions: 高价值订单 - 请再找一名鉴定师
+        importance: 重要
+        issues_label: 问题
+        main_color: 主色
+        missing_items_label: 缺失商品
+        none: 无
+        note: 备注
+        other_issues_label: 其他问题
+        price_label: 价格
+        product_number_label: 产品编号
+        product_type: 产品类型
+        qc: 质控
+        rejected_label: 已拒绝
+        scan_barcode_label: 扫描条形码
+        search_submit: 搜索
+        seller_label: 卖家
+        size_label: 尺码
+        sku_label: SKU
+        sold_label: 已售出
+        special_type_label: 特殊类型
+        verify_print: 查验标签打印
+        where_is_the_product_made: 产品的制造地：
+      packing_station:
+        heading:
+          base: 打包点 - 打印
+          current_packing_mode: 打包方式：%{packing_mode}
+          packing_mode: 选择一种打包方式
+          product_barcode: 鞋盒条形码 (产品编号)
+          shipping_label: 物流标签
+        scan: 扫描
+        station_label: 打印点
+        submit: 提交
+      verification:
+        authentication_guide_link: 链接至《鉴别指南》
+        auth_and_qc: 鉴别和质控
+        barcode_placeholder: 条形码
+        box_label: 鞋盒
+        brand_name: 品牌名称
+        canceled_label: 已取消
+        condition_label: 状况
+        country_of_origin: 原产国
+        fake_label: 仿品
+        gender_label: 性别款式
+        goat_issues_label: GOAT Issues
+        heading: 查验
+        high_value_order_instructions: 高价值订单 - 请再找一名鉴定师
+        importance: 重要
+        issues_label: 问题
+        main_color: 主色
+        missing_items_label: 缺失商品
+        none: 无
+        note: 备注
+        price_label: 价格
+        product_number_label: 产品编号
+        product_type: 产品类型
+        qc: 质控
+        rejected_label: 已拒绝
+        scan_barcode_label: 扫描条形码
+        search_submit: 搜索
+        seller_label: 卖家
+        size_label: 尺码
+        sku_label: SKU
+        sold_label: 已售出
+        special_type_label: 特殊类型
+        verify_print: 查验标签打印
+        where_is_the_product_made: 产品的制造地：
+      verification_buttons:
+        authenticate: 鉴别
+        authenticated: 已鉴别
+        authenticate_and_verify: 鉴别和查验
+        awaiting_authentication: 正在等待鉴别
+        goat_issue: GOAT Issue
+        no_accessories: 没有配件
+        submit: 提交
+        submitting: 正在提交…
+        un_verify: 取消查验
+        verify: 查验
+        verify_print: 查验标签打印
+      verification_routing:
+        barcode_placeholder: 扫描条形码
+        heading: 查验
+        product_number_label: 产品编号
+        search_submit: 搜索
+    order_issues:
+      index:
+        barcode: 条形码
+        find_by_barcode: 订单问题 - 扫描条形码
+        issues: 问题
+        missing_items: 缺失商品
+        other_issues: 其他问题
+        product_barcode: 产品条形码
+        search: 搜索
+        vip_buyer: VIP买家
+        vip_seller: VIP卖家
+      review:
+        actions:
+          buyer_return_approve: 买家退货审批
+          buyer_return_approve_product_missing_data: 买家退货核准产品缺失数据
+          buyer_return_reject: 买家退货拒绝
+          fake: 仿品
+          incorrect_product: 产品不正确
+          mismatched: 不匹配
+          non_discountable: 没有折扣
+          seller_cancel: 卖家取消
+          take_photos: 拍照
+        delete_and_verify_and_print_confirmation: 您确定要删除此订单问题、查验和打印操作吗？
+        delete_issue_confirmation: 您确定要删除此订单问题吗？
+        headings:
+          edit_note: 编辑备注
+          email_copy_to_buyer: 给买家的电子邮件副本
+          email_copy_to_seller: 给卖家的电子邮件副本
+          reject_reason: 拒绝原因
+          reject_reason_none: 无
+          updates_to_new_product: 新产品更新
+        labels:
+          additional_notes: 其他备注
+          apparel_condition: 状况
+          brand: 品牌
+          buyer_email_content: 买家电子邮件内容
+          buyer_email_subject: 买家电子邮件主题
+          b_grade: B品
+          canceled: 已取消
+          customize_email: 自定义电子邮件
+          customize_emails: 自定义电子邮件
+          delete: 删除
+          delete_and_verify_and_print: 删除问题&查验&打印
+          delete_issue_only: 仅删除问题
+          edit: 编辑
+          escalate: 升级
+          has_discoloration: 有褪色
+          has_missing_insoles: 没有鞋垫
+          has_odors: 有异味
+          has_scuffs: 有磨损
+          has_tears: 有开裂
+          issues: 问题
+          issue_state: 问题状态
+          notify_users: 通知用户
+          order_state: 订单状态
+          other_issues: 其他问题
+          potential_goat_purchase: 潜在GOAT自购
+          rejected: 已拒绝
+          search: 搜索
+          seller: 卖家
+          seller_email_content: 卖家电子邮件内容
+          seller_email_subject: 卖家电子邮件主题
+          sold: 已售出
+          submitting: 正在提交…
+          user_input: 用户输入
+          user_issue_corrections: GOAT Issue更正
+          view_linked_alias_account: 查看关联的alias账户
+          view_linked_goat_account: 查看关联的GOAT账户
+        missing_items: 缺失商品
+        none_issue_discription: 无
+        no_notes: 无
+        no_size_available: 没有%{country_code}尺码
+        unknown_user: 未知
+      search:
+        headings:
+          edit_note: 编辑备注
+          found_multiple: 发现多个订单问题，产品条形码：
+          not_found: 未发现订单问题。请扫描其他产品。
+          search_result: 订单问题搜索结果
+    order_issue_forms:
+      new_order_issue_form_modal:
+        back: 返回
+        box_condition: 鞋盒状况
+        confirm: 确认
+        confirm_issues: 确认问题
+        enter_size: 输入您收到的尺码
+        enter_sku: 输入您收到的SKU
+        issues:
+          craftsmanship: 工艺
+          craftsmanship_issue_explanation: 针脚不齐、变形、折痕等。
+          discoloration: 褪色
+          fake: 仿品
+          glue_stains: 胶水痕迹
+          markings_scuffs: 痕迹/污渍/污垢/磨痕
+          mismatched_sizes: 尺码不匹配
+          missing_damaged_accessories: 配件丢失/损坏
+          other_issues: 其他问题
+          tears: 磨损/开裂
+          used: 二手
+          wrong_size: 尺码错误
+          wrong_sku: SKU错误
+        left: 左
+        right: 右
+        submit: 提交
+        submitting: 正在提交...
+        title: 您发现了什么问题？
+      preview:
+        select_issue: 请选择一个问题
+    order_issue_items:
+      edit:
+        headings:
+          edit_order_issue_item: 编辑问题项
+          edit_order_issue_item_for_order_issue: 编辑订单问题项%{order_issue_item}
+        labels:
+          add_notes: 在这里添加备注
+          enter_sku: 输入收到的SKU
+          odor_type: 异味类型
+          product_barcode: 产品条形码
+          select_positions: 选择位置
+          select_size: 选择收到的尺码
+          select_smell_type: 选择气味类型
+      index:
+        headings:
+          delete_issue_confirmaiton: 删除订单问题？
+          order_details: 订单详情
+          process_order_issue: 处理订单问题
+          review_order_issue_items: 复查订单问题项
+          search_for_order_issue: 搜索订单问题
+          seller_listed_as: 卖家上架为
+        labels:
+          add_issue_item: 添加问题项
+          issue: 问题
+          notes: 备注
+          reported_by: 报告人
+          size: 尺码
+      messages:
+        cannot_process_non_sneakers_for_barcode: 无法处理产品条形码%{barcode}的非球鞋产品
+        cannot_process_return_order_for_barcode: 无法处理产品条形码%{barcode}的退货订单
+        created_successfully: 已成功创建订单问题项%{name}
+        no_order_issue_for_barcode: 未发现与产品条形码%{barcode}关联的订单问题
+        processed_successfully: 订单问题ID %{order_issue_id}已成功处理
+        type_and_id_already_exists: 订单问题ID %{id}的问题项类型%{type}已存在
+        updated_successfully: 已成功更新订单问题项%{name}
+      new:
+        back_to_cx_order_issue: 返回至 CX - 报告订单#%{order_number}的退货订单问题
+        back_to_processing_order_issue: 返回处理订单问题#%{order_issue_id}
+        create: 创建问题项
+        new_item_for: 新的订单问题项：
+        select_order_issue_item_type: 选择订单问题项类型
+      search:
+        headings:
+          multiple_found_for_barcode: 发现多个订单问题，产品条形码：
+          process_order_issue: 处理订单问题
+          search_for_order_issue: 搜索订单问题
+        labels:
+          product_barcode: 产品条形码
+    packing_checklist_items:
+      index:
+        heading: 订单#%{order_number}的打包检查表
+    pick_and_packs:
+      goat_pick_and_pack_orders_table:
+        box_label: 鞋盒
+        condition_label: 状况
+        days_since_qc_label: 距离上次质控
+        move_to_prepack_label: 分拣和打包
+        no_original_box_warning: 无原装鞋盒
+        order_type_label: 订单类型
+        pick_and_pack_button: 分拣和打包
+        pick_and_swap_label: 分拣和打包
+        product_description_label: 品牌/型号/颜色
+        product_id_label: 产品ID
+        product_number_label: 产品编号
+        product_photo_label: 产品照片
+        purchased_at_label: 购买时间 (%{time_zone})
+        serialized_id_label: 序列化ID
+        shelf_number_label: 货架编号
+        size_label: 尺码
+        sku_name_label: SKU/名称
+        warehouse_label: 仓库
+      index:
+        ceva_only: 仅限Ceva
+        china_only: 发往中国
+        clear_button: 清除
+        expedited_only: 仅限加急
+        fc_only: 仅限Flight Club
+        goat_only: 仅限GOAT
+        heading: GOAT分拣和打包
+        instant_ship_only: 极速发货 (没有加急或次日达)
+        next_day_only: 仅限次日达
+        orders_count_label: 订单数量
+        purchased_at_range: 购买时间范围
+        search_button: 搜索
+        search_term_label: 搜索词
+        search_term_placeholder: 按货架编号搜索
+        select_warehouse_label: 请选择仓库
+        warehouse_label: 仓库
+      new:
+        heading: GOAT分拣和打包
+    pre_packs:
+      index:
+        heading:
+          product_barcode: 鞋盒条形码 (产品条形码)
+          title: GOAT预包装
+      order_details:
+        buttons:
+          cancel: 取消
+          complete: 完成
+        no_special_handling: 无需特殊处理
+    product_templates:
+      clone_processing: 正在处理克隆
+      confirm_clone: 确定要继续克隆吗？
+      force_index_sync: 成功进入Algolia更新队列。搜索索引将在一分钟内更新
+    shared:
+      order_issues_search:
+        barcode: 条形码
+        find_by_barcode: 订单问题 - 扫描条形码
+        product_barcode: 产品条形码
+        submit: 提交
+        vip_buyer: VIP买家
+        vip_seller: VIP卖家
+      product_photos:
+        brand_label: 品牌
+        seller_label: 卖家
+  api:
+    v1:
+      users:
+        notification_preferences:
+          available_funds_to_withdraw: 可提现资金
+          sneaker_shipped_for_verification: 球鞋已发往GOAT进行鉴别查验
+          sneaker_shipped_to_you: 球鞋已发往您的收货地址
+          sneaker_size_available: 球鞋尺码有货
+          someone_commented_on_your_post: 有人评论了您的帖子
+          someone_liked_your_onfeet_photo: 有人点赞了您的照片
+          updates_on_your_offers: 您的报价更新
+          updates_on_your_seller_status: 您的卖家状态更新
+          updates_on_your_sneakers_for_sale: 出售状态更新
+          your_sneaker_sold: 您的球鞋售出
+        process_cash_out:
+          forbid_OBO_seller: 此GOAT账户已关联至alias账户。请在alias上提现。
+  automated_customer_support:
+    additional_option:
+      eligible_order_not_in_list: 有问题的订单不在这里
+    base_user_options:
+      all_needed: 不，没有了
+      another_issue: 我还有一个问题
+      have_issue: 不，我的订单有问题
+      match_description: 是的，我订购的商品与描述相符
+      not_provide: 不，我现在不想提供反馈
+      option_no: 否
+      option_yes: 是
+      sth_else: 其他
+      yes_provide: 是的，我要提供反馈
+    body:
+      ask_for_experience: 告诉我们您的经历
+    bot_lines:
+      account_security_steps: 由于您注意到账户中出现并非您本人下达的订单，我将采取额外措施来保护您的账户。稍后，我将注销您在GOAT上的所有活动会话，并通过电子邮件向您发送密码重置链接。这将帮助我们进一步保护您的GOAT账户。
+      apologize: 很抱歉
+      apologize_about_that: 好的，很抱歉
+      apologize_for_connectivity_issue: 抱歉，我遇到了连接问题
+      apologize_for_the_issue: 很抱歉订单出现问题
+      apologize_issues_start_return: 抱歉，我在发起退货时遇到问题
+      apologize_issue_with_order: 很抱歉您的订单出现了问题
+      apologize_item_not_match: 很抱歉您收到的商品与描述不符
+      apologize_order_not_meet: 很抱歉您订购的商品不符合预期
+      apologize_order_not_received: 很抱歉您还没有收到订购的商品。希望我能帮您解决这个问题
+      apolotize_unable_claim_for_incorrect_address: 抱歉，如果提供的送货地址不正确，我们无法向客户服务团队发起索赔
+      appreciate_and_hope_package_arrive: 感谢您的耐心和理解，希望您的包裹很快送达
+      ask_any_other_questions: 如果您有任何其他问题，也可以轻点下方按钮，浏览所有支持主题
+      ask_for_bit_more_information: 麻烦再提供一些信息，以便我更好地帮助您
+      ask_for_help_resolve_issue: 您想让我帮忙解决这个问题吗？
+      ask_for_highlight_issues: 很好，请尽可能突出您之前提到的问题
+      ask_for_information: 好的，麻烦再提供一些信息，以便我更好地帮助您
+      ask_for_issue_with_order: 能麻烦说一下您的订单有什么问题吗？
+      ask_for_more_about_order: 能麻烦详细说明一下此订单的问题吗？
+      ask_for_more_information: 好的，能麻烦您提供更多一点信息吗？
+      ask_for_photos_of_item: 为尽快解决问题，您可以拍几张商品的照片发给我
+      ask_for_taking_photos: 您现在能拍几张照片吗？
+      ask_for_what_not_working: 具体是哪方面不理想呢？
+      ask_for_why_order_not_match: 商品的哪些方面不符合您的预期？
+      ask_has_item_delivered: 您订购的商品是否已送达？
+      ask_how_item_packaging: 商品的包装怎么样？质量符合您的预期吗？
+      ask_proceed_credit_or_return: 您是愿意获取%{return_credit_display}GOAT积分还是发起退货？
+      ask_question_about_process: 如果您对退货流程有任何疑问，可以轻点下方按钮，浏览所有支持主题
+      ask_want_to_cancel_order: 您确定要取消此订单吗？
+      ask_whether_continue_to_claim: 要现在就向承运商提出索赔吗？
+      ask_whether_item_match_photos: 收到的商品与照片及描述相符吗？
+      ask_whether_meet_expectations: 商品是否与您的预期完全相符？
+      ask_whether_order_expected: 您是否在预期时间内收到了订购商品？
+      ask_whether_return: 如果您要退货，可以为您退款
+      ask_why_cancel: 取消之前，能麻烦您说明一下要取消此订单的原因吗？
+      ask_would_cancel_order: 您要取消此订单吗？
+      claim_received: 我们已收到您的索赔请求
+      common_line: 如果您对此订单有任何疑问，可以轻点下方按钮，浏览所有支持主题
+      confirm_correctness_of_address: 这是此订单的存档送货地址。此地址正确吗？
+      confirm_desc_of_order: 您订购的商品是否与描述相符？
+      confirm_marked: 当您订购的商品标记为已收到并完成鉴别查验后，我们会向您发送确认电子邮件。
+      confirm_proceed_return: 您要继续退货吗？
+      confirm_received: 您订购的商品完成鉴别查验后，我们会向您发送确认电子邮件。
+      confirm_seller: 收到您订购的商品并完成鉴别查验后，我们会向您发送确认电子邮件。
+      conversation_closing: 好的，祝您生活愉快
+      courier_deliver_unsuccessful: 承运商似乎尝试过派送此订单，但派送失败
+      credit_fail_one: 我们团队需要1-2个工作日来检查问题并回复您。我们一定会通过电子邮件向您发送有关订单的最新消息。
+      credit_fail_two: 谢谢您的耐心等待，希望这个问题会很快解决。
+      credit_succ_one: 我们团队需要约1-2个工作日来检查问题并回复您。
+      credit_succ_three: 我们一定会通过电子邮件向您发送任何有关订单的最新消息。
+      credit_succ_two: 为感谢您的耐心等待，您支付的运费将以GOAT积分形式存入您的账户。GOAT积分可在日后购买任何商品时抵现，不会过期。
+      customer_zendesk: 由于此订单花费的时间比平时长，我已创建请求以供客户体验专家审查。
+      delivered_goat: 您订购的商品已寄送至GOAT运营点，目前正在等待鉴别查验。
+      did_order_match: 您订购的商品是否与描述相符？
+      done_add_in_goat_credit: 听起来不错，我已将%{return_credit_display}GOAT积分发放至您的账户，您可立即使用
+      done_creat_request_for_specialist_review: 我已创建请求以供GOAT专家审查
+      done_submit_request_for_specialist_review: 我已提交请求以供GOAT专家审查
+      eligible_orders_guide: 我能帮助您解决以下订单的问题吗？
+      explain_why_feedback: 这样，我们便可更准确地评价您所购商品的卖家并改善整体购物体验
+      faq_questions: 如需更多帮助和信息，您可以轻点下方按钮，浏览所有支持主题。
+      goat_other: 您的订单目前正在处理中。发货后我们会立即向您提供最新消息。
+      goat_packaged: 我们的专家团队已对您订购的商品进行鉴别查验，目前正在等待发货。
+      goat_pick: 我们的专家团队已对您订购的商品进行鉴别查验，目前正在等待发货。
+      goat_received: 我们的GOAT运营点已收到您订购的商品。目前正在等待鉴别查验。
+      goat_recieved_sla_violation: GOAT运营点已将您的订单标记为已收到。现在正在等待鉴别查验。
+      goat_stand_by: 我们的GOAT运营点已收到您订购的商品。目前正在等待鉴别查验。
+      goat_verified: 我们的专家团队已对您订购的商品进行鉴别查验，目前正在等待发货。
+      goat_verifying: 我们的专家团队正在对您订购的商品进行鉴别查验。
+      great: 太好了！
+      have_canceled_order: 已帮您取消此订单
+      have_received_return: 我们已收到您的退货请求，如有任何进展，会通过电子邮件通知您
+      having_trouble_cancel_order: 抱歉，我在取消此订单时遇到问题
+      if_have_difficulty_listing: 如果您在上架商品或发货时遇到任何困难，可以轻点下方按钮，浏览所有支持主题
+      info_item_purchased_as_final_sale: 此商品不支持退换
+      initiate_return_suggestion: 如果您对收到的商品不满意，可以申请退货
+      issue_create_request_for_specialist_review: 我在创建请求以供GOAT专家审查时遇到问题
+      issue_with_order: 调查中的这个订单的承运商有问题
+      is_else_help_needed: 还有什么可以帮您的吗？
+      item_in_storage: 此订单中的商品在GOAT寄存
+      late_to_cancel: 很抱歉，现在取消此订单已经太晚了
+      need_help_with_order: 需要帮助处理这个订单吗？
+      note_able_to_use_credit_immediately: 您可立即使用GOAT积分在购买其他球鞋时抵现
+      note_about_cost: 运费为%{shipping_cost_display}，总计%{refund_amount_display}的退款将以GOAT积分形式退还
+      note_about_feedback: 您提供的信息将有助于我们提高卖家期望和整体体验
+      note_about_refund: 退款金额为支付金额减去往返运费
+      note_come_back_with_photos: 拍好照后把照片发给我，这样我便可以尽快帮您解决订单问题
+      note_offer_return_in_credit: 好消息是我们会向您提供%{return_credit_display}GOAT积分
+      note_return_policy: 根据退货政策规定，我们可以为您办理退款，但需要扣除往返运费。
+      note_shipping_cost: 总运费为%{shipping_cost_display}，%{refund_amount_display}的退款将以GOAT积分形式退还
+      note_start_return_process: 如果您愿意，我也可以发起退货流程
+      note_time_to_investigate: 我们团队可能需要1-2个工作日才能完成调查并回复您，届时我们会通过电子邮件通知您
+      notify_check_email: 请查看电子邮件，获取后续步骤的说明
+      notify_start_return: 已为您发起退货
+      no_order_suggestion: 好的，您可以轻点下方按钮，浏览所有支持主题
+      no_problem: 没问题
+      offer_claim_help: 我可以帮助您提出索赔，我们的代理会对索赔请求进行审查
+      okay: 好的
+      order_been_canceled: 此订单已取消
+      order_been_confirmed_by_seller: 很抱歉，卖家现在已经确认此订单，无法取消
+      order_cannot_be_canceled: 很抱歉，现在已超出取消期限，因此无法取消此订单
+      order_can_be_canceled: 订单可在下单后3小时内或卖家确认订单之前取消，以先到者为准
+      order_delivered_on: 此订单已于%{delivered_date}送达
+      package_scan: 承运商扫描您的包裹后，我们会向您发送包含物流信息的确认电子邮件。
+      prefix_ask_about_item: 商品有以下问题：
+      provide_feedback_suggestion: 如果您愿意，可以就这次购物体验提供反馈
+      recommend_rating_order: 请评价您的订单，以便我们可以向卖家提供有用的反馈并改善您的整体体验
+      recommend_reach_out_carrier_directly: 这种情况我们无法提供更多帮助，您可以直接联系承运商
+      recommend_try_again_later: 请稍后返回并重试
+      recommend_waiting_before_claim: 但是，我们建议先等待2-3天，看看包裹是否会送达，如果没有，再提出索赔
+      return_in_progress: 您的退货正在处理中
+      return_was_approved: 您的退货已通过审核
+      return_was_denied: 因不符合退货政策相关要求，您的退货请求已被拒绝
+      return_window_passed: 已超过此商品的退货期限
+      seller_packaging: 卖家正在打包您订购的商品，很快就会发往GOAT运营点。
+      shipped_goat: 您订购的商品正在运输至GOAT运营点以进行鉴别查验。
+      sla_tracking: 您可通过个人资料中的“订单”标签页查看运单号。
+      sla_violation_sorry_one: 很抱歉您还没有收到订购的商品。希望我能帮您解决这个问题。
+      sla_violation_sorry_two: 正在查看您的订单，请稍候片刻。
+      sorry_to_hear: 很抱歉
+      sounds_good: 听起来不错
+      specialist_will_reach: GOAT专家会很快通过电子邮件联系您
+      submit_request_to_agent_suggestion: 您可以轻点下方按钮，向GOAT代理提交请求
+      tap_to_view_full_list: 好的，请轻点下方按钮，浏览所有支持主题
+      thanks_for_patience: 谢谢您的耐心等待，希望这个问题会很快解决
+      thank_you: 谢谢
+      thank_you_for_feedback: 感谢您的反馈！
+      thank_you_for_paticence: 感谢您的耐心和理解
+      that_is_great: 太好了！
+      try_again_suggestion: 请稍后返回并重试
+      try_agian: 请稍后返回并重试
+      understood: 好的，明白了
+      view_support_topics_suggestion: 您也可以轻点下方按钮，浏览所有支持主题
+      what_question_about: 能告诉我您的问题是关于什么的吗？
+      what_would_you_like_to_know: 您想知道订单的哪些方面？
+      will_help_with: 好的，我能帮您解决这个问题
+      with_courier: 您订购的商品已发货，目前正在运输中。
+    cancellation_user_options:
+      accidentally_placed: 我没想下这个订单
+      changed_mind: 我不想要了
+      incorrect_item: 我下错了订单
+      incorrect_size: 我订购的尺码不对
+      not_self_placed: 这个订单不是我下的
+      option_no: 否
+      option_yes: 是
+      sth_else: 其他
+      where_order: 我订购的商品去哪儿了？
+      wrong_shipping_address: 我填错了送货地址
+    default_user_options:
+      cancellation: 订单取消
+      not_provide: 不，我现在不想提供反馈
+      option_yes: 是
+      order_status: 订单状态
+      sth_else: 其他
+      yes_provide: 是的，我要提供反馈
+    direct_general_options:
+      have_issue: 不，我的订单有问题
+      match_description: 是的，我订购的商品与描述相符
+      not_provide: 不，我现在不想提供反馈
+      option_no: 是的
+      option_yes: 是
+      take_picture_later: 不行，我稍后再拍
+      take_picture_now: 可以，我现在可以给商品拍照
+      that_all: 没有了
+      yes_provide: 是的，我要提供反馈
+    direct_reason_options:
+      condition_not_described: 商品状况与描述不符
+      inauthentic: 我觉得商品不是正品
+      miss_key_feature: 商品缺少重要特征
+      not_as_described: 商品与描述不符
+      not_correct_item: 卖家发错货
+      size_label_incorrect: 标的尺码不对
+      wrong_color_style: 颜色/款式不符
+    errors:
+      contain_invalid_selection_key: 当前选择键包含无效选择键
+      invalid_current_selections: 当前选择无效
+      invalid_format_for_user_selections: 用户选择格式无效
+      invalid_order_for_credit_calculation: 订单价值无效，无法用于计算GOAT退回积分
+      invalid_selection_keys: 选择键无效
+      invalid_step_name: 步骤名称无效
+      missing_current_selections: 当前选择缺失
+      missing_info_to_submit_zendesk_ticket: 缺少提交zendesk工单所需的信息
+      missing_step_name: 步骤名称缺失
+      no_eligible_orders: 没有符合条件的订单
+    header:
+      order_delivered: 您订购的商品已送达
+    rating:
+      as_expected: 和预期一样
+      better_than_expected: 比预期更好
+      great_quality: 质量好
+      looks_better: 看起来更好
+      matched_exactly: 完全相符
+      not_really: 并没有
+      poor_quality: 质量差
+      too_slow: 太慢
+      very_fast: 非常快
+      worse_than_expected: 低于预期
+    return_user_options:
+      changed_mind: 我不想要了
+      color_or_style: 商品颜色或款式与预期不符
+      damaged_box: 鞋盒破损
+      defective_shoe: 鞋子有瑕疵
+      different_condition: 商品状况与预期不同
+      discoloration: 褪色
+      late_delivery: 很久才收到货
+      looks_used: 看起来像二手货
+      missing_accessories: 配件缺失
+      missing_box: 没有鞋盒
+      missing_box_lid: 没有鞋盒盖子
+      missing_insoles: 没有鞋垫
+      not_fit: 商品不合适
+      not_working_out: 情况不太理想
+      odor: 有异味
+      option_no: 否
+      option_yes: 是
+      scuffs_or_stains: 磨损/有污渍
+      stains: 有污渍
+      take_picture_later: 不行，我稍后再拍
+      take_picture_now: 可以，我现在可以给商品拍照
+      visible_creasing: 有明显折痕
+      wrong_item: 卖家发错货
+  auto_confirmation_offer_filled:
+    content: "@%{username}，您好！<br/><br/>恭喜，您的%{item_type}已经售出。订单已自动确认。<br/> <br/>
+      %{sold_instructions_line}<br/> <br/> <strong>订单详情</strong><br/> <img src='%{product_template_picture}'
+      width=150><br/> 订单编号：%{order_number}<br/> 名称：%{product_template_name}<br/>状况：%{titleize}<br/>
+      %{box_line}问题：%{defects_string}<br/>卖家描述：%{missing_items}<br/>尺码：%{presentation}<br/>
+      %{sku_line} <br/>收入金额： %{display_money}<br/> <br/> %{contact_line} <br/> %{brand_signature} "
+    subject: 您的%{product_template_name}已通过报价成交 - 开始为订单#%{order_number}打包
+  bank_account_added:
+    content: 您好，@%{username}：<br/> <br/> 您的账号于太平洋时间%{account_added_at}添加了一个新的银行账户：%{account_name}。<br/>
+      <br/> 如果您没有创建此银行账户，请立即通知我们。%{contact_line} <br/> %{brand_signature}
+    subject: 新增银行账户用于%{brand_signature}提现
+  bank_account_removed:
+    content: "@%{username}，您好！<br/> <br/>由于您提供了新的提现方式，我们已于%{account_removed_at}将旧的银行账户%{account_name}从您的账号中移除。<br/><br/>%{contact_line}
+      <br/> %{brand_signature} "
+    subject: "%{brand_signature}账号内银行账户已被移除"
+  bank_transfer_canceled:
+    content: "@%{username}，您好！<br/> <br/>一笔转入您尾号为**%{account_details}的银行账户的%{transfer_amount}直接存款已于太平洋标准时间%{canceled_at}取消。您的提现资金已返还至您的%{brand_signature}余额。<br/>
+      <br/> %{contact_line} <br/> %{brand_signature} "
+    subject: 银行转账已取消
+  bank_transfer_completed:
+    content: "@%{username}，您好！<br/> <br/>一笔转入您尾号为**%{account_details}银行账户的%{transfer_amount}直接存款已于%{completed_at}成功结算并完成处理。请注意，您的银行可能需要更多处理时间才能向您提供这笔资金。<br/>
+      %{contact_line} <br/> %{brand_signature} "
+    subject: 银行转账已完成
+  bank_transfer_failed:
+    content: "@%{username}，您好！<br/> <br/> 一笔金额为%{transfer_amount}的直接存款于太平洋标准时间%{failed_at}转入到您尾号为**%{account_details}的银行账户时失败。这通常是由于无效的账户或路由号码所致。请前往App更新您的银行账号和路由号码，然后再试一次。<br/>
+      <br/> 您的提现资金已返还至您的%{brand_signature}余额，以便您在更新银行账户后再次提现。<br/> <br/> %{contact_line}
+      <br/> %{brand_signature} "
+    subject: 银行转账失败 - 需要处理
+  bank_transfer_initiated:
+    content: " @%{username} 您好，<br/> <br/>现已于%{initiated_at}向您尾号为**%{account_details}的银行账户发起金额为%{transfer_amount}的直接存款。<br/><br/>完成这笔转账可能需要两个工作日，请耐心等待。工作日为星期一至星期五，不包括公共假日。资金转入您的账户后，我们将向您再次发送一封电子邮件。<br/>
+      <br/> %{contact_line} <br/> %{brand_signature} "
+    subject: 银行转账已发起
+  base_presenter:
+    contact_line:
+      alias: 如果您有任何疑问，欢迎与我们<a href='https://supportalias.zendesk.com/hc/en-us/requests/new'>联系</a>。<br/>
+      goat: 如果您有任何疑问，欢迎与我们<a href='https://goat.zendesk.com/hc/en-us/requests/new'>联系</a>。<br/>
+    contact_retrieval:
+      alias: 请<a href='https://supportalias.zendesk.com/hc/en-us/requests/new'>联系我们</a>以取回您的球鞋。<br/>
+      goat: 请<a href='https://goat.zendesk.com/hc/zh-cn/requests/new'>联系我们</a>以取回您的球鞋。<br/>
+    flight_club_footer:
+      trademark_text: "© %{current_year} Flight Club New York LLC.保留所有权利。"
+  canceled:
+    content: "@%{username}，您好！<br/> <br/>%{order_canceled_line}请确保上架商品信息为最新状态，以避免今后需要取消订单。<br/>
+      <br/>我们会对所有卖家取消订单的行为进行监控，以确定是否要增加服务费或彻底停用账户。<br/><br/> %{contact_line} <br/>
+      %{brand_signature}"
+    order_canceled_line: 您的订单已取消，上架商品已移除。
+    order_canceled_line_with_error: 由于如下集成原因：%{ext_error}，您的订单已取消，上架商品已移除。
+    subject: 订单#%{order_number}已取消
+  canceled_due_to_late_shipment:
+    alias_content: "%{name}，您好！<br/><br/>GOAT的使命是为买卖双方打造一个安全可靠的交易市场。为此，平台仅接纳有着良好声誉的卖家，并对所有球鞋进行鉴别查验，以确保所有商品均为正品。为确保交易市场安全有序，平台不仅会对商品进行鉴别，还会核查买卖双方是否存在可能会引发问题的活动。<br/><br/>此订单的寄件活动因为商品未在72小时内离开收件点，违反了alias的卖家政策。因此订单已被取消。平台不会对随后收到的商品进行打款，但会与您联系以确认您偏好的处理方式。<br/><br/>为确保遵守alias卖家政策，卖家应确保其：
+      <br/><br/>在订单生成后3个工作日内交递包裹 (FedEx、UPS和USPS的工作日为星期一至星期六)。在交递完成日期后72小时内显示包裹的物流状态。如果您认为信息出错，请联系收件点并开展调查或选择其他收件点。<br/><br/>在平台运营点收到您的包裹并进行扫描之前，务必保留交递收据副本。<br/><br/>
+      <b>为确保提供最快速的配送体验，alias会依照账户回寄地址为您就近分配仓库，请从回寄地址相关区域内的指定地点寄件。</b> <br/><br/>任何其他违规行为都有可能导致账户被停用。请查阅alias<a
+      href='https://www.alias.org/selling'>卖家政策</a>，了解更多信息。<br/><br/> Account Review
+      团队 | %{brand_signature}"
+    goat_content: "%{name}，您好！<br/><br/>GOAT致力于为买卖双方打造一个可信赖的球鞋交易市场。为此，平台仅接纳有着良好声誉的卖家，并对所有球鞋进行鉴别查验，以确保所有商品均为正品。为确保交易市场安全有序，平台不仅会对商品进行鉴别，还会核查买卖双方是否存在可能会引发问题的活动。<br/><br/>此订单的寄件活动因为商品未在72小时内离开收件点，违反了GOAT的卖家条款。因此订单已被取消。平台不会对随后收到的商品进行打款，但会与您联系以确认您偏好的处理方式。<br/><br/>为确保遵守GOAT的卖家条款，卖家应确保其：
+      <br/><br/>在订单生成后3个工作日内交递包裹 (FedEx、UPS和USPS的工作日为星期一至星期六)。在交递完成日期后72小时内显示包裹的物流状态。如果您认为信息出错，请联系收件点并开展调查或选择其他收件点。<br/><br/>在平台运营点收到您的包裹并进行扫描之前，务必保留交递收据副本。<br/><br/>
+      <b>为确保提供最快速的配送体验，GOAT会依照账户回寄地址为您就近分配仓库，请从回寄地址相关区域内的指定地点寄件。</b> <br/><br/>任何其他违规行为都有可能导致账户被停用。请查阅<a
+      href='https://www.goat.com/selling'>GOAT卖家条款</a>，了解更多信息。<br/><br/> Account Review
+      团队 | %{brand_signature}"
+    subject: 关于您的订单#%{order_number}的重要信息
+  cart:
+    errors:
+      cannot_checkout: 请检查购物车中的商品。
+      cannot_put_item: 不可添加至购物车
+      duplicate_item: 您一次仅可购买一双%{product_description}。因此，我们已为您删除多余商品。
+      exceed_upper_limit: 购物车中最多可添加%{upper_limit}件商品。请检查已添加至购物车的商品，以便能够继续购物。
+      no_qualified_product: 您购物车中的一件或多件商品不可购买；请检查购物车中的商品。
+      price_change: 您购物车中的一件或多件产品的价格已变更。请检查购物车中的商品。
+  cash_out_instructions:
+    alias: 轻点账户标签并提现
+    goat: 轻点“出售”标签页，然后转至左上方按钮开始提现操作
+  common:
+    errors:
+      email_or_password_not_correct: 电子邮件地址或密码不正确。
+      login_info_not_correct: 您的登录信息不正确。请再试一次。
+      login_mfa_error_message: 确认链接已发送至%{send_to_email_addr}。您必须先通过电子邮件完成身份确认，然后才能继续操作。
+      unknown_error: 发生未知错误。请再试一次或联系%{email}。
+      vacation_mode:
+        under_min_interval: 您每%{interval}只能开启或关闭度假模式一次。
+    or: 或
+    tax: 税费
+    vat: 增值税
+  confirmation_reminder:
+    confirmation:
+      other: 确认订单
+      multi: 确认订单
+      single: <a href="%{branch_order_redirect}">确认订单 (#%{order_number})</a>
+    confirmation_has_multiple: 确认%{order_text}
+    confirmation_single: <a href="%{branch_order_redirect}">确认%{order_text}（订单#%{order_number}）</a>
+    content:
+      other: "@%{username}，您好！<br/> <br/> 本邮件旨在提醒您尽快确认刚刚收到的%{count}个订单。如果未能在订单生成后24小时内确认，该笔交易将被自动取消。<br/>
+        <br/> 如需确认，请打开App中的“订单”标签页， %{confirmation_link} 我们将向您发送预付费且预填地址的物流标签和装箱单
+        (如适用)。<br/> <br/> <p><strong>订单详情</strong></p> %{orders} <br/> %{contact_line}
+        <br/> %{brand_signature} "
+      multi: "%{username} 您好，<br/> <br/>本邮件旨在提醒您尽快确认刚刚收到的%{count}个订单。如果未能在订单生成后24小时内确认，该笔交易将被自动取消。<br/>
+        <br/> 如需确认，请打开App中的“订单”标签页， %{confirmation_link}，随后我们将向您发送预付费且预填地址的物流标签和装箱单
+        (如适用)。<br/> <br/> <p><strong>订单详情</strong></p> %{orders} <br/> %{contact_line}
+        <br/> %{brand_signature}"
+      single: "%{username} 您好，<br/> <br/>本邮件旨在提醒您尽快确认刚刚收到的订单 - %{product_name}。如果未能在订单生成后24小时内确认，该笔交易将被自动取消。<br/>
+        <br/> 如需确认，请打开App中的“订单”标签页，%{confirmation_link}，随后我们将向您发送预付费且预填地址的物流标签和装箱单
+        (如适用)。<br/> <br/> <p><strong>订单详情</strong></p> %{orders} <br/> %{contact_line}
+        <br/> %{brand_signature}"
+    order_details_msg: " <img src='%{product_template_picture}' width=150><br/> 订单编号：%{order_number}<br/>
+      名称：%{product_template_name}<br/> %{issues} %{seller_says} 尺码：%{presentation}<br/>
+      %{sku_line} 收入：%{display_money}<br/>"
+    subject:
+      other: 提醒：请尽快确认%{count}个订单
+      multi: 提醒：请尽快确认您的%{count}个订单
+      single: 提醒：请尽快确认您的订单 - %{product_name}
+  confirmation_required:
+    alias_content: '@%{username}，您好！<br/> <br/> 恭喜，您的%{item_type}刚刚已售出。请在24小时内确认，否则这笔销售将自动取消。<br/>
+      <br/> %{shipping_notification}如需确认销售，请打开app中的“订单”标签，<a href="%{branch_order_redirect}">确认交易
+      (订单#%{order_number})</a>，随后，我们将向您发送预付费且预填地址的物流标签和装箱单 (如适用)。<br/> <br/> <strong>订单详情</strong><br/>
+      <img src=''%{product_template_picture}'' width=150><br/> 订单#：%{order_number}<br/>
+      名称：%{product_template_name}<br/> 状况：%{titleize}<br/> %{box_line} 问题：%{defects_string}<br/>
+      卖家描述：%{missing_items}<br/> 尺码：%{presentation}<br/> %{sku_line} 价格：%{price}<br/>
+      收入金额：%{display_money}<br/> <br/> %{contact_line} <br/> %{brand_signature} '
+    shipping_notification: 由于新冠肺炎疫情和政府限制举措，您的订单可能会出现查验和提现延迟。感谢您的耐心和理解。
+    subject: 您的%{product_template_name}刚已售出 - 请确认订单#%{order_number}
+    template_confirm: 如需确认，只需打开App中的“订单”页面确认交易，随后我们将向您发送预付费且预填地址的物流标签。
+    template_congrats: 恭喜，您的球鞋刚刚已售出。请在24小时内确认，否则这笔销售将自动取消。
+    template_hey: 嗨
+    template_order_amount: 收入金额
+    template_order_box: 鞋盒
+    template_order_condition: 状况
+    template_order_header: 订单详情
+    template_order_issues: 问题
+    template_order_name: 名称
+    template_order_number: 订单编号：%{order_number}
+    template_order_price: 价格
+    template_order_question_html: 如果您有任何问题，请随时发送电子邮件至<a href='mailto:support@goat.com'>support@goat.com</a>与我们联系。
+    template_order_seller: 卖家描述
+    template_order_size: 尺码
+    template_order_sku: SKU
+  consigned_and_activated:
+    content: "@%{username}，您好！<br/><br/>我们已将您的%{item_type}添加至您的账户。<b>此上架商品将立即被激活。</b>您可以前往上架商品界面调整价格。一旦您的%{item_type_plural}售出，您可在订单完成处理后提现，届时我们将通过推送通知和电子邮件通知您。<br/><br/>如果您希望取消寄售%{item_type}，请回复此电子邮件，我们会为您准备运费报价。<br/>
+      <br/> 谢谢！<br/><br/> %{brand_signature} "
+    content_items: "@%{username}，您好！<br/><br/>我们已将您的商品添加至您的账户。<b>此上架商品将立即被激活。</b>您可以前往上架商品界面调整价格。一旦您的商品售出，您可在订单完成处理后提现，届时我们将通过推送通知和电子邮件通知您。<br/><br/>如果您希望取消寄售商品，请回复此电子邮件，我们会为您准备运费报价。<br/>
+      <br/> 谢谢！<br/><br/> %{brand_signature} "
+    content_sneakers: "@%{username}，您好！<br/><br/>我们已将您的球鞋添加至您的账户。<b>此上架商品将立即被激活。</b>您可以前往上架商品界面调整价格。一旦您的球鞋售出，您可在订单完成处理后提现，届时我们将通过推送通知和电子邮件通知您。<br/><br/>如果您希望取消寄售球鞋，请回复此电子邮件，我们会为您准备运费报价。<br/>
+      <br/> 谢谢！<br/><br/> %{brand_signature} "
+    subject: 商品已寄售：%{product_template_name} (尺码 %{size})
+  consigned_please_activate:
+    content: "@%{username}，您好！<br/> <br/> 您的%{item_type}已经寄售，需要进行激活操作以上架销售。请前往app的“出售”标签页激活此商品。<br/>
+      <br/> 谢谢， <br/> <br/> %{brand_signature} "
+    content_item: "@%{username}，您好！<br/> <br/> 您的商品已经寄售，需要进行激活操作以上架销售。请前往app的“出售”标签页激活此商品。<br/>
+      <br/> 谢谢， <br/> <br/> %{brand_signature} "
+    content_sneakers: "@%{username}，您好！<br/> <br/> 您的球鞋已经寄售，需要进行激活操作以上架销售。请前往app的“出售”标签页激活此商品。<br/>
+      <br/> 谢谢， <br/> <br/> %{brand_signature} "
+    subject: 请激活您的上架商品
+  consigned_product_is_pending:
+    content: "%{username}，<br/><br/>您的%{product_name}已被买家退货，目前存放在GOAT仓库。您可在app中“出售”标签的“已下架商品”部分激活%{product_name}。<br/><br/>详情如下：<br/>%{product_name}
+      <br/>%{sku_line} 尺码：%{size_option} <br /><br />如有疑问或问题，请通过support@goat.com联系客服。谢谢，
+      <br /><br />%{brand_signature}"
+    subject: 您的GOAT上架商品%{product_name}需要激活
+  consigned_sold:
+    alias_content: '@%{username}，您好！<br/> <br/>%{product_consigned_line}，该笔<a href="%{branch_order_redirect}">销售
+      (订单编号%{order_number})</a>已自动确认。<br/><br/>我们的专家正在处理此商品，我们将在鉴别通过后以电子邮件的方式通知您提现。<br/>
+      <br/><strong>订单详情</strong><br/> <img src=''%{product_template_picture}'' width=150><br/>
+      订单编号：%{order_number}<br/> 名称：%{product_template_name}<br/>状况：%{titleize}<br/>
+      %{box_line} 问题：%{defects_string}<br/> 卖家描述：%{missing_items}<br/>尺码：%{presentation}<br/>
+      %{sku_line}价格：%{price}<br/>收入金额：%{display_money}<br/> <br/> %{contact_line}
+      <br/>谢谢，<br/> <br/> %{brand_signature}'
+    cash_out_after_verification: 查验通过后提现
+    earning_notification_body: 球鞋通过专家鉴别查验后，您就能收到赚取的金额。
+    item_consigned_line: 由于您的%{product_name}商品已寄售
+    learn_more: 了解更多
+    potential_earnings: 潜在收入
+    preheader: 我们会尽快处理您的球鞋。
+    sneakers_consigned_line: 由于您的%{product_name}球鞋已寄售
+    sold_notification_body: 由于您的%{product_template_name}球鞋已寄售，该笔销售已自动确认。我们的专家正在处理订单，将在确认无误后向您发送有关提现事宜的电子邮件。
+    sold_notification_title: 您的球鞋刚已售出
+    subject: 您寄售的%{product_template_name}刚已售出
+    title: 卖家 - 寄售 - 售出
+    verification_declaration: 为确保所有在GOAT上销售的鞋履100%为正品，平台专家会对收到的商品进行全面细致的查验，包括标签、缝线、材质、颜色、气味等等。如果发现商品是仿品或与上架描述不符，我们会通知您并提供全额退款。
+    verification_process_question: 鉴别查验流程介绍
+    view_sale_status: 查看销售状态
+  consignment_needs_activation:
+    body: "@%{username}，您好！<br/><br/>感谢您将%{product_template_name}交由平台寄售。专家团队在仔细检查和查验后，认定您的商品为正品。您的上架商品已移至“寄存”页面中并可立即激活。<br/><br/>如需激活，请转至库存标签的“寄存”页面并<a
+      href='%{branch_redirect}'>设定商品的上架价格</a>。如果您想修改或管理上架商品，可以通过alias随时进行。<br/><br/>商品将在售出后直接从平台运营点发货。您的订单收入将自动存入您的账户。<br/><br/>如果您有任何疑问，请随时联系我们的<a
+      href='https://supportalias.zendesk.com/hc/en-us/requests/new'>客户服务团队</a>。 <br/>
+      <br/> %{brand_signature}"
+    subject: 商品寄售已受理 - 需要激活
+  controllers:
+    admin:
+      country_of_origins:
+        errors:
+          invalid_country: 请选择有效的国家/地区。
+      navigation:
+        apparel_is_pick_and_pack: Apparel IS Pick And Pack
+        apparel_pick: Apparel Pick
+        apparel_pick_and_pack: Apparel Pick And Pack
+        batch_picking: Batch Picking
+        can_not_change_location: 您无法更改您的地点信息。
+        change_location_to: 将地点更改为%{warehouse_name} (%{warehouse_id})
+        cx: CX
+        fulfillment: 发货
+        fulfillment_support: 发货支持
+        goat_pick: GOAT Pick
+        goat_pick_and_pack: GOAT Pick & Pack
+        goat_pick_and_swap: GOAT Pick & Swap
+        instant_ship: 极速发货
+        is_find: IS Find
+        is_goat_check: IS GOAT Check
+        is_goat_issue: IS GOAT Issue
+        is_loss: IS Loss
+        is_packaged: IS Packaged
+        is_pick_and_pack: IS Pick And Pack
+        is_prepackaged: IS Prepackaged
+        is_received: IS Received
+        is_shipped_buyer: IS Shipped Buyer
+        is_undeliverable: IS Undeliverable
+        is_verified: IS Verified
+        is_verifying: IS Verifying
+        language: 语言：%{name}
+        light_verification: 简易查验
+        location: 地点：%{location_name} (%{location_id})
+        location_unset: 地点：未设置
+        manually_shipped_orders: 订单需要人工发货
+        open_issues: 未决问题
+        orders: 订单
+        orders_with_issue: 存在问题的订单
+        order_issues_search: 订单问题搜索
+        other: 其他
+        packing_station_product_barcode: 打包点(V2) -- 产品条形码
+        packing_station_shipping_label: 打包点(V2) -- 物流标签
+        pick_queues: 分拣队列
+        pre_pack: GOAT预包装
+        process_order_issue: 处理订单问题
+        products: 产品
+        pt: PT
+        ready_to_pack: 准备打包
+        ready_to_pre_pack: 准备预包装
+        recently_processed: 近期处理的订单
+        sshk_pick_and_pack: SSHK分拣和打包
+        users: 用户
+        verification: 查验
+      orders:
+        bluelinking:
+          shipped_buyer_error: 错误：需存在To Buyer (发往买家) 物流信息方可将状态更改状态至Shipped Buyer (已发往买家)
+        packing:
+          errors:
+            already_acquired: 订单状态为GOAT Acquired (GOAT 拥有)
+            cannot_fulfill_carrier: 此站点不支持%{carrier}。
+            cannot_pack_fc_order: FC订单无法在GOAT站点打包！请将包裹送至FC发货点
+            ceva_shipping_label_missing: CEVA订单的物流标签还未准备好。请把包裹送至CEVA中转地。
+            fc_return_order: 这是退货商品。请取出鞋盒内的FC标签和认证卡。
+            fraud: 可能为欺诈。订单已改为goat_check
+            fulfillment_role: 未设置发货模式。请选择承运商并重新扫描。
+            label_does_not_meet_sla: 现有标签不符合订单配送SLA日期。标签正在重新生成。请在5分钟后再试一次。
+            missing_auth_or_qc: 缺少鉴别/质控印章，请向经理或主管确认
+            missing_product_number: 产品编号缺失
+            missing_upc_code: UPC代码缺失。请扫描UPC代码
+            not_found: 产品编号的相关订单未找到
+            not_paid_out: 订单未支付。请在5分钟后再试一次。
+            no_goat_auth: 请勿在鞋盒中放入GOAT鉴别卡。
+            order_missing_prepack_step: 订单需要预包装，预计将在goat_prepackaged中。
+            preshipment: 装运前检查失败
+            product_upc_mismatch: UPC不匹配
+            return_order: 这是退货商品。请取出鞋盒内的GOAT贴纸、认证卡和PID贴纸。
+            shipping_label_missing: 物流标签还未准备好。
+            sh_hk_transfers_shipping_label_missing: SH1订单的物流标签尚未准备就绪。请稍后再试一次。
+            unexpected_status: 订单状态为%{status}，暂未准备好发货。
+            warning: 请勿发货
+          priority:
+            next_day: "次日达 (空运) \U0001F69A"
+      pick_and_packs:
+        create:
+          defer_to_hk: 标签生成移交至香港仓库。
+          errors:
+            label_generation_failed: 生成标签失败。%{reason}
+            not_found: 未找到订单
+            product_not_match: 产品ID与订单不匹配。
+            unexpected_status: 订单状态为%{status}且非goat_pick
+          failure_message: 更新订单#%{number}失败。%{exception_message}
+          success_message: 订单#%{number}已成功更新。请开始打包。
+        index:
+          purchased_at_ascending: 购买日期 - 升序
+          purchased_at_descending: 购买日期 - 降序
+          sorting_options: 排序选项
+      pre_packs:
+        create:
+          success: 产品条形码%{product_barcode}已完成预包装。请送往打包点。
+          success_ceva: 产品条形码%{product_barcode}已完成预包装。请送往CEVA打包区。
+          success_shanghai1: 产品条形码%{product_barcode}已成功完成预包装。请送往Transfer to HK Station
+            (转运至香港站)。
+          success_yamato: 产品条形码%{product_barcode}已完成预包装。请前往Yamato打包区。
+    api:
+      v1:
+        wechat:
+          errors:
+            wechat_user_only: 仅限微信用户
+  country:
+    name:
+      CN: 中国大陆
+  credit_notes:
+    applied_to_order_issue: 订单问题#%{order_number}
+    cash_out_to_direct_deposit: 提现至直接存款 (ACH)：%{account}
+    cash_out_to_paypal: 提现至PayPal：%{account}
+    charge_credit: 积分消费
+    drop_off_promotion: 交递促销订单#%{order_number}
+    refund_cash_credit_for_order: 订单#%{order_number}的现金积分退款
+    refund_promo_credit_for_order: 订单#%{order_number}的促销积分退款
+    sales_from_order: 订单#%{order_number}的销售收益
+  customer_validator:
+    cn_id:
+      invalid_id_number: 身份证号输入有误
+  date:
+    formats:
+      default: "%Y/%m/%d"
+  deactivated_cards_markup: "<p>尾号为%{deactivated_seller_cards}的信用卡已从您的账户中删除，因为我们发现其已失效。</p><br/><br/>"
+  deny_in_review:
+    body: |-
+      %{username}，您好！<br/> <p>我们无法批准此请求，因为您提供的信息与您拍摄的照片不一致。<a href='%{branch_redirect}'>请重新在alias中提交您的请求</a>。</p>
+      alias
+    subject: 您的%{product_template_name}上架审核未通过
+  devise:
+    confirmations:
+      confirmed: 您的电子邮件地址已成功确认。
+      send_instructions: 您将在几分钟内收到一封电子邮件，其中包含有关确认电子邮件地址的说明。
+      send_paranoid_instructions: 如果您的电子邮件地址已经存在于我们的数据库中，您将在几分钟内收到一封电子邮件，其中包含有关确认电子邮件地址的说明。
+    failure:
+      already_authenticated: 您已经登录。
+      expired: 您的账号因处于非活动状态而已过期。请联系网站管理员。
+      inactive: 你的账号尚未激活。
+      invalid: 您的电子邮件地址、用户名或密码不正确。
+      last_attempt: 您还剩一次尝试机会，之后您的账号将被锁定。
+      locked: 您的账号已锁定。
+      not_found_in_database: 您的电子邮件地址、用户名或密码不正确。
+      session_limited: 您的登录凭据已在其他浏览器中使用。请重新登录以在此浏览器中继续。
+      timeout: 您的会话已过期。请重新登录以继续。
+      unauthenticated: 请先登录或注册以继续。
+      unconfirmed: 继续操作前请先确认您的电子邮件地址。
+    invalid_captcha: 验证码输入无效！
+    mailer:
+      reset_password_instructions:
+        subject: 重置密码说明
+    omniauth_callbacks:
+      failure: 无法通过%{kind}对您进行身份验证，原因：%{reason}。
+      success: 已成功通过%{kind}账号对您进行身份验证。
+    passwords:
+      no_token: 您只能通过密码重置电子邮件访问此页面。 如果本次操作确实来自密码重置电子邮件，请确保您使用了其中提供的完整链接。
+      send_instructions: 您将在几分钟内收到一封关于密码重设说明的电子邮件。
+      send_paranoid_instructions: 如果您的电子邮件地址已经存在于我们的数据库中，您将在几分钟之内通过此电子邮件地址收到密码恢复链接。
+      updated: 您的密码更改成功。您现在已登录。
+      updated_not_active: 您的密码已成功更改。
+    password_expired:
+      change_required: 您的密码已过期，请更新您的密码！
+      updated: 您的新密码已保存。
+    registrations:
+      destroyed: 再见！您的账号已成功取消。我们期待很快能再次与您相见。
+      signed_up: 欢迎！您已成功注册。
+      signed_up_but_inactive: 您已成功注册。但由于您的账号尚未激活，我们无法让您登录。
+      signed_up_but_locked: 您已成功注册。但由于您的账号已被锁定，我们无法让您登录。
+      signed_up_but_unconfirmed: 带有确认链接的消息已发送至您的电子邮件地址。 请点击此链接激活您的账号。
+      updated: 您的账号已成功更新。
+      update_needs_confirmation: 您已成功更新您的账号，但我们需要验证您的新电子邮件地址。请查收电子邮件，然后按照确认链接的提示，确认您的新地址。
+    sessions:
+      already_signed_out: 已成功注销。
+      signed_in: 您已成功登录。
+      signed_out: 已成功注销。
+    unlocks:
+      send_instructions: 您将在几分钟内收到一封关于账号解锁说明的电子邮件。
+      send_paranoid_instructions: 如果您的账号存在，您将在几分钟内收到一封电子邮件，其中包含有关解锁账号的说明。
+      unlocked: 您的账号已成功解锁。请登录以继续。
+  dhl_express:
+    template_1: 如何查找离您最近的DHL服务点
+    template_2: 如需查找离您最近的DHL服务点，请访问：
+    template_3: 选择您所在的国家/地区，然后输入您的街道地址、城市或邮政编码。
+    template_4: 选择“寄件”图标。选中后，轻点“我没有DHL账户，想要发送快递”字段。
+    template_5: 选择 “查看您附近的DHL服务点”
+  direct_deposit_enabled:
+    content: "@%{username}，您好！<br/> <br/> 您%{brand_signature}账户的银行转账功能已成功启用。现在，您可以通过我们的支付服务提供商Dwolla,
+      Inc.将资金直接存入您的银行账户。以下是您在创建用于银行转账的Dwolla账户时所接受的Dwolla<a href='https://www.dwolla.com/legal/tos?whitelabel'>服务条款</a>和<a
+      href='https://www.dwolla.com/legal/privacy?whitelabel'>隐私政策</a>。<br/><br/> %{contact_line}
+      <br/> %{brand_signature} "
+    subject_postfix: "%{subject_prefix} - 直接存款已启用"
+  direct_ship:
+    content: "%{username} 您好，<br/><br/>您的订单已送达至买家。<br/><br/>%{display_money}的收入已可提现。只需打开App，点按账户页面即可进行提现操作。<br/><br/>如有任何问题，请与我们联系。<br/>%{brand_signature}"
+    subject: 订单#%{order_number}已完成：%{display_money}可供提现
+  direct_shipping_order_issue:
+    body_html: "</br><p>您可在alias账户内查看<a href='%{order_deeplink}'>订单#%{order_number}</a>的详细信息。
+      运单追踪信息将在发货后更新。</p> </br><p>如需了解有关直发买家的政策及最佳实践，请查阅<a href='%{faq_deeplink}'>FAQ</a>。</p>
+      </br><p>谢谢您选择alias销售您的商品。</p> </br>alias"
+    description:
+      default_html: "</br>在查验您的订单<a href='%{order_deeplink}'>(#%{order_number})</a>内尺码为%{size}的%{product_name}时，我们发现您的商品与上架的图片或描述不一致。"
+      inauthentic_html: "<p>在查验您的订单<a href='%{order_deeplink}'>(#%{order_number})</a>内尺码为%{size}的%{product_name}时，我们的专家鉴定该商品为仿品。</p> "
+    greeting_html: "<p>%{username} 您好，</p> "
+    ops_img_html: "<img src='%{img_url}' width=150 /><br/> "
+    recoup_html: 因为存在问题，我们将收回该笔订单的收入：%{earnings_amount}，稍后会将相关商品退回至您的回寄地址。<p></p>
+    subject: 订单#%{order_number}问题
+  drop_off_goat_reminder:
+    content: '@%{username}，您好！<p>本邮件旨在提醒您尽快交递已确认订单的%{order_count} %{order_text}。</p>
+      <p><strong>简单三步</strong></p> <ul style=''list-style: none;''> <li>1. 打印并带上您的发货清单</li>
+      <li>2. 将%{plural_items}连同鞋盒 (如适用) 一起打包</li> <li>3. 将您的%{plural_items}送至%{brand_signature}仓库以供接收</li>
+      </ul> <p> <strong>收件点</strong> <br/><br/> <span style="font-weight:bold;">%{name}</span><br/>
+      %{address1}<br/> %{address2}<br/> %{city}, %{state_code} %{postal_code}<br/>
+      <br/> </p> <strong>订单详情</strong><br/> %{orders} <p>%{contact_line}</p> %{brand_signature} '
+    content_part1:
+      other: "@%{username}，您好！<p>本邮件旨在提醒您尽快交递已确认的%{count}个订单。</p>"
+      multi: "%{username} 您好，<p>本邮件旨在提醒您尽快交递已确认的%{count}个订单。</p>"
+      single: "%{username} 您好，<p>本邮件旨在提醒您尽快交递已确认的订单。</p>"
+    content_part2: '<p><strong>简单三步</strong></p> <ul style=''list-style: none;''>
+      <li>1. 打印并带上您的发货清单</li> <li>2. 将%{plural_items}连同鞋盒 (如适用) 一起打包</li> <li>3. 将您的%{plural_items}送至%{brand_signature}仓库以供接收</li>
+      </ul> <p> <strong>收件点</strong> <br/><br/> <span style="font-weight:bold;">%{name}</span><br/>
+      %{address1}<br/> %{address2}<br/> %{city}, %{state_code} %{postal_code}<br/>
+      <br/> </p> <strong>订单详情</strong><br/> %{orders} <p>%{contact_line}</p> %{brand_signature}'
+    order_details_html: <table <tr> <td><img src='%{product_template_picture}' width=150></td>
+      <td style="vertical-align:middle;padding-left:10px"> 订单编号：%{order_number}<br/>
+      名称：%{product_template_name}<br/> 状况：%{shoe_condition}<br/> %{box_line} %{defects_string}
+      %{seller_says} 尺码：%{presentation}<br/> %{sku_line} <b>交递截止时间：%{last_business_day}<br/></b>
+      %{shipping_label_link_html} <br/> </td> </tr> </table>
+    subject:
+      other: "%{subject_prefix} 提醒：订单发货"
+      multi: "%{subject_prefix} 订单交递提醒"
+      single: "%{subject_prefix} 订单 #%{order_number} 交递提醒"
+  drop_off_service:
+    berlin:
+      address_name: 柏林
+    carson:
+      address_name: 卡森
+    chi:
+      address_name: 富兰克林帕克
+    fcchi:
+      address_name: Flight Club Chicago
+    fcla:
+      address_name: Flight Club LA
+    fcmia:
+      address_name: Flight Club Miami
+    fcny:
+      address_name: Flight Club NY
+    fc_tokyo:
+      address_name: Flight Club东京
+    fontana:
+      address_name: 丰塔纳
+    goat_hk:
+      address_name: GOAT香港
+    holiday_description: 节假日除外：更多详情，敬请访问goat.com/faq
+    japan:
+      address_name: 日本
+    kwai_chung:
+      address_name: 葵涌
+    malaysia:
+      address_name: Shah Alam
+    rotterdam:
+      address_name: 鹿特丹
+    sz_eor:
+      address_name: 深圳
+    teterboro:
+      address_name: 泰特波罗
+    within_n_hours: "%{n}小时内"
+    within_the_next_n_hours: "%{n}小时内"
+  drop_ship_partner_monthly_summary:
+    content: |-
+      %{username}，您好！<br/><br/>
+      附上%{report_date}的所有订单和退货的形式发票概要。感谢您选择GOAT，我们随时乐意协助您解决任何可能的问询。<br><br>请注意，这是一条自动发送的信息。如果您有任何问题或疑问，请联系ap@goat.com，以确保得到及时的回复。<br><br>谢谢，<br>GOAT Group<br/></br>
+      本电子邮件 (包括任何附件) 可能含有专有、机密和/或受保护的信息，这些信息不应泄露给预期收件人以外的任何个人。严禁将本电子邮件或其内容 (包括任何附件) 向指定收件人以外的个人传播或使用。如果您错误地收到了这封邮件，请立即通过电子邮件通知我们，以便我们更正内部记录。之后将原始邮件 (包括所有附件) 全部删除。
+    subject: "%{username} %{report_date}"
+  drop_ship_partner_summary:
+    content: |-
+      %{username}，您好！<br/><br/>
+      附件是GOAT上的订单每日摘要，请查收。您将在月底收到付款。
+      - GOAT<br/><br/>
+    subject: "%{username} %{report_date} "
+  drop_ship_status:
+    buyer_confirmed:
+      buyer_description: 感谢您的订单，不要忘了在%{app}秀出您的穿搭灵感。
+    buyer_return_approved:
+      buyer_description: 我们已批准您的退货，并已将退款以积分的形式退回至您的%{sales_channel_name}帐户，用于日后购买。
+    seller_confirmed:
+      buyer_description: 感谢您的订单。我们将竭力确保您的商品能尽快送至您家中。
+  errors:
+    messages:
+      already_confirmed: 已确认，请尝试登录
+      confirmation_period_expired: 需要在%{period}内确认，请重新申请
+      equal_to_current_password: 不能与当前密码相同。
+      expired: 已过期，请重新申请
+      not_found: 未找到
+      not_locked: 未锁定
+      not_saved:
+        other: "%{count}个错误已阻止存储此%{resource}："
+      password_format: 必须包含大写字母、小写字母和数字
+      taken_in_past: 以前曾使用过。请使用新的密码。
+    unpermitted_location:
+      messages:
+        location_id_blank: Location ID为空白
+        location_not_found: 地点不存在：%{location_id}
+        user_blank: 用户为空
+        user_not_permit: 用户没有在此处工作的权限
+  expedited_shipping:
+    button_title: 升级配送
+    buyer_description: 您的订单可享优先处理服务，通过加急配送在1-3个工作日内将商品送达。
+    buyer_title: 标准配送大约4-6个工作日送达
+  express_shipping:
+    button_title: 升级订单
+    buyer_title: 您的商品已送至%{sales_channel_name}，正在等待鉴别查验。在您的商品完成查验后，我们将发送一封确认邮件，并附上追踪包裹的链接。
+    offer_expired:
+      body: 您的球鞋已由我们的专家完成鉴别查验并且已打包。正在等待承运商取走包裹。
+      heading: 升级配送已过期
+    upgrade_purchased:
+      buyer_description: 在您的商品完成查验后，我们将发送一封确认邮件，并附上追踪包裹的链接。
+      buyer_title: 订单升级 (优先处理) 已确认。
+  forms:
+    order_issue_form:
+      accessories: 配件
+      apparel_condition: 产品状况
+      box_condition: 鞋盒状况
+      craftsmanship: 工艺
+      discoloration: 褪色
+      fake: 仿品
+      has_glue: 有胶水
+      left: 左
+      markings: 痕迹
+      mismatched_size: 尺码不匹配
+      no_issue_selected: 您必须选择一个问题
+      other: 其他
+      right: 右
+      shoe_condition: 鞋子状况
+      tears_rips: 磨损/开裂
+      wrong_size: 尺码错误
+      wrong_sku: SKU错误
+  global_pricing_service:
+    body_copy: 您正在查看当前购物地区%{country}的优选价格。所有商品价格均已包含适用的费用和税费，交付时无需额外收费。
+    body_copy_fc: 已包含适用的费用和税费，交付时无需额外收费。
+    body_copy_no_vat: 您正在查看当前购物地区%{country}的优选价格。所有商品价格均已包含适用的费用，交付时无需额外收费。
+    body_copy_no_vat_fc: 已包含适用的费用，交付时无需额外收费。
+    body_copy_no_vat_or_surcharge: 您正在查看当前购物地区%{country}的最优惠价格。价格已包含适用的进口成本。
+    body_copy_us: 所示商品价格已包含%{country}适用的关税和相关费用。
+    body_tax_copy: 您正在查看当前购物地区%{country}的最优惠价格。所有商品价格均包含适用的进口成本和税费。
+    short_copy: 您的购物地区为%{country}。已包含适用的费用和税费，交付时无需额外收费。
+    short_copy_fc: 已计入小计中
+    short_copy_no_vat: 您的购物地区为%{country}。已包含适用的费用，交付时无需额外收费。
+    short_copy_no_vat_or_surcharge: 您的购物地区为%{country}。价格已包含适用的进口成本。
+    short_copy_us: 您的购物地区为%{country}。所示价格已包含适用的进口成本和关税。
+    short_tax_copy: 您的购物地区为%{country}。价格已包含适用进口成本和税费。
+    tax_body_copy: 已包含适用的费用和税费，交付时无需额外收费。
+    tax_short_copy: 已计入小计中
+    title_copy: 包含进口税
+  hello: 您好，世界！
+  helpers:
+    admin:
+      black_friday_raffle_prize: 黑色星期五抽奖
+      buyer: 买家
+      buyer_refunded: 已退款给买家
+      card_authorization_code: 授权代码
+      crosslist_fc_to_goat: 交叉上架FC -> GOAT
+      crosslist_goat_to_fc: 跨平台上架GOAT -> FC
+      drop_off_to_consign: 交递以寄售
+      drop_ship: 大卖家直发
+      drop_ship_forwarder: 直发货代
+      expedited_shipping: 加急运输
+      flight_club: Flight Club
+      freight_forwarding_ceva: CEVA
+      freight_forwarding_yamato: Yamato
+      goat_clean: GOAT Clean
+      guest_order: 访客订单
+      high_value_order: 高价值订单
+      instant_ship: 极速发货
+      intercompany_transfer: 公司间转运
+      missing_product_sold: 售出产品已丢失
+      next_day_shipping: 次日达
+      order_reservation: 订单预留
+      p2p: P2P
+      paypal_email: PayPal邮箱
+      paypal_transaction: PayPal交易
+      pending_write_off: '产品被标记为Pending Write Off (待注销) '
+      pending_write_off_removed: Pending Write Off (待注销) 已清
+      prerelease: 预发布
+      product_collection: 系列
+      product_is_found: 产品状态为Found (找到)
+      product_is_missing: 产品状态为Missing (丢失)
+      promo_code_ledger: 促销代码记录
+      purchased_for_goat_clean: GOAT Clean购置库存
+      reserved_order: 保留订单
+      seller: 卖家
+      shelf: 货架
+      shipment_id_to_buyer: 给买家的装运ID
+      statement_code: 语句代码
+      storage: 寄存
+      storage_buyback: 寄存回购
+      tmall: 天猫
+      wechat: 微信
+    listing_picture_name:
+      accessories:
+        product_back_picture: 背面或侧面
+        product_extra_picture: 细节%{nth_picture}
+        product_outer_picture: 正面
+        product_shoe_tag_picture: 标签
+      bags:
+        product_back_picture: 背面
+        product_extra_picture: 细节%{nth_picture}
+        product_inner_picture: 内部
+        product_outer_picture: 正面
+        product_sole_picture: 底部
+      clothing:
+        product_back_picture: 背面
+        product_extra_picture: 细节%{nth_picture}
+        product_outer_picture: 正面
+        product_shoe_tag_picture: 成分标签
+        product_size_tag_picture: 尺码标签
+      default:
+        product_back_picture: 背面
+        product_extra_picture: 细节%{nth_picture}
+        product_inner_picture: 内侧
+        product_interior_picture: 内部
+        product_outer_picture: 外侧
+        product_shoe_box_picture: 包装
+        product_shoe_tag_picture: 标签
+        product_size_tag_picture: 尺码标签
+        product_sole_picture: 下部
+        product_top_picture: 上部
+      shoes:
+        product_back_picture: 背面
+        product_extra_picture: 细节%{nth_picture}
+        product_inner_picture: 内侧
+        product_outer_picture: 外侧
+        product_shoe_box_picture: 鞋盒
+        product_shoe_tag_picture: 标签
+        product_size_tag_picture: 尺码
+        product_sole_picture: 鞋底
+        product_top_picture: 上部
+    order_verification:
+      already_authenticated: 已鉴别
+      authenticate: 鉴别
+      not_authenticated: 未鉴别
+      responses:
+        apparel_prepack: 需要特殊处理：服装订单
+        auth_rack: 请将产品放置于“AUTH” (鉴别) 货架
+        china_order_notification: 中国订单：需要特殊处理
+        fc_packaging_rack: FLIGHT CLUB：需要特殊处理
+        freight_forwarding_area: 运送至美国：请送至货运代理区
+        goat_issue_rack: 请将产品放置于“GOAT ISSUES” (GOAT问题) 货架
+        goat_packaging_rack: 请将产品放置于“GOAT打包”货架
+        inventory_rack: 请将产品放置于“ADD TO INVENTORY”  (添加至库存) 货架
+        packaging_router_fail: 请带上产品以获取支持
+        qc_rack: 请将产品放置于“QC” (质控) 货架
+      submit: 提交
+      submitting: 正在提交...
+      un_auth: 取消鉴别
+      un_auth_confirm: 您确定要取消鉴别吗？
+      un_qc: 取消质控
+      un_qc_confirm: 您确定要取消质控吗？
+      verify: 验证
+  instant_paid_out:
+    content: " @%{username}，您好！<p>恭喜！您的商品已完成处理，您将通过alias账户收到付款。现在，您有%{display_money}可供提现。</p>
+      %{deactivated_cards_markup} <a href='%{branch_order_redirect}'>%{order_number}</a>
+      - %{product_name}<br/><br/> alias "
+    subject: 订单：%{order_number}恭喜！
+  international_checkout_note:
+    CN: 收货前无需支付额外的进口税。
+    default: 总价不包含进口税。您可能需要在收货时支付。
+    ff_off:
+      off_duty_vat: 您将需要在收货时支付预计%{formatted_vat}的增值税、预计%{formatted_duty}的进口税以及预计%{formatted_surcharge}的到付手续费。
+      off_vat: 您将需要在收货时支付预计%{formatted_vat}的增值税和预计%{formatted_surcharge}的到付手续费。
+    landed_cost_no_vat_or_duty: 未包含增值税和进口成本
+    landed_cost_only_import_costs: 包含进口成本
+    landed_cost_tax_and_duties: 包含税费和进口成本
+    landed_cost_tax_without_duties: 含税
+    landed_cost_vat_and_duties: 包含增值税和进口成本
+    landed_cost_vat_without_duties: 包含增值税
+    'NO': 收货前无需支付额外的进口税。
+    UK_wo_vat: 总价不包含进口税和税费。您可能需要在收货时支付。
+    UK_w_vat: 收货前无需支付额外的税费和进口税。
+    with_duty: 收货前无需支付额外的进口税。
+  jd_logistics:
+    template_1: 等待京东物流收取包裹
+  landed_cost:
+    duties_and_tax_not_included: 总价不包含进口税和税费。您可能需要在收货时支付。
+    duties_not_included: 总价不包含进口税。您可能需要在收货时支付。
+    no_additional_duties_or_tax: 收货前无需支付额外的税费或进口税。
+    no_additional_tax: 收货前无需支付额外的税费。
+  layouts:
+    black_ground_table:
+      contact_support: 联系客服
+      download_goat_app: 下载GOAT应用程序
+      follow_the_progress: 在我们的应用中追踪您的订单进度
+      privacy_policy: 隐私政策
+      survey_terms: "*点击这里查看调查条款和条件。"
+      tip: 贴士
+    top_nav:
+      sell: 出售
+      shop: 选购
+  mailers:
+    orders:
+      buyer_mailer:
+        item_summary:
+          item_summary_fashion:
+            brand_name: 品牌名称
+            item_summary: 商品摘要
+            return_policy: 退货政策
+          item_summary_sneakers:
+            box_condition: 鞋盒状况
+            brand_name: 品牌名称
+            item_summary: 商品摘要
+            return_policy: 退货政策
+            shoe_condition: 鞋子状况
+        order_summary:
+          order_hero_section:
+            order_number: 订单#%{order_number}
+          order_hero_section_large_img:
+            order_number: 订单#%{order_number}
+          order_summary_drop_ship:
+            goat_credit: GOAT积分
+            order_summary: 订单摘要
+            promo_code: 促销代码
+            shipping: 配送
+            subtotal: 小计
+            total_paid: 支付总计
+          order_summary_stv:
+            free: 免费
+            goat_credit: GOAT积分
+            instant_processing: 优先处理
+            list_price: 售价
+            order_summary: 订单摘要
+            promo_code: 促销代码
+            shipping: 配送
+            subtotal: 小计
+            total_paid: 支付总计
+            verification: 查验
+        top_questions:
+          top_questions:
+            have_more_questions: 还有其他问题？
+            submit_a_request: 提交工单
+            top_questions: 热门问题
+            visit_our_faq: 浏览常见问题
+  models:
+    billing_info:
+      errors:
+        billing_addr_card_unmatched_zip: 账单地址邮政编码必须与付款方式的邮政编码相一致。
+  name_format_validator:
+    cannot_be_a_space: "：输入您的完整姓名。请注意：第一个和最后一个字符不能是空格。"
+    cannot_contain_emojis: 不得含有表情符号
+    cannot_contain_numbers_and_special_characters: 不得含有数字和特殊字符。
+    must_contain_first_and_last_name: 必须包含姓氏和名字。
+  non_powerseller_drop_off_goat_reminder:
+    content: "@%{username}，您好！<p>本邮件旨在提醒您尽快交递已确认的订单商品。</p> <p><strong>简单三步</strong></p>
+      <ul style='list-style: none;'> <li>1. <a href='%{seller_shipping_label_url}'>点击此处打印并带上交递标签</a></li>
+      <li>2. 将%{plural_items}连同鞋盒 (如适用) 一起打包</li> <li>3. 查看PDF文件中的交递说明，并将您的%{plural_items}送往指定收件点</li>
+      </ul> <strong>订单详情</strong><br/> %{order_details_html} <p>%{contact_line}</p>
+      %{brand_signature} "
+    order_detail_html: <table> <tr> <td><img src='%{product_template_picture}' width=150></td>
+      <td style="vertical-align:middle;padding-left:10px"> 订单编号：%{order_number}<br/>
+      名称：%{product_template_name}<br/> 状况：%{shoe_condition}<br/> %{box_line} %{defects_string}
+      %{seller_says} 尺码：%{presentation}<br/> %{sku_line} <br/> </td> </tr> </table>
+    subject: 提醒：请为您的订单#%{order_number}发货
+  not_accepted_drop_off_consignment:
+    body: 因此，<a href='%{branch_redirect}'>您的上架商品</a>已移至您账户中的“已拒绝”页面，并且将通过您的回寄地址将该商品寄回给您。回寄运费将从您的账户余额中扣除，如果余额不足，我们将通过您个人资料中的付款方式进行收费。<br/><br/>在您的商品寄出后，您将收到一封包含回寄包裹追踪链接的确认电子邮件。<br/><br/>如果您有任何疑问，请随时联系我们的<a
+      href='https://supportalias.zendesk.com/hc/en-us/requests/new'>客户支持团队</a>。<br/><br/>%{brand_signature}
+    intro: "@%{username}，您好！<br/><br/>感谢您交递%{product_template_name}予平台寄售。经过仔细检查，我们的专家团队发现您的商品存在以下问题：<br/>"
+    subject: 商品寄售遭拒：%{issue_description}
+  offer_payment_failed:
+    content: "@%{username}，您好！<br/> <br/>虽然您已接受以下报价，但由于买方付款问题，交易未能完成。我们已通知买家，并已按照您接受的报价将您的%{item_type}重新上架。在您的上架商品出售之后，我们会立即通知您。<br/>
+      <br/> 名称：%{product_name}<br> 状况：%{shoe_condition}<br/> %{box_line} 尺码：%{presentation}<br/>
+      %{sku_line} 报价：%{display_money}<br> <br/> %{contact_line} <br/> 谢谢，<br/> <br/>
+      %{brand_signature} "
+    subject: 报价更新 - 买家付款问题
+  omni:
+    order_status:
+      assigned_to_carrier: 来自%{seller_loc}的包裹即将由%{carrier}送货上门，追踪号码为：%{tracking_code}。
+      buyer_confirmed: 为您的新鞋拍张靓照并分享给朋友。
+      consigned: 已验证您的球鞋保管在GOAT寄存中。
+      custom_clearance: 您的包裹已经抵达海关。请留意来电，以防%{carrier}工作人员需要您协助进行清关。
+      custom_clearance_for_forwarding: 您的包裹已经抵达海关。请留意来电，以防GOAT工作人员需要您协助进行清关。
+      delivered: 请在24小时内检查并报告外箱及鞋盒的问题。如有任何疑问，请与我们联系。
+      delivered_forwarder: GOAT工作人员将在包裹运送至中国海关前检查您的清关信息。
+      delivered_goat: GOAT专家将尽快查验您的球鞋。
+      goat_packaged: 您的包裹已准备就绪，即将离开%{warehouse}仓库发往中国海关。
+      goat_packaged_for_forwarding: 您的包裹已准备就绪，即将离开GOAT仓库发送给您。
+      goat_verified: 您的球鞋已通过鉴别。请等待GOAT完成打包。
+      goat_verifying: 整个流程可能需要1-2个工作日。如果您的球鞋存在任何问题，我们都将与您联系。
+      instant_consigned: 您的球鞋保管在GOAT寄存中。
+      out_for_delivery: 请尽快检查外箱是否损坏。
+      pickedup_by_carrier: 来自%{seller_loc}的包裹已抵达中国大陆，目前正发往%{buyer_loc}。
+      seller_packaging: 卖家正准备将包裹发送至GOAT站点进行查验。
+      shipped_buyer: 您的包裹已分配给可靠的快递承运商：%{carrier}。物流编号为：%{tracking_code}。
+      shipped_forwarder: 您的包裹已离开%{warehouse}仓库，目前正在发往您的途中。
+      shipped_goat: 包裹刚刚离开%{seller_loc}。现在正发往%{warehouse}站点。预计抵达时间约为%{eta}个工作日。
+      sold: 3小时内取消此订单无需支付额外费用。
+  orders:
+    buyer_mailer:
+      order_confirmation:
+        auction_offer_preheader: 您已获拍%{product_name}
+        auction_offer_winner_subject: 恭喜您竞拍成功！
+        completed_auction_offer_header: 竞拍成功！
+        congratulations_auction_offer: 您已获拍%{product_name}。订单发货后，我们会向您发送一封包含跟踪包裹链接的确认电子邮件。
+        covid_19_restrictions: 由于新冠肺炎疫情和政府限制举措，您的订单可能会出现执行和发货延迟。感谢您的耐心和理解。
+        shipping_address: 送货地址
+        view_order_status: 查看订单状态
+      shared:
+        order_number: 订单#%{order_number}
+        view_order_status: 查看订单状态
+        we_guarantee_authenticity_details: 为确保所有在GOAT上销售的商品100%为正品，平台专家会对收到的商品进行全面细致的查验，包括标签、缝线、材质、颜色、气味等等。如果发现商品是仿品或与上架描述不符，我们会通知您并提供全额退款。
+      shipped_buyer:
+        est_delivery_date: 预计送达日期
+        header: 您的订单已完成鉴别，正在运往您的途中。请注意，追踪信息可能需要24小时才会更新。
+        headline: 您的订单正在运送途中
+        order_details: 订单详情
+        package_contains: 包裹包含
+        shipped_to: 运送至
+        subject: 您的订单#%{order_number}已发货
+        tracking_info: 追踪信息
+        tracking_info_appear: 追踪信息可能需要24小时才会显示
+        tracking_number: 追踪号码
+        track_your_package: 追踪您的包裹
+        your_order_has_shipped: 您的订单已发货。请注意，追踪信息可能需要24小时才会更新。
+        your_order_is_headed_your_way: 您的订单已完成鉴别，正在运往您的途中。请注意，物流追踪信息可能需要24小时才会更新。
+  order_issue:
+    desc:
+      box_badly_damaged: 鞋盒严重破损
+      box_good_condition: 鞋盒状况良好
+      box_missing_lid: 没有鞋盒盖子
+      box_no_original_box: 无原装鞋盒
+      b_grade: B品
+      cracking: 开裂
+      creasing: 折痕
+      default: 产品与上架信息不符
+      default_wrong_item: 商品错误
+      defects: 工艺问题
+      discoloration: 褪色
+      fake: 仿品
+      glue_stain: 胶水痕迹
+      join_comma: "、"
+      marking: 磨损
+      markings: 痕迹
+      mismatched: 尺码不匹配
+      mismatched_size: 尺码不匹配
+      missing_accessories: 配件缺失
+      missing_insoles: 没有鞋垫
+      mold: 发霉
+      odor: 异味
+      one_shoe: 仅收到一只鞋
+      period_punctuation: "。"
+      product_new: 新品
+      product_used: 二手
+      scuffs: 磨损
+      shoe_new: 新鞋
+      shoe_used: 二手鞋
+      tears: 开裂
+      tried_on: 穿着痕迹
+      wrong_size_sku: 尺码或SKU错误
+  order_issue_mailer:
+    buyer_refund_options:
+      fc_refund_credit_option_title: 选项A
+      issue_found: 我们的运营点已收到您的 %{product_name} (订单编号：%{order_number}，SKU：%{sku})。专家团队在查验商品后发现如下问题：
+    discount_offered:
+      noticed_issue: 平台已收到您的商品%{product_name} (%{sku})，但在查验过程中发现如下问题：%{issue_description}。
+      see_photos: 请查看随附照片。
+      subject: 订单#%{order_number} - 请即关注
+    seller_auto_consignment:
+      consigned_your_cargo: 由于没有收到您的回复，我们已将您的%{item_type}：%{product_name} (%{sku})
+        寄售，价格为%{price_cents}美元。您可以在应用程序中调整价格。我们将在您的%{item_type}售出后处理订单，并在可提现时通知您。
+      consigned_your_item: 由于没有收到您的回复，我们已将您的商品：%{product_name} (%{sku}) 寄售，价格为%{price_cents}美元。您可以在应用程序中调整价格。我们将在您的商品售出后处理订单，并在可提现时通知您。
+      consigned_your_sneakers: 由于没有收到您的回复，我们已将您的球鞋：%{product_name} (%{sku}) 寄售，价格为%{price_cents}美元。您可以在应用程序中调整价格。我们将在您的球鞋售出后处理订单，并在可提现时通知您。
+      subject: 商品已寄售：%{product_name} (尺码 %{product_size})
+      take_off_consignment: 如果您希望取消寄售%{item_type}，请回复此电子邮件，我们会为您准备回寄%{item_type}所需的运费报价。
+      take_off_consignment_item: 如果您希望取消寄售该商品，请回复此封电子邮件，我们会为您准备回寄球鞋所需的运费报价。
+      take_off_consignment_sneakers: 如果您希望取消寄售球鞋，请回复此电子邮件，我们会为您准备回寄球鞋所需的运费报价。
+    seller_cancel:
+      consign_item_with_us: 通过平台寄售此商品。此商品可能以原始售价激活上架。您可以随时在应用程序内修改上架价格。
+      consign_sneakers_with_us: 通过平台寄售此球鞋。此球鞋可能以原始售价激活上架。您可以随时在应用程序内修改上架价格。
+      consign_with_us: 通过平台寄售%{item_type}。该商品可能以发售价激活上架。您可以随时在应用程序内修改该上架商品的价格。
+      order_canceled: 很遗憾，由于没有及时发货，您的订单已被取消。特此提醒，卖家必须在订单生成后24小时内确认销售并于3个工作日内发货。否则，订单将自动取消。
+      proceed_options_html: 请为<a href='%{redirect_url}' mc:disable-tracking>订单#%{order_number}</a>在以下两个选项中进行选择，以告知我们您偏好的处理方式。
+      select_an_option_in_the_app: 请在应用程序中选择一个选项。
+      shipped_back: 支付%{shipping_cost_cents}以将%{item_type}回寄。请注意，运费可能会因%{item_type}的重量、所处位置和价值而异。运费包括商品寄送到GOAT运营点和从GOAT运营点寄出所产生的费用。付款后，我们会将物流信息发送给您，以便您追踪配送进度。
+      shipped_back_item: 支付%{shipping_cost_cents}以将商品回寄。请注意，运费可能会因商品的重量、仓储位置和价值而异。运费包括商品寄送到平台运营点和从平台运营点寄出所产生的费用。付款后，我们会将物流信息发送给您，以便您追踪配送进度。
+      shipped_back_sneakers: 支付%{shipping_cost_cents}以将球鞋回寄。请注意，运费可能会因球鞋的重量、仓储位置和价值而异。运费包括商品寄送到平台运营点和从平台运营点寄出所产生的费用。付款后，我们会将物流信息发送给您，以便您追踪配送进度。
+      subject: "%{subject_prefix}订单%{order_number}已取消 - %{item_type}已收到"
+    seller_consignment:
+      add_your_product: 我们已按原始售价将%{product_name} (%{sku}) 添加到您的账户中。您可以在应用程序中调整价格并激活您的上架商品。我们将在您的%{item_type}售出后处理该订单，并在可提现时通知您。
+      add_your_product_item: 我们已按原始售价将 %{product_name} (%{sku}) 添加到您的账户中。您可以在应用程序中调整价格并激活您的上架商品。我们将在您的商品售出后处理该订单，并在可提现时通知您。
+      add_your_product_sneakers: 我们已按原始售价将 %{product_name} (%{sku}) 添加到您的账户中。您可以在应用程序中调整价格并激活您的上架商品。我们将在您的球鞋售出后处理该订单，并在可提现时通知您。
+      subject: 商品已寄售：%{product_name} (尺码 %{product_size})
+      take_off_consignment: 如果您希望取消寄售%{item_type}，请回复此电子邮件，我们会为您准备回寄球鞋所需的运费报价。
+      take_off_consignment_item: 如果您希望取消寄售该商品，请回复此封电子邮件，我们会为您准备回寄商品所需的运费报价。
+      take_off_consignment_sneakers: 如果您希望取消寄售球鞋，请回复此电子邮件，我们会为您准备回寄球鞋所需的运费报价。
+    seller_consignment_choice_reminder:
+      cancel_buyer_order: 温馨提示，由于我们的专家在查验过程中发现了问题，我们不得不取消买家的订单并予以退款。
+      consign_item_with_us: 通过平台寄售此商品。您可以随时在应用程序内修改上架价格。
+      consign_sneakers_with_us: 通过平台寄售此球鞋。您可以随时在应用程序内修改上架价格。
+      consign_with_us: 通过平台寄售%{item_type}。您可以随时在应用程序内修改该上架商品的价格。
+      default_option: 请注意：如果您在接下来14天内未作出任何回应，我们将代您继续执行选项A。
+      shipped_back: 支付%{seller_shipping_cost_cents}以将%{item_type}回寄。请注意，运费可能会因%{item_type}的重量、所处位置和价值而异。运费包括商品寄送到GOAT运营点和从GOAT运营点寄出所产生的费用。付款后，我们会将物流信息发送给您，以便您追踪配送进度。
+      subject: 订单#%{order_number}问题 - 选项正待处理
+    seller_discount_accepted_by_buyer:
+      order_proceed_html: 我们就<a href='%{redirect_url}' mc:disable-tracking>订单#%{order_number}</a>联系了买家，买家决定继续履行订单。我们将处理该订单，并在可提现时通知您。
+      subject: 订单#%{order_number} - 买家已接受
+    seller_discount_choice_reminder:
+      reminder_html: 温馨提示，此订单需要您处理。请转至订单界面，为<a href='%{redirect_url}' mc:disable-tracking>订单#%{order_number}</a>选择折扣选项。您也可以在应用程序中搜索该订单号。
+      subject: "%{subject_prefix}订单#%{order_number} - 请即关注"
+    seller_discount_options:
+      find_photos: 请查收随附照片。
+      let_us_know_html: 请访问<a href='%{url}' mc:disable-tracking>订单#%{order_number}</a>，告诉我们您偏好的处理方式。您也可以在应用程序中搜索该订单号。
+      subject: "%{subject_prefix}订单#%{order_number} - 请即关注"
+    seller_invoice_reminder:
+      consign_item: 如果您在收到运费账单后14天内未完成支付，我们将代您寄售该商品，并根据SKU和尺码以较同类商品最低价格高出10%的价格上架该商品。如果不存在最低价格，我们会酌情设定一个价格。您可以随时在应用程序内修改上架商品的价格。
+      dispose_fake: 如果您在收到运费账单后14天内未完成支付，%{brand}将酌情处理该商品。
+      reminder_to_pay_the_invoice: 我们已将PayPal账单发送至%{email}，以支付回寄运费。此信息仅为提醒您支付账单，以便我们将%{item_type}邮寄给您。如果您的PayPal账户关联的电子邮件地址并非此电子邮件地址，请回复此邮件，以便我们将账单发送至您的账户。
+      reminder_to_pay_the_invoice_item: 我们已将PayPal账单发送至%{email}，以支付回寄运费。此信息仅为提醒您支付账单，以便我们将商品邮寄给您。如果您的PayPal账户关联的电子邮件地址并非此电子邮件地址，请回复此邮件，以便我们将账单发送至您的账户。
+      reminder_to_pay_the_invoice_sneakers: 我们已将PayPal账单发送至%{email}，以支付回寄运费。此信息仅为提醒您支付账单，以便我们将球鞋邮寄给您。如果您的PayPal账户关联的电子邮件地址并非此电子邮件地址，请回复此邮件，以便我们将账单发送至您的账户。
+      subject: 订单#%{order_number}问题 - 账单支付提醒
+    seller_notification_buyer_declined_charged_credit:
+      deduct_credit_card: 如果您的积分余额不足以支付运费，则不足部分将从您的信用卡中扣除。
+      description: 很遗憾，我们发现您的商品存在%{issue_description}。我们已扣除%{money}的积分以支付寄回给您所需的运费。在您的商品寄出后，我们将发送一封包含包裹追踪链接的确认电子邮件。
+      sneakers_description: 很遗憾，我们发现您的球鞋存在%{issue_description}。我们已扣除%{money}的积分以支付寄回给您所需的运费。在您的球鞋寄出后，我们将发送一封包含包裹追踪链接的确认电子邮件。
+      subject: 订单#%{order_number}问题：%{issue_description}
+    seller_notification_buyer_declined_charged_invoice:
+      description: 很遗憾，我们发现您的%{item_type}存在如下问题：%{issue_description}。我们已向您发送金额为%{money}的Paypal账单，以支付向平台寄货以及回寄给您所需的往返运费。请支付账单款项，以便我们将%{item_type}退回给您。
+      description_item: 很遗憾，我们发现您的商品存在%{issue_description}。我们已向您发送金额为%{money}的Paypal账单，以支付向平台寄货以及回寄给您所需的往返运费。请支付账单款项，以便我们将商品退回给您。
+      description_sneakers: 很遗憾，我们发现您的球鞋存在%{issue_description}。我们已向您发送金额为%{money}的Paypal账单，以支付向平台寄货以及回寄给您所需的往返运费。请支付账单款项，以便我们将球鞋退回给您。
+      subject: 订单#%{order_number}问题：%{issue_description}
+    seller_notification_buyer_declined_due_to_issue:
+      advise_how_to_proceed_html: 请为<a href='%{url}' mc:disable-tracking>订单#%{order_number}</a>在以下两个选项中进行选择，以告知我们您偏好的处理方式。您也可以在应用程序中搜索该订单号。
+      buyer_declined: 我们已收到此订单的商品：%{product_name} (%{sku})，但很遗憾，在查验过程中专家发现了以下问题：%{issue_description}，我们必须取消买家的订单并予以退款。
+      international_seller_option: 对于跨境卖家：如果您选择将%{item_type}寄回，我们会出于报关目的申报上述%{item_type}的价格并将该商品标记为退货商品。您所在国家/地区所征收的任何适用关税和税费，须由您自行承担。
+      international_seller_option_item: 对于跨境卖家：如果您选择将商品寄回，我们会出于报关目的申报上述商品的价格并将该商品标记为退货商品。您所在国家/地区所征收的任何适用关税和税费，须由您自行承担。
+      international_seller_option_sneakers: 对于跨境卖家：如果您选择将球鞋寄回，我们会出于报关目的申报上述球鞋的价格并将该商品标记为退货商品。您所在国家/地区所征收的任何适用关税和税费，须由您自行承担。
+      option_a: 通过平台寄售%{item_type}。您可以随时在应用程序内修改该上架商品的价格。
+      option_a_item: 通过平台寄售此商品。您可以随时在应用程序内修改上架价格。
+      option_a_sneakers: 通过平台寄售此球鞋。您可以随时在应用程序内修改上架价格。
+      option_b: 支付%{money}以将%{item_type}回寄。请注意，运费可能会因球鞋的重量、所处位置和价值而异。运费包括商品寄送到GOAT运营点和从GOAT运营点寄出所产生的费用。付款后，我们会将物流信息发送给您，以便您追踪配送进度。
+      option_b_item: 支付%{money}以将商品回寄。请注意，运费可能会因商品的重量、仓储位置和价值而异。运费包括商品寄送到平台运营点和从平台运营点寄出所产生的费用。付款后，我们会将物流信息发送给您，以便您追踪配送进度。
+      option_b_sneakers: 支付%{money}以将球鞋回寄。请注意，运费可能会因球鞋的重量、仓储位置和价值而异。运费包括商品寄送到平台运营点和从平台运营点寄出所产生的费用。付款后，我们会将物流信息发送给您，以便您追踪配送进度。
+      subject: 订单#%{order_number} - 请即关注
+    seller_notification_buyer_declined_for_cn_domestic_seller:
+      description_sneakers: 很遗憾，我们发现您的球鞋存在如下问题：%{issue_description}。
+      subject: 订单#%{order_number}问题：%{issue_description}
+    seller_p2p_order_canceled_due_to_issue:
+      charged_credit_shipping_description: 我们已扣除%{money}的积分以支付寄回给您所需的运费。在您的%{item_present_perfect_to_be}寄出后，我们将发送一封包含包裹追踪链接的确认电子邮件。
+      deduct_credit_card: 如果您的积分余额不足以支付运费，则不足部分将从您的信用卡中扣除。
+      invoice_generated_shipping_description: 我们已向您发送金额为%{money}的PayPal账单，以支付向我们寄货以及回寄给您所需的往返运费。请支付账单款项，以便我们将%{item_type}退回给您。
+      order_canceled: 我们已收到此订单的商品：%{product_name} (%{sku})，但很遗憾，在查验过程中专家发现了以下问题：%{issue_description}，我们必须取消买家的订单并予以退款。
+      subject: "%{subject_prefix}订单#%{order_number}问题：%{issue_description}"
+    seller_return_cancelation:
+      charged_credit_shipping_description: 我们已扣除%{money}的积分以支付寄回给您所需的运费。在您的%{item_present_perfect_to_be}寄出后，我们将发送一封包含包裹追踪链接的确认电子邮件。
+      deduct_credit_card: 如果您的积分余额不足以支付运费，则不足部分将从您的信用卡中扣除。
+      invoice_generated_shipping_description: 我们已向您发送金额为%{money}的PayPal账单，以支付向平台寄货以及回寄给您所需的往返运费。请支付账单款项，以便我们将%{item_type}退回给您。
+      invoice_generated_shipping_description_item: 我们已向您发送金额为%{money}的PayPal账单，以支付向平台寄货以及回寄给您所需的往返运费。请支付账单款项，以便我们将商品退回给您。
+      invoice_generated_shipping_description_sneakers: 我们已向您发送金额为%{money}的PayPal账单，以支付向平台寄货以及回寄给您所需的往返运费。请支付账单款项，以便我们将球鞋退回给您。
+      order_canceled: 很遗憾，由于没有及时发货，您的订单已被取消。特此提醒，卖家必须在订单生成后24小时内确认销售并于3个工作日内发货。否则，订单将自动取消。
+      subject: "%{subject_prefix}订单#%{order_number}已取消 - %{item_type}已收到"
+    shared:
+      appreciate_your_patience: 感谢您的耐心和理解！
+      best: 祝好，
+      contact_us_html: 如果您对退款存有任何疑问，请随时<a href='https://support.goat.com/hc/zh-cn/requests/new'>联系我们</a>。
+      hearing_from_you: 我们期待您的回音！
+      hey: "%{username} 您好，"
+      hey_email: "%{email} 您好，"
+      option_a: 选项A：
+      option_b: 选项B：
+      order_item_type: 商品
+      order_sneakers_type: 球鞋
+      refund_back: 全额退款将原路返回。退款处理通常需要3-5个工作日。
+      refund_credit: 以GOAT积分的形式获得全额退款。积分将立即存入您的账户并可在未来购买商品及报价时使用。此外，GOAT积分不会过期。
+      search_in_the_app: 您也可以在应用程序中搜索该订单号。
+      select_an_option_in_the_app: 请在应用程序中选择一个选项。
+      thanks_with_comma: 谢谢，
+  order_issue_status_details:
+    acquired_order:
+      buyer_description: 您的订单已取消，我们将为您办理退款。
+      buyer_title: 取消
+    add_on_description1: 由于我们无法继续处理订单，您的订单升级 (优先处理) 费用已单独返还至您的原始付款方式，金额为%{amount}。
+    add_on_description2: 由于订单处理出现延迟，我们无法及时完成您的订单升级 (优先处理)。我们会将相关费用返还至您的原始付款方式，金额为%{amount}。
+    authenticated: 已鉴别
+    available_to_cash_out: 您的球鞋已由我们的专家完成鉴别，并已发货给买家。您现在有%{amount}可供提现。
+    buyer_declined:
+      buyer_declined: 买家已拒绝
+      buyer_declined_desc: 买家不希望继续此订单。您可以选择寄售球鞋，或将球鞋回寄给您。
+      consign_confirm_message: 您要继续寄售此商品吗？您可在激活上架商品之前调整价格。
+      incorrect_sku: 尺码/SKU不正确
+      incorrect_sku_desc: 我们已收到您的球鞋，但无法对其进行查验。您的上架信息为：%{product_name} - %{sku} - (尺码为%{size})，我们收到的是：
+        %{issue_product_name} - %{issue_sku} - (尺码为%{issue_size})。您可以选择寄售这双球鞋，或申请寄回给您。
+      mismatched: 不匹配
+      mismatched_desc: 我们已收到您的球鞋，但发现尺码不匹配。
+      replicas: 仿品
+      replicas_desc: 我们已收到您的球鞋，但发现它们是仿品。
+      request_return_confirm_message: 我们将向您发送运费账单：%{amount}。账单支付后，球鞋将被退回。您想继续吗？
+    buyer_refund_options:
+      button_1_confirm_message: 我们将以%{sales_channel_name}积分的形式为您全额退款。您要继续吗？
+      button_1_confirm_title: 确认%{sales_channel_name}积分
+      button_1_title: "%{sales_channel_name}积分"
+      button_2_confirm_message: 我们将向您的原付款方式全额退款。您要继续吗？
+      button_2_confirm_title: 确认退款
+      button_2_title: 退款至原付款方式
+      buyer_description1: 我们支持以%{sales_channel_name}积分的形式提供全额退款，供您用于日后购买 (即时处理)，或将款项退回至您的原支付方式
+        (需要2-3个工作日处理)。
+      buyer_description2: 您的订单已收到：%{product_template} - %{sku}，卖家发货情况：%{issue_description}。我们支持以%{sales_channel_name}积分的形式提供全额退款，供您用于日后购买
+        (即时处理)，或将款项退回至您的原支付方式 (需要2-3个工作日处理)。
+      buyer_title: 退款选项
+      seller_description: 我们目前正在等待买家回复。
+    buyer_return_options:
+      buyer_description: 由于您的退货未被接受，您可以选择由我们寄售球鞋，或将球鞋回寄给您。
+      buyer_description_apparel: 由于您的退货未被接受，您可以选择将您的商品退回给您。
+      request_return_confirm_message: 我们将向您发送%{return_cost_cents}的账单以支付运费。账单支付后，球鞋将被退回。您想继续吗？
+    canceled: 已取消
+    confirm: 确认
+    confirm_consignment: 确认寄售
+    confirm_return: 确认退货
+    confirm_return_message_apparel: 我们将向您发送运费账单：%{return_cost_cents}。账单支付后，商品将退回。您想继续吗？
+    consign: 寄售
+    consign_confirm_message: 您想继续寄售此商品吗？该上架商品将立即被激活。您可以前往上架商品界面调整价格。
+    decision_pending: 待决定
+    delivered_to: 已送至%{sales_channel_name}
+    delivered_to_buyer_description: 您的包裹已送达%{sales_channel_name}仓库，正在等待鉴别查验。在您的球鞋完成鉴别后，我们会向您发送一封确认邮件，并附上追踪包裹的链接。
+    delivered_to_seller_description: 您的包裹已送达%{sales_channel_name}仓库，正在等待鉴别查验。我们将尽快与您沟通有关鉴别结果和收入提现的信息。
+    discount_offered:
+      accept_as_is: 按现状接受
+      accept_confirm_message: 您要继续这个订单吗？
+      buyer_description: 我们已收到球鞋，但专家发现了以下问题：%{issue_description}。卖家提供%{discount_percentage}%的折扣，相当于优惠%{amount}。
+      buyer_description2: 照片信息请参考电子邮件。
+      discount_offered: 已提供折扣
+      find_replacement: 查找替代品
+      find_replacement_confirm_message: 如果找不到合适的替代品，我们将取消您的订单，并为您提供退款选项。您要继续吗？
+      find_replacement_title: 确认查找替代品
+    invoice_generated:
+      fake_paypal_invoice: 您的球鞋经鉴别为仿品。我们已向您发送PayPal账单，以支付往返的运费。请按账单付款以便继续。
+      mismatched_paypal_invoice: 您的球鞋尺码不匹配。我们已向您发送PayPal账单，以支付发货和退货产生的运费。请支付账单款项以便继续。
+      paypal_invoice: 我们已通过PayPal向您发送账单。请按账单付款以便继续。
+    payment_pending: 付款待处理
+    refund_issued: 退款已发放
+    refund_issued_description: 您的退款已发放。如果您申请以%{sales_channel_name}积分的形式退款，积分可在您的账户中查看。其余形式可能需要2-3个工作日的时间处理。
+    replacing:
+      buyer_description: 我们目前正在寻找合适的替代品。如果不能找到合适的替代品，我们将为您提供退款选项。感谢您的理解！
+      buyer_title: 查找替代品中
+    request_return: 申请退货
+    return_denied: 已拒绝退货
+    return_denied_description: 因不符合退货政策相关要求，您的退货已被拒绝。稍后，我们的客户支持人员将向您发送邮件附上更多细节。
+    return_denied_options: 退货已拒绝选项
+    return_to_buyer:
+      buyer_description: 我们很快会将球鞋回寄给您。
+      buyer_title: 球鞋退货
+    return_to_seller:
+      seller_description: 您的球鞋正回寄给您。
+      seller_title: 退货
+    seller_canceled:
+      buyer_description: 订单已被卖家取消。
+      buyer_description2: 我们已发放金额为%{amount}的退款。如果该卖家多次取消订单，其销售账户将被取消。
+      buyer_description3: "%{amount}已经以积分的形式添加至您的账户，可用于日后购买。"
+      charge_credit_confirm_message: 将从您的积分中扣除%{amount}作为运费。您要继续吗？
+      generate_invoice_confirm_message: 我们将向您发送运费账单：%{amount}。账单支付后，球鞋将被退回。您想继续吗？
+      seller_description: 由于未能及时发货，您的订单已被取消。您可以选择由我们寄售 (仅限一次)，或者将球鞋退回给您，但您需要支付往返运费。
+    seller_discount_options:
+      confirm_discount: 确认折扣
+      discount_confirm_message: 您提供了%{num}%的折扣。您要继续吗？
+      discount_title: "%{num}%折扣"
+      no_discount_confirm_message: 您没有提供折扣。您要继续吗？
+      no_discount_title: 无折扣
+      offer_discount: 提供折扣
+      seller_description: 我们已收到您的球鞋，但专家在查验过程中发现了以下问题：%{issue_description}。请提供您的最佳及最终的售价调整，以鼓励买家继续接受订单。
+  order_progress_view:
+    display_name:
+      authenticated: 已鉴别
+      completed: 已完成
+      delivered: 已送达
+      delivered_goat: 已送至GOAT
+      dropped_off: 已交递
+      dropped_off_at_dhl: 已交递至DHL Express
+      dropped_off_at_ups: 已交递至UPS
+      dropped_off_at_usps: 已交递至USPS
+      in_goat_storage: GOAT寄存
+      ordered: 已下单
+      seller_confirmed: 卖家已确认
+      seller_packaging: 卖家打包
+      shipped: 已发货
+      shipping_to_goat: 发往GOAT
+      shipping_to_you: 发往收件人
+      shipping_to_you_via_dhl: 正通过DHL Express发往收件人
+      shipping_to_you_via_ups: 正通过UPS发往收件人
+      shipping_to_you_via_usps: 正通过USPS发往收件人
+      verified: 已查验
+  order_status_details:
+    add_on_description1: 由于我们无法继续处理订单，您的订单升级 (优先处理) 费用已单独返还至您的原始付款方式，金额为%{amount}。
+    add_on_description2: 由于订单处理出现延迟，我们无法及时完成您的订单升级 (优先处理)。我们会将相关费用返还至您的原始付款方式，金额为%{amount}。
+    authenticated: 已鉴别
+    awaiting_payment:
+      buyer_title: 待处理
+      description: |-
+        您的订单正在由%{payment_type}处理中。我们将在付款受理成功后向您发送一封确认电子邮件。
+
+        您可在下单后3小时内或在卖家确认前取消订单，以先到者为准。
+    buyer_accepted: 买家已接受
+    buyer_confirmed:
+      buyer_description: 感谢您的订单，不要忘了在%{app}秀出您的穿搭灵感。
+      gift_card_buyer_description: 您的GOAT礼品卡已寄出。
+      virtual_buyer_description: 感谢您的输入。
+    buyer_rejected:
+      buyer_description: 很抱歉听到这个消息。我们的团队成员很快将通过电子邮件与您联系。
+    buyer_return_approved:
+      buyer_description: 我们已批准您的退货，并已将退款以积分的形式退回至您的GOAT帐户，用于日后购买。
+    buyer_return_received:
+      buyer_description: 我们已收到您的退货商品，并将在七个工作日内处理。
+    buyer_return_rejected:
+      buyer_description: 因不符合退货政策相关要求，您的退货已被拒绝。稍后，我们的客户支持人员将向您发送邮件附上更多细节。
+    canceled: 已取消
+    canceled_by_buyer:
+      buyer_description: 您已取消订单。
+      buyer_description1: 我们已发放退款，金额为%{amount}。
+      buyer_description2: "%{amount}已经以积分的形式添加至您的账户，可用于日后购买。"
+      order_cancneled: 您的订单已被买家取消。
+      order_cancneled_and_relist: 订单已被买家取消，您的球鞋已重新上架出售。
+    canceled_by_seller:
+      buyer_description: 您的订单已被卖家取消。
+      buyer_description1: 我们已发放金额为%{amount}的退款。如果该卖家多次取消订单，其销售账户将被取消。
+      buyer_description2: "%{amount}已经以积分的形式添加至您的账户，可用于日后购买。"
+    canceled_by_seller_review:
+      buyer_description1: 您可在下单后三小时内或在卖家确认前取消订单，以先到者为准。
+      buyer_description2: 我们将在确认后通知您。
+      seller_confirmed: 卖家已确认您的订单，目前正准备将商品寄给我们进行鉴别查验。
+    cancel_order: 取消订单
+    claim_accepted:
+      buyer_description: 保险公司已接受您的索赔，我们已向您发放退款。
+    claim_filed: 索赔已提交
+    claim_pending:
+      buyer_description: 您的索赔已提交，我们已向您发放退款。
+    completed: 已完成
+    confirm: 确认
+    confirmed: 已确认
+    confirm_order_cancellation: 您确定要取消此订单吗？
+    delivered:
+      buyer_description: 您的订单商品已经送达。
+      buyer_description2: 收到包裹之后，请确认收到的商品符合产品描述。
+    delivered_goat:
+      buyer_description: 您的商品已送至%{sales_channel_name}，正在等待鉴别查验。在您的商品完成鉴别后，我们会向您发送一封确认邮件，并附上追踪包裹的链接。
+      buyer_description_auto_consign: 您的包裹已送至%{sales_channel_name}仓库，正在等待鉴别查验。在您的球鞋完成鉴别后，将放入%{sales_channel_name}寄存保管。
+      buyer_title: 已送至%{sales_channel_name}
+      delivered_to_goat: 已送至GOAT
+      seller_description: 您的包裹已送至GOAT仓库，正在等待鉴别查验。我们将尽快与您沟通有关鉴别结果和收入提现的信息。
+    fraudulent:
+      buyer_description: 您的订单已取消。
+      buyer_refund_credits_description: "%{amount}已经以积分的形式添加至您的账户，可用于日后购买。"
+      buyer_refund_description: "%{amount}的退款已退回至您的原付款方式。处理需要可能2-3天，请耐心等待。"
+      seller_description: 由于买方的欺诈行为，此订单未能通过我们的安全交易审查。我们已将您的球鞋重新上架出售。给您带来的不便，我们深感抱歉。
+      seller_title: 已阻止欺诈
+    goat_acquired:
+      buyer_description: 您的订单已取消，我们已向您发放退款。
+    goat_consigned:
+      buyer_description: 您的球鞋保管在%{sales_channel_name}寄存中。您可在个人资料中重新上架出售或申请寄回家中。
+      buyer_title: "%{sales_channel_name}寄存"
+    goat_issue_buyer_accepted:
+      buyer_description: 我们将继续处理您的订单，并在发货后通知您。
+      seller_description: 买家确认订单继续进行。如有收入可供提现的进展，我们会及时通知您。
+    goat_issue_resolved:
+      buyer_description: 退款已发放。如果您申请以%{sales_channel_name}积分的形式退款，积分可在您的账户中查看。其余形式可能需要2-3个工作日的时间处理。
+      from_buyer_return_buyer_description: 此问题已经解决。
+      from_buyer_return_seller_description: 您的球鞋已由我们的专家完成鉴别，并已发货给买家。您现在有%{amount}可供提现。
+      seller_description: 此问题已经解决。
+    goat_issue_return_to_buyer:
+      buyer_description: 我们很快会将您的球鞋寄回。发货后，您将收到一封包含跟踪包裹链接的确认电子邮件。
+      seller_description: 您的球鞋已由我们的专家完成鉴别，并已发货给买家。您现在有%{amount}可供提现。
+    goat_issue_return_to_seller:
+      buyer_description: 退款已发放。如果您申请以%{sales_channel_name}积分的形式退款，积分可在您的账户中查看。其余形式可能需要2-3个工作日的时间处理。
+      seller_description: 我们很快会将您的球鞋寄回。发货后，您将收到一封包含跟踪包裹链接的确认电子邮件。
+    goat_loss:
+      seller_description: 由于承运商的问题，您的包裹已延误。我们正进一步调查此事，但如果您需要额外的帮助，请发送电子邮件至%{support_email}。
+      seller_description2: 您的索赔已经提交，正在等待保险公司的审查。
+    goat_received:
+      buyer_description1: 您的订单已下达。我们将在发货后通知您。
+      buyer_description2: 您的包裹已送至%{sales_channel_name}仓库，正在等待鉴别查验。在您的球鞋完成鉴别后，将放入%{sales_channel_name}寄存保管。
+      buyer_description3: 您的商品已送至%{sales_channel_name}，正在等待鉴别查验。在您的商品完成鉴别后，我们会向您发送一封确认邮件，并附上追踪包裹的链接。
+      buyer_title1: 已购买
+      buyer_title2: 已送至%{sales_channel_name}
+      seller_description1: 您的球鞋刚刚已售出，为确保交易安全，订单正在接受审核。审核时间通常为24小时以内。一旦交易核准，我们将向您发送通知，如果交易被拒绝，您的球鞋会重新上架。
+      seller_description2: 您的包裹已送达GOAT仓库，正在等待鉴别查验。我们将尽快与您沟通有关鉴别结果和收入提现的信息。
+      seller_title1: 订单待处理
+      seller_title2: 已送至GOAT
+    goat_review:
+      buyer_description: 您的订单已下达。
+      buyer_description_virtual: 您的订单已生成，目前正在处理。
+      buyer_title: 已购买
+      cancel_order_description: 您可在下单后三小时内或在卖家确认前取消订单，以先到者为准。
+      consignment_buyback: 我们将在发货后通知您。
+      notify_you_description: 我们将在确认后通知您。
+      seller_description: 您的球鞋刚刚已售出，为确保交易安全，订单正在接受审核。审核时间通常为24小时以内。一旦交易核准，我们将向您发送通知，如果交易被拒绝，您的球鞋会重新上架。
+      seller_title: 订单待处理
+    goat_review_risk_rejected:
+      buyer_description: 您的订单已下达。我们将在订单确认后通知您。
+      buyer_description_consignment_buyback: 您的订单已下达。我们将在发货后通知您。
+    goat_stand_by:
+      buyer_description: 您的球鞋已由我们的专家完成鉴别，很快就会给您安排发货。
+      buyer_description_auto_consign: 您的球鞋已由我们的专家完成鉴别，很快就将放入%{sales_channel_name}寄存保管。
+      seller_description: 您的球鞋已由我们的专家完成鉴别，很快就将发货给买家。您现在有%{amount}可以提现。
+    goat_verified:
+      auto_consign_buyer_description: 您的球鞋已由我们的专家完成鉴别，很快就将放入%{sales_channel_name}寄存。
+      buyer_description: 您的商品已由我们的专家完成鉴别，很快就会给您安排发货。
+      consignment_buyback_buyer_description: 您的订单已下达。我们将在发货后通知您。
+      seller_description: 您的球鞋已由我们的专家完成鉴别，很快就将发货给买家。您现在有%{amount}可供提现。
+    goat_with_courier:
+      buyer_description: 您的订单正在运送给您的途中。
+      buyer_description1: 收到包裹之后，请确认收到的商品符合产品描述。
+      confirm_title: 确认退货
+      zendesk_buyer_description: 我们已经收到您的退货申请。
+    issue_reported: 已报告问题
+    issue_resolved: 已解决问题
+    other_orders:
+      buyer_description: 您的订单已取消，我们将为您办理退款。
+      buyer_description2: 您的退货标签已通过电子邮件发送给您，退货目前为待处理状态。
+      buyer_description3: 您的退货待处理。
+      cancellation: 取消
+    pending:
+      description: 抱歉，此交易失败。
+      title: 交易失败
+    pending_status: 待处理
+    purchased: 已购买
+    refund_issued: 退款已发放
+    refund_message: 根据退货政策规定，我们可以为您办理退款，但需要扣除往返运费。总运费为%{shipping_cost}，%{refund_amount}的退款将以%{sales_channel_name}积分的形式退还。您要继续吗？
+    report_an_issue: 报告问题
+    request_return: 申请退货
+    return: 退货
+    return_approved: 退货审核已通过
+    return_denied: 已拒绝退货
+    return_pending: 退货待处理
+    seller_confirmed:
+      buyer_description: 您的订单已确认，且您的球鞋已经由%{sales_channel_name}专家完成鉴别，以确保球鞋为正品。我们将在发货后通知您。
+      buyer_description2: 卖家已确认您的订单，目前正准备将商品寄给我们进行鉴别查验。
+      drop_off_confirm_message: 请在订单生成后%{cutoff}将商品交递至%{address_name}，开放时间：%{hours}。如果无法达成，请联系客户支持。
+      drop_off_confirm_message2: 请在订单生成%{cutoff}将商品交递至%{address_name}，开放时间：%{hours}。如果无法达成，请使用预付费物流标签选项发货。
+      drop_off_confirm_title: 确认交递
+      drop_off_interstitial_message: 您所在地区仅支持收件点交递。请将订单商品交递至%{address_name}。
+      drop_off_interstitial_message2: 您的回寄地址似乎靠近%{address_name}。您可以尝试使用交递服务发货。
+      drop_off_interstitial_title: 交递功能已启用！
+      drop_off_seller_description: 请在订单生成后%{cutoff}交递货物。未能及时发货将触发订单自动取消和卖家帐户审查。
+      drop_off_seller_title: 生成交递标签
+      drop_off_title: 交递至%{address_name}
+      seller_description: 请在下单后的3个工作日 (周一至周六) 内发货。未及时发货将触发订单自动取消和卖家帐户审查。
+      seller_packaging_confirm_message: 您确定可以在下单后的3个工作日 (周一至周六) 内发货吗？
+      seller_packaging_title: 生成预付费的%{carrier}标签
+    seller_packaging:
+      buyer_description: 卖家已确认您的订单，目前正准备将商品寄给我们进行鉴别查验。
+      confirm_message: 包裹是否已揽收？轻点“是”即表示您确定已经将包裹交给承运商。
+      contact_help: 无法交递？请点按帮助
+      dropped_off: 已交递
+      dropped_off_with_dhl: 已交递至DHL Express
+      dropped_off_with_ups: 已交递至UPS
+      dropped_off_with_usps: 已交递至USPS
+      drop_off_seller_action_title: 获取路线
+      drop_off_seller_description: |-
+        我们已向您发送一封包含交递说明的电子邮件。请将商品交递至%{address_name}。
+
+        %{address}
+        %{city}，%{state_code} %{postal_code}
+        开放时间：%{open_days} %{hours}
+      drop_off_seller_title: 交递
+      pre_authenticated_buyer_description: 您的订单已确认，且您的球鞋已经由%{sales_channel_name}专家完成鉴别，以确保球鞋为正品。我们将在发货后通知您。
+      seller_description: 我们已将预付费的物流标签发送至%{email}。请打印标签并随附在包裹内，然后使用相应的承运商寄件。
+      seller_id: 卖家ID
+      seller_title: 正在打包
+    shipment_delay: 物流延误
+    shipped: 已发货
+    shipped_buyer:
+      confirm_message1: 您收到的商品是否与订单描述相符？
+      confirm_message2: 您的订单是否存在任何问题？如果有问题，请轻点“是”，我们将通过电子邮件跟进。
+      received_as_described: 收到的商品与描述相符
+    shipped_goat:
+      buyer_description: 您的商品正运往%{sales_channel_name}。在此提醒，所有商品都将先寄给我们进行鉴别查验。在您的商品完成鉴别后，我们会向您发送一封确认邮件，并附上追踪包裹的链接。
+      buyer_description_auto_consign: 您的包裹已经扫描，正运往%{sales_channel_name}。在此提醒，所有球鞋都将先寄给我们进行鉴别查验。在您的球鞋通过鉴别后，我们将为您寄存保管。
+      seller_description: 您的包裹已经扫描，正运往GOAT。在此提醒，所有球鞋都将先寄给我们进行鉴别查验。我们将尽快与您沟通有关鉴别结果和收入提现的信息。
+      verification_needed: 需要查验
+    sold:
+      confirm_order_message: |-
+        请确认球鞋的下述信息：%{shoe_condition}，尺码%{size}，SKU：%{sku}。
+
+        如果收到的球鞋与描述不符，则无法通过我们的查验流程。
+      seller_description: 恭喜。请在订单生成后的24小时内确认。未及时确认将触发订单自动取消和卖家帐户审查。
+      seller_title: 已售出
+    status_claim_accepted: 索赔已接受
+    status_claim_pending: 索赔待处理
+    status_delivered: 已送达
+    status_undeliverable: 无法投递
+    undeliverable:
+      buyer_description: 您的包裹因“无法投递”而退回。请联系%{sales_channel_name}客服获得更多帮助。
+    with_courier:
+      seller_description: 感谢，如果您的包裹开始运输，我们将及时通知您。
+  packaging:
+    subject: 订单#%{order_number} - 物流标签和说明
+  packaging_instructions_line:
+    alias: 请使用标准纸板箱为您的%{plural_items}打包。如果是球鞋，请勿直接使用鞋盒运送；为保护您的商品，请在包装箱顶部和底部各放一块纸板，或用包装纸、塑料或气泡膜包裹。如有收到装箱单，请在包装箱中一并附上。
+    goat: 请将您的%{plural_items}放入标准纸板箱中打包 (请勿直接使用鞋盒运送球鞋)
+  packaging_template:
+    content_1: "%{username} 您好，"
+    content_10: 请将包裹交递至物流标签上指定的快递承运商，并提供两份商业发票 (未能同时提供两份商业发票可能导致您的发货延迟)。
+    content_11: 简单四步
+    content_12: 请点击此处打印预付费且预填地址的物流标签和装箱单 (如有)
+    content_13: 将您的商品放入标准纸板箱中打包 (请勿直接使用鞋盒运送球鞋。为保护您的商品，请在包装箱顶部和底部各放一块纸板，或用包装纸、塑料或气泡膜包裹)。如有收到装箱单，请在包装箱中一并附上。
+    content_14: 请将物流标签粘贴至包装箱
+    content_15: 请将包裹交递至物流标签上指定的快递承运商。根据不同承运商的要求，请使用指定的收货点以确保物流信息及时更新。*Staples和其他第三方邮寄服务中心在扫描包裹时不再更新物流信息。
+    content_15_simplified: 请将包裹交递至物流标签上指定的快递承运商。根据不同承运商的要求，请使用指定的收货点以确保物流信息及时更新。
+    content_16: 请于%{formatted_ship_by_date}前发货。否则可能导致自动取消订单和审查您的卖家账户。
+    content_17: 订单详情
+    content_18: 订单编号：%{order_number}
+    content_19: 名称
+    content_2: 感谢您确认这笔销售。再完成几个步骤，您就可以赚取%{amount_made_usd}。
+    content_20: 状况
+    content_21: 问题
+    content_22: 卖家描述
+    content_23: 鞋盒
+    content_24: 尺码
+    content_25: SKU
+    content_26: 您的收入
+    content_27: 温馨提醒，您的商品将首先发送至平台进行鉴别查验，然后再发送给买家。在您的商品通过我们专家的鉴别后，我们会将您的收入添加至您的账户，便于您提现或在App中使用。
+    content_3: 简单六步
+    content_4: 请点击此处打印预付费且预填地址的物流标签
+    content_5: 点击此处打印您的商业发票
+    content_6: 点击此处打印商业发票的第二个副本
+    content_7: "(两张发票应该相同)"
+    content_8: 请将您的球鞋放入标准纸板箱中打包 (请勿直接使用鞋盒运送球鞋)
+    content_9: 请将物流标签粘贴至包装箱
+  paypal_transfer_completed:
+    content: '您好，@%{username}：<br/> <br/>一笔转入您Paypal账户%{account_details}的%{transfer_amount_cents}存款已于太平洋时间%{completed_at}成功结清并完成处理。该金额包括%{total_transfer}的提现金额减去2.9%的PayPal转账手续费。<br/>
+      <br/> %{contact_line} <br/> %{brand_signature} '
+    subject: 银行转账已完成
+  paypal_transfer_failed:
+    content: '您好，@%{username}：<br/> <br/>一笔金额为%{transfer_amount_cents}的款项未能成功存入至您的Paypal账户。我们已收到通知，正在调查解决此问题。<br/>
+      <br/> 提现金额%{transfer_amount_cents}已退还至您的%{brand_signature}账户，您可在更新银行账户后再次尝试提现。<br/>
+      <br/> %{contact_line} <br/> %{brand_signature} '
+    subject: 银行转账失败 - 需要处理
+  phone_registration:
+    errors:
+      region_not_allowed: 您选择的地区/国家不支持手机号码注册，请重新选择
+  phone_verification:
+    errors:
+      error_phone_number_already_existed: 此号码已注册，请前往登录
+      error_phone_number_format: 无效的电话号码
+      error_phone_number_not_existed: 此号码尚未注册，请前往注册
+      error_sending_security_code: 很抱歉，我们无法向您发送验证码。请再试一次。
+      phone_not_match: 您的电话号码与已验证的电话号码不同
+      timeout: 您的会话已超时，请重试
+      verify_fail: 验证码无效或过期，请重试或重新发送。
+    messages:
+      current_otp_message: 你的GOAT验证码为%{current_otp}。该验证码1分钟内有效，请勿泄漏于他人！
+      current_otp_message_new: 您的 GOAT 验证码为 %{current_otp}，1 分钟内有效。绝对不要将该验证码告知他人，GOAT
+        员工绝不会向您致电或者通过其他方式索要此验证码。请仅在 GOAT 官方网站及应用程序输入此验证码。
+  products:
+    box_condition:
+      badly_damaged: 严重破损
+      good_condition: 状况完好
+      missing_lid: 没有鞋盒盖子
+      no_original_box: 无原装鞋盒
+    defects:
+      b-grade: B品
+      discoloration: 褪色
+      missing_insoles: 没有鞋垫
+      odors: 有异味
+      scuffs: 磨损
+      tears: 开裂或磨损
+    shoe_condition:
+      new: 新品
+      used: 二手
+  product_mailer:
+    shared:
+      item_type:
+        item: 商品
+        sneakers: 球鞋
+      item_type_plural:
+        items: 商品
+        sneakers: 球鞋
+  product_presenter:
+    rejection_body_paragraph:
+      alias: 很遗憾，由于以下问题，您的上架商品审核未通过。我们已将您的上架商品移至“已拒绝”，您可以在“出售”标签中进行更改，然后重新提交以进行审核。<br/><br/>
+        <a href='%{branch_rejected_listings_redirect}'>在app中查看上架商品。</a> <br/><br/>
+        <b>问题：</b> <br/><br/>
+      direct_shipping: 很遗憾，由于以下问题，您的上架商品审核未通过：<br/><br/>
+      goat: 很遗憾，由于以下问题，您的上架商品审核未通过。我们已将您的上架商品移至“待确认”页面，您可以在“出售”标签页中进行更改，然后重新提交以进行审核。<br/><br/>
+        <b>问题：</b> <br/><br/>
+    rejection_body_pictures_copy:
+      content:
+        direct_shipping: 必须重新拍照：%{friendly_picture_names}。<br/><br/>请遵循我们在应用程序中提供的拍摄建议。拍照时，只需点按"?"图标即可查看拍摄技巧。<br/><br/>
+        stv: 必须重新拍照：%{friendly_picture_names}。<br/><br/>请遵循以下示例照片中的建议。您也可以参考我们的<a
+          href='%{faq_url}'>常见问题</a>中所述的拍照指南。<br/><br/> <table border="0" cellpadding="0"
+          cellspacing="0" height="100%" width="50%" id="bodyTable"><tr>
+    rejection_closing_paragraph: 由于上述问题，您的上架商品已被拒绝并移至“未上架”页面。如果您希望纠正此问题，请在alias应用程序中进行适当更改，然后重新提交您的上架商品以供审核。<br/><br/>
+      <a href='%{branch_rejected_listings_redirect}'>在应用程序中查看上架商品。</a> <br/><br/>
+      感谢您抽出宝贵时间，希望尽快看到您在alias中上架更新后的商品。<br/><br/>alias
+  product_rejection_body_intro:
+    direct_shipping: "@%{username}，您好！<br/> <br/>感谢您在alias上架尺码为%{product_size}的%{product_template_name}。<br/><br/>"
+    stv: "@%{username}，您好！<br/> <br/>感谢您上架销售尺码为%{product_size}的%{product_template_name}。<br/><br/>"
+  product_rejection_subject: 上架问题 - %{product_template_name}
+  product_template_created:
+    content: "%{username}，您好！<br/><br/>您通过%{brand_signature}创建都待售商品申请已通过审核！请进入App将其上架以开始销售。<br/><br/>
+      %{brand_signature}"
+    subject: 您的商品创建请求
+  product_template_denied:
+    content: "%{username}，您好！<br/><br/>您通过%{brand_signature}创建都代售商品申请已被拒绝！%{contact_line}<br/>
+      %{brand_signature}"
+    subject: 您的商品创建请求
+  product_variants_view:
+    holiday_instant: 已完成预先鉴别查验，通过优先处理发货，预计于12月24日*前送达
+    holiday_instant_delay: 已完成鉴别，可以通过优先处理直接发货
+    holiday_instant_delay_modal: 极速发货产品已经过预先鉴别查验，可直接从GOAT发货。价格包含最多%{percentage}%的优先处理费用，我们将优先处理您的订单并尽快送达至您手中。
+    holiday_instant_modal: |-
+      极速发货产品已经过预先鉴别查验，可直接从GOAT发货。在太平洋时间上午11点 (周一至周五，节假日除外) 之前订购，即可满足预期交付时间。价格包含最多%{percentage}%的优先处理费用，我们将优先处理您的订单并尽快送达至您手中。
+
+      *12月24日前送达的时效为预估时间，仅适用于美国本土订单，选择邮政信箱方式的除外。
+    holiday_instant_next_day: 已完成预先鉴别查验，并通过优先处理发货。通过次日达方式预计于12月24日*前送达
+    holiday_instant_next_day_modal: |-
+      极速发货产品已经过预先鉴别查验，可直接从GOAT发货。在太平洋时间上午11点 (周一至周五，节假日除外) 之前订购，即可满足预期交付时间。价格包含最多%{percentage}%的优先处理费用，我们将优先处理您的订单并尽快送达至您手中。
+
+      *12月24日前送达的时效为预估时间，仅适用于美国本土订单，选择邮政信箱方式的除外。
+    instant_modal: 极速发货商品已完成鉴别，可从GOAT直接发货。太平洋标准时间周一至周五 (节假日除外) 上午11点前完成支付的订单可享受当日处理及发货。
+    instant_modal_prioritized: 价格包含最多%{percentage}%的优先处理费用，我们将优先处理您的订单并尽快送达至您手中。
+    mobile_best: 先送至GOAT进行鉴别
+    mobile_instant: 已完成鉴别，可以通过优先处理直接从GOAT发货
+    v1_mobile_instant: 已完成鉴别，可通过优先处理直接发货 — 12月24日前送达*
+    v1_mobile_instant_modal: |-
+      极速发货产品已完成鉴别，可直接从GOAT发货。%{markup_msg}
+
+      12月18日上午11点 (太平洋时间) 之前下单，可于12月24日前收货。仅限美国本土48个州。
+    v1_web_instant: 已完成鉴别，可通过优先处理直接发货 — 12月24日前送达*
+    v1_web_instant_modal: |-
+      极速发货产品已经过预先鉴别，可直接从GOAT发货。%{markup_msg}
+
+      12月18日上午11点 (太平洋时间) 之前下单，可于12月24日前收货。仅限美国本土48个州。
+    v2_mobile_instant: 已完成鉴别，可通过优先处理直接发货 — 12月24日前送达*
+    v2_mobile_instant_modal: |-
+      极速发货产品已完成鉴别，可直接从GOAT发货。%{markup_msg}
+
+      12月22日上午11点 (太平洋时间) 之前下单，并在结账时选择次日达，即可于12月24日收货。时效仅限美国本土48个州。
+    v2_web_instant: 已完成鉴别，可通过优先处理直接发货 — 12月24日前送达*
+    v2_web_instant_modal: |-
+      极速发货产品已完成鉴别，可直接从GOAT发货。%{markup_msg}
+
+      12月22日上午11点 (太平洋时间) 之前下单，并在结账时选择次日达，即可于12月24日收货。时效仅限美国本土48个州。
+    web_best: 先送至GOAT进行鉴别
+    web_instant: 已完成鉴别，可以通过优先处理直接从GOAT发货
+  product_verified_payout_available:
+    content: "@%{username}，您好！<br/> <br/> %{product_authenticated_line}<br/>现在，您有%{display_money}可供提现。只需打开App，%{cash_out_instructions}即可将资金存入您的账户。<br/>
+      <br/> %{contact_line} <br/> %{brand_signature} "
+    item_authenticated_line: 您的商品已由我们的专家完成鉴别，很快就将发货给买家。<br/>
+    sneakers_authenticated_line: 您的球鞋已由我们的专家完成鉴别，很快就将发货给买家。<br/>
+    subject: 订单#%{order_number}已完成：%{display_money}可供提现
+  promo_code:
+    errors:
+      cart_order_quantity_not_met: 购物车订单购买量未达到促销活动的最低金额
+      expired: 促销代码已失效
+      goat_storage_ineligible: 抱歉！此优惠券不适用于GOAT寄存
+      incorrect_order_type: 预期订单类型为购物车订单或直购订单
+      invalid: 促销代码无效
+      not_for_guest: 必须登录您的%{login_scope}账户才能激活此促销代码。
+      order_non_fastest: 必须选择最快到手的商品才能使用此促销代码。
+      order_non_instant: 必须选择极速发货商品才能使用此促销代码。
+      single_order_quantity_not_met: 订单金额未达到促销活动的最低金额
+      wrong_shipping_region: 抱歉！此优惠券只适用于送货至%{region}的订单
+  purchase_order_presenter:
+    cash_out_instructions:
+      alias: 轻点账户标签并提现
+      goat: 轻点“出售”标签页，然后转至左上方按钮开始提现操作
+    date_format: "%{date} %{day_name}"
+    items: 商品
+    item_in_flight_line:
+      item: 您的商品正运送至%{brand_signature}进行查验。在此提醒，所有商品都将先发送给平台查验，以防止出现仿品或与上架描述不一致的情况。<br/>
+      sneakers: 您的球鞋正运送至%{brand_signature}进行查验。在此提醒，所有球鞋都将先发送给平台查验，以防止出现仿品或与上架描述不一致的情况。<br/>
+    label_url_line: 标签：<a href='%{label_url}'>点按此处</a><br/>
+    packaging_instructions:
+      alias: 将您的%{items}放入标准纸板箱中打包 (请勿直接使用鞋盒运送球鞋。为保护您的商品，请在包装箱顶部和底部各放一块纸板，或用包装纸、塑料或气泡膜包裹)。如有收到装箱单，请在包装箱中一并附上。
+      goat: 请将您的%{items}放入标准纸板箱中打包 (请勿直接使用鞋盒运送球鞋)
+    product_defects_line: 问题：%{defects_text}<br/>
+    product_type:
+      item: 商品
+      sneakers: 球鞋
+    seller_says_line: 卖家描述：%{seller_says_text}<br/>
+    sku_line: SKU：%{sku}<br/>
+    sneakers: 球鞋
+    sneaker_box_line: 鞋盒：%{box_condition}<br/>
+    sold_instructions_line:
+      alias: 打开App中的“订单”页面，生成物流标签并开始打包。如果您有收到装箱单，请记得打印出来并将其附于包装箱内。
+      goat: 打开App中的“订单”页面，生成物流标签并开始打包。
+    verification_link: 进一步了解我们的<a href='https://www.goat.com/verification'>鉴别查验流程</a>。
+  push_notification:
+    push_funds_available:
+      direct_shipping_payout: 您的直发买家商品已送达。现有%{payout_amounts}可供提现。
+      instant_payout: 恭喜！您的订单%{order_number}已享即时打款。
+      notify_verification_payout: 您的商品已完成鉴别。现有%{payout_amounts}可供提现。
+    push_selling_update:
+      global_offer_price_close: 以下商品的定价与最高报价相差%{rate}%：%{product_template_name}，尺码%{size}。
+      no_longer_high_demand: 以下商品已不是强劲需求定价：%{product_template_name}，尺码%{size}。
+      no_longer_high_demand_v2: 以下商品的上架价格已不符合当前全球市场指标定价：%{product_template_name}，尺码%{size}。
+      no_longer_high_demand_v2_consigned: 以下寄售商品的上架价格已不符合当前全球市场指标定价：%{product_template_name}，尺码%{size}。
+      price_not_lowest: 以下商品已不是在售底价：%{product_template_name}，尺码%{size}。
+    push_selling_update_rejected:
+      listing_issue: 上架问题：我们已向您发送有关尺码为%{size}的%{product_template_name}的电子邮件。
+    push_sneaker_sold:
+      accept_reject_discount_reminder: 订单问题提醒：请核对价格调整。
+      buyer_refund: 订单问题：请选择退款选项。
+      consign_return_reminder: 订单问题提醒：请选择一个选项以继续。
+      discount_offered: 订单问题：卖家已提供折扣。
+      drop_off_reminder: 提醒：请立即交递%{product_text}个订单。
+      drop_off_reminder_multiple: 提醒：请立即交递%{product_text}个订单。
+      order_issue: 订单问题：请查看订单页面或您的电子邮件以了解更多详情。
+      pay_invoice_reminder: 账单提醒：请支付账单以回寄您的球鞋。
+      refund_reminder: 订单问题提醒：请选择退款选项。
+      return_to_seller: 目前正在进行商品回寄准备。我们将在发货后向您发送一封包含运单号的电子邮件。
+      select_discount_reminder: 订单问题提醒：请选择价格调整。
+      seller_confirm_reminder: 提醒：请立即确认您的%{product_text}个订单。
+      seller_confirm_reminder_multiple: 提醒：请立即确认您的%{product_text}个订单。
+      seller_discount: 订单问题：您可为买家调整价格。
+      seller_discount_accepted: 订单问题：买家已接受并将继续交易。
+      ship_goat_reminder: 提醒：请立即为您的%{product_text}个订单发货。
+      ship_goat_reminder_multiple: 提醒：请立即为您的%{product_text}个订单发货。
+  reject_authenticity:
+    content:
+      direct_shipping: 很遗憾，在审核您的商品后，由于正品状况存疑，我们无法激活其上架销售。<br/><br/><br/> alias
+      stv: 很遗憾，该商品正品状况存疑，我们暂时无法激活其上架销售。<br/><br/><br/> %{brand_signature}
+  reject_for_nonsneaker_photos:
+    content: 很遗憾，由于以下问题，我们无法批准您的上架商品。请在进行更改后重新提交上架，以便我们继续审核您的出售申请。<br/> <br/>问题：<br/>
+      <br/> 没有%{item_type}照片：经过审查，我们的专家发现您尚未拍摄%{item_type_plural}的照片。请按照下面的建议进行操作。<br/>
+      <br/> <table border = " 0 " cellpadding = " 0 " cellspacing = " 0 " height =
+      " 100％" width = " 50％" id = " bodyTable "> <tr>
+    sample: 样例
+    thanks: 谢谢，
+  reject_for_other_reason:
+    content_lighting_issues: 照片太暗：请在光线明亮的房间重新拍摄照片。<br/><br/>
+    content_size_issues:
+      direct_shipping: 尺码错误：请检查商品标签上标示的尺码和上架信息中的尺码是否一致。<br/><br/>
+      stv: 尺码错误：请仔细检查商品标签、鞋盒和上架信息中的美国尺码是否一致。<br/><br/>
+  reject_sku:
+    content:
+      direct_shipping: 很遗憾，由于您输入的SKU不正确，我们暂时无法上架您的商品。如需重新提交您的商品以供审核，请更新上架信息并使用正确的SKU。<br/><br/>如需更新您的上架商品，首先查看您的商品标签或原装鞋盒以查找SKU信息。然后，您可以打开alias应用程序，并在订单页面搜索该商品的SKU，输入正确的SKU，然后重新提交您的上架商品以供审核。<br/><br/>重新输入SKU时，请确保所提供的信息与商品标签或鞋盒上的信息一致。<br/><br/>如果您找不到商品的SKU，请在应用程序中搜索%{product_template_name}，然后重新提交您的商品以供审核。<br/><br/>感谢您抽出宝贵时间，期待尽快看到您在alias中上架更新后的商品。<br/><br/>alias
+      stv: 很遗憾，您输入的SKU：%{product_template_sku} 似乎不正确。<br/> <br/> 请查看商品标签或商品包装盒以获取SKU信息，然后搜索SKU、进行更改并重新提交以供审核。<br/>
+        <br/> <b>以下是一些SKU的示例：</b> <br/> <br/> <b>130690 002 </b>- Air Jordan 12 Retro'Flu
+        Game'2016 <br/><b>AQ2659 </b>- Yeezy Boost 350'Pirate'<br/><b>H31EK 3621 </b>-
+        Ronnie Fieg x Gel Lyte 5'Volcano'<br/> <br/> <br/> %{brand_signature}
+  reset_password_instructions:
+    alias:
+      subject: 密码重置确认
+    flight_club:
+      subject: "%{record_name} 密码重置确认"
+    goat:
+      subject: GOAT密码重置
+    partner_portal:
+      subject: 密码重置确认
+    partner_portal_reset_password_instructions:
+      body: 我们已收到重置密码的请求。若该请求非您本人提出，请忽略此电子邮件。在创建新密码之前，您的密码不会更改。
+      header: 重置密码
+    preheader: 有人请求发送更改密码的链接。如果您没有提出这项请求，请忽略此电子邮件。在创建新密码之前，您的密码不会更改。
+    template_body: 我们已收到重置密码的请求。若该请求非您本人提出，请忽略此电子邮件。在创建新密码之前，您的密码不会更改。
+    template_cta_button_text: 重置密码
+    template_footer_1: 此链接将在%{link_expires_in_hours}小时后过期。
+    template_footer_2: 如需请求新链接或现有链接已过期，请通过下述链接重新申请：
+    template_footer_3: 忘记密码
+    template_forgot_password_footer_full: 如需申请新链接或现有链接已过期，您可以通过<a style='color:black'
+      target='_blank' href='%{link}'>忘记密码</a>申请一个新链接。
+    template_header: 重置密码
+    title: 忘记密码
+  reset_password_instructions_for_ato:
+    alias:
+      subject: alias账户安全警示
+    flight_club:
+      subject: 账户安全警示
+    goat:
+      subject: 账户安全警示
+    template_body: 我们注意到您的GOAT账户存在可疑活动。请点击下方链接以重置密码。同时建议您更新与您GOAT账户相关联的邮箱密码。
+    template_cta_button_text: 重置密码
+    template_footer_2: 如需请求新链接或现有链接已过期，请通过下述链接重新申请：
+    template_footer_3: 忘记密码
+    template_footer_6: 如果您发现信用卡、银行账户或GOAT账户存在任何其他可疑活动，或在重置密码时遇到问题，请立即与我们联系。
+    template_footer_additional_security: 为您的账户绑定电话号码即可增加多一层安全保障。该电话号码将在添加后用于接收验证码，请勿将验证码分享给任何人。GOAT绝不会向您索要此验证码。
+    template_footer_contact_instruction: 如果您发现信用卡、银行账户或GOAT账户存在任何可疑活动，请立即
+    template_footer_contact_instruction_full: 如果您发现信用卡、银行账户或GOAT账户存在任何可疑活动，请立即与<a
+      style='color:black' target='_blank' href='https://support.goat.com/hc/zh-cn/requests/new'>GOAT客服</a>联系。
+    template_footer_different_password_tip: 对每个在线账户（包括电子邮件账户）使用不同的密码。
+    template_footer_easy_password_tip: 不要使用容易猜到的密码。
+    template_footer_goat: GOAT
+    template_footer_goat_support: GOAT客服
+    template_footer_link: 此链接将在%{link_expires_in_hours}小时后过期。
+    template_footer_new_link: 如需请求新链接，请访问：
+    template_footer_password_complexity_tip: 至少使用八个字符，包括小写字母、大写字母、数字和符号。
+    template_footer_password_manager_tip: 考虑使用密码管理器记录密码。
+    template_footer_please_contact: 请联系
+    template_footer_quick_tips: 密码安全提示：
+    template_footer_signature: 谢谢，
+    template_forgot_password: 忘记密码
+    template_forgot_password_footer_full: 如需申请新链接，请访问<a style='color:black' target='_blank'
+      href='%{link}'>忘记密码</a>。
+  return:
+    content: "@%{username}，您好！<br/> <br/>我们很快会将您的%{item_type}寄回给您。您可以通过以下链接追踪您的包裹：<a
+      href='%{get_tracking_code_url}'>%{tracking_code}</a><br/> <br/>追踪信息可能需要 24 小时才会更新，感谢您的耐心和理解。<br/>
+      <br/> %{brand_signature}"
+    subject: 订单#%{order_number} - 退货追踪代码
+  sample_detail_pictures: 细节示例照片
+  sample_picture: 示例照片：%{picture_tag_name}
+  sample_picture_tag:
+    back_picture: 背面图
+    inner_picture: 内侧图片
+    outer_picture: 外侧图片
+    picture_upload_failure: "%{picture_name}不是可识别的图片类型"
+    shoe_box_picture: 鞋盒图
+    shoe_tag_picture: 鞋子标签图片
+    sole_picture: 鞋底图
+    top_picture: 俯视图
+  seller_debit_summary:
+    content: "%{username}，您好！<br/> <p>我们今天需从您的余额中扣除%{display_money}。请前往app查看您的<a href='%{branch_redirect}'>交易历史</a>，详细了解各项变动。</p>
+      <p>如果您的余额在任何一段时间内低于$0.00，我们将从您的信用卡扣款以弥补差额。在此过程中，无效到信用卡可能会被我们移除。</p> <p>%{contact_line}</p>
+      alias"
+    subject: 您的alias余额活动概要
+  seller_direct_shipping_eligibility_revoked:
+    content: |-
+      %{username} 您好，<br/><p>由于您的过往订单出现多次投诉，我们现决定暂停您的直发买家发货权益。本平台致力于为买卖双方打造值得信赖且协力合作的市场，通过对卖家进行适当的交易追踪以维持积极愉悦的体验。</p>
+      <p>权益暂停后，您无法在上架时选择直发买家作为发货选项，您仍需处理好您账户下正在进行中的订单。订单发货后，相关收益便会存入您的账号内。</p>
+      <p>此外，位于库存页面“上架中”的直发买家上架商品均已被停用，且今后无法直接重新上架。如需彻底移除这些上架信息，请转至库存页面的“未上架”页面进行删除操作。</p>
+      <p>尽管您无法再使用直发买家的权益，您仍可采用常规的上架和先送至alias进行查验的发货方式。我们希望您继续选择alias销售您的商品并为将来的订单采用上述发货方式。</p>
+      <p>如您对该问题有任何疑问，请查阅我们的<a href='https://www.alias.org/faq'>FAQ</a>。非常感谢</p> alias
+    subject: 有关您alias账户的重要更新
+  seller_recouped_all_cards_removed:
+    content: "%{username}，您好！<br/> <p>由于您的账户余额为负，我们已尝试从您提供的信用卡收取费用。但这些信用卡已经失效，我们已将其从您的账户中移除：%{deactivated_cards}。</p>
+      <p>为继续使用 alias 的所有功能，请<a href='%{branch_redirect}'>添加新的信用卡</a>，以便将您的余额恢复为 $0。</p>
+      alias "
+    subject: 付款方式失败
+  services:
+    cart_service:
+      cant_add_to_cart: 此商品无法添加到购物车。
+      highly_volatile_pricing: 此商品价格波动过快，暂不支持添加到购物车。
+      international_checkout_note: 已包含适用的费用和税费，交付时无需额外收费。
+      international_checkout_note_no_vat: 已包含适用的费用，交付时无需额外收费。
+      international_checkout_note_no_vat_or_surcharge: 价格已包含适用的进口成本。
+      international_checkout_tax_note: 价格已包含适用进口成本和税费。
+      out_of_stock: 该商品缺货。
+    pre_pack_service:
+      missing_order: 没有找到与产品条形码相关的订单
+      no_space_allowed: 输入的产品条形码可能没有空格
+      product_not_found: 未找到产品条形码%{product_barcode}
+      storage_order: 订单为寄存订单，不应发货
+      unexpected_status: 订单状态为%{status}且非goat_verified
+    translation_service:
+      necklace_feed:
+        browse: 探索
+        calendar: 发售日历
+  shipped_for_verification:
+    content: "@%{username}，您好！<br/> <br/> %{item_in_flight_line}<br/> <br/>鉴别通过后，我们会将其发送给买家。%{verification_link}<br/>
+      <br/> %{contact_line} <br/> %{brand_signature} "
+    subject: 订单#%{order_number} - 已发送至%{brand_signature}进行查验
+  shipped_goat_reminder:
+    content: |-
+      @%{username}，您好！ <p>本邮件旨在提醒您，及时为您确认的%{order_count} %{order_text}发货。</p> <p><strong>简单四步</strong></p> <ul style='list-style: none;'> <li>1. 打印预付费且预填地址的物流标签和装箱单 (如有)</li> <li>2. %{packaging_instructions_line}</li> <li>3. 将物流标签粘贴至包装箱</li> <li>4. 将包裹交付于物流标签相对应的快递承运商。根据不同承运商的要求，请使用指定的收货点以确保物流信息及时更新。</li> </ul> <p>在3个工作日内发货。请注意：Staples及其他第三方邮寄和货运服务中心不会在扫描包裹时更新追踪信息。请前往承运商指定的门店寄件，以确保及时更新追踪信息。否则可能导致自动取消订单并审查您的卖家账户。</p> <strong>订单详情</strong><br/> %{orders}
+      <p>在我们的专家对您的%{plural_items}进行鉴别之后，我们会将您的收入添加至您的%{brand_signature}账户，以供您提现。<p> <p>%{contact_line}</p> %{brand_signature}
+    content_part1:
+      other: "@%{username}，您好！<p>本邮件旨在提醒您尽快为已确认的%{count}个订单发货。</p>"
+      multi: "%{username} 您好，<p>本邮件旨在提醒您尽快为已确认的%{count}个订单发货。</p>"
+      single: "%{username} 您好，<p>本邮件旨在提醒您尽快为已确认的订单发货。</p>"
+    content_part2: |2-
+       <p><strong>简单四步</strong></p> <ul style='list-style: none;'> <li>1. 打印预付费且预填地址的物流标签和装箱单 (如有)</li> <li>2. %{packaging_instructions_line}</li> <li>3. 将物流标签粘贴至包装箱</li> <li>4. 将包裹交付于物流标签相对应的快递承运商。根据不同承运商的要求，请使用指定的收货点以确保物流信息及时更新。</li> </ul> <p>在3个工作日内发货。请注意：Staples及其他第三方邮寄和货运服务中心不会在扫描包裹时更新追踪信息。请前往承运商指定的门店寄件，以确保及时更新追踪信息。否则可能导致自动取消订单并审查您的卖家账户。</p> <strong>订单详情</strong><br/> %{orders}
+      <p>在我们的专家对您的%{plural_items}进行鉴别之后，我们会将您的收入添加至您的%{brand_signature}账户，以供您提现。<p> <p>%{contact_line}</p> %{brand_signature}
+    order_details_msg: <table <tr> <td><img src='%{product_template_picture}' width=150></td>
+      <td style="vertical-align:middle;padding-left:10px"> 订单编号：%{order_number}<br/>
+      名称：%{product_template_name}<br/> 状况：%{shoe_condition}<br/> %{box_line} %{defects_string}
+      %{seller_says} 尺码：%{presentation}<br/> %{sku_line} 发货截止日期：%{last_business_day}<br/>
+      %{shipping_label_link_html} <br/> <strong>您的收入：<u>%{display_money}</u></strong><br/><br/><br/>
+      </td> </tr> </table>
+    subject:
+      other: 提醒：请为您的%{count}个订单发货
+      multi: 提醒：请为您的%{count}个订单发货
+      single: 提醒：请为您的%{product_text}订单发货
+  shipping_label_error:
+    content: "@%{username}，您好！<br/> <br/> 我们注意到您还没有收到物流标签。<br/> <br/> 在我们为您生成物流标签之后，我们将立即通知您。<br/>
+      <br/> 谢谢，<br/> %{brand_signature} "
+    subject: 订单#%{order_number}物流标签错误
+  shipping_service_level_option_view:
+    disclaimer: "*配送预计时间仅适用于运送至美国本土各州的订单。"
+    estimation:
+      1_business_day: 1个工作日 (太平洋时间上午11点前下单)
+      2_business_days: 2个工作日
+      estimated_4_6_business_days: 预计需要4-6个工作日
+      instant_ship_rebrand_shipping_description: 已完成鉴别，可通过优先处理直接从GOAT发货
+      temp_covid_shipping_delay_note: 商品已完成鉴别，将从GOAT发货
+    flight_club_description:
+      1_business_day: 1个工作日仅限于运送至美国本土各州的Flight Club在售球鞋。
+      2_business_days: 2个工作日仅限于运送至美国本土各州的Flight Club在售球鞋。
+      default_description: 由于所有鞋款都需要先发往GOAT进行鉴别查验，因此，对于美国本土客户，订单通常会在7-10个工作日内送达。国际送货时间各不相同，发货后产生的任何额外税费需由国际客户承担。
+      estimated_4_6_business_days: 预计需要4-6个工作日。Flight Club在售球鞋已完成鉴别，可直接从Flight Club站点发货。预计时间不包括国际送货地区。
+      est_1_business_day: 周一至周五下午2点 (东部时间) 前下单，预计1个工作日送达。仅限美国本土。
+      est_n_business_days: 先送至平台进行鉴别查验，预计%{num1}-%{num2}个工作日送达
+      instant_ship: 已完成鉴别，可极速发货。国际送货时间依不同国家或地区而有所不同。
+      international_shipping: 国际送货时间依不同国家或地区而有所不同。
+      only_available_for_us_addresses: 仅适用于运送至美国本土地址的Flight Club在售球鞋。
+      ships_to_flight_club: 先送至平台进行鉴别查验。
+    get_it_by: "%{time}前收货"
+    goat_description: 此商品将先发送至GOAT进行鉴别查验。
+    goat_description_direct: 此商品未经GOAT鉴别查验，由优选卖家打包发货。
+    goat_description_v2:
+      default: 此商品将先发送至GOAT进行鉴别查验。
+      direct: 此商品未经GOAT鉴别查验，由优选卖家打包发货。
+      drop_ship: 此商品由优选合作伙伴直发，未经GOAT鉴别查验。
+      instant_ship: 本商品通过优先处理从GOAT发货。
+      shipping_add_on: 从标准配送升级至特快配送
+    shipping_full_name:
+      expedited: 加急运输
+      next_day: 次日达 (极速发货)
+      shipping_add_on: 订单升级 (优先处理)
+      standard: 标准配送
+      standard_instant: 标准配送 (极速发货)
+  ship_back_drop_off_consignment:
+    content: '%{username}，您好！<br/><br/>您的商品已经回寄。<br/><br/>追踪代码：<a href=''%{tracking_code_url}''>%{tracking_code}</a>
+      <br/> 商品：<a href="%{branch_redirect}">%{sku}</a> <br/> <br/> 如果您的账户余额足够支付%{display_money}的运费，该笔费用将直接从您的账户中扣除。
+      <br/> <br/> %{brand_signature}'
+    subject: 商品问题
+  ship_back_line:
+    consignable: 追踪代码：<a href='%{tracking_code_url}'>%{tracking_code}</a><br/> 订单编号：<a
+      href="%{branch_order_redirect}">%{order_number}</a> <br/>
+    nonconsignable: 由于以下原因：%{issue_description}，我们已将您的商品寄回。<br/> <br/> 追踪代码：<a href='%{tracking_code_url}'>%{tracking_code}</a><br/>
+      订单编号：<a href="%{branch_order_redirect}">%{order_number}</a> <br/>
+    stc: '追踪代码： <a href=''%{tracking_code_url}''>%{tracking_code}</a> <br/>商品：%{item_name} '
+  ship_back_to_seller:
+    content: "%{username}，您好！<br/><br/> %{ship_back_line}如果有足够的资金支付%{display_money}的运费，这笔运费将直接从alias余额中扣除。<br/><br/>
+      alias"
+    subject: 订单 %{order_number} - 退货追踪代码
+  simple_form:
+    error_notification:
+      default_message: 请仔细查看下列问题：
+    'no': 否
+    required:
+      mark: "*"
+      text: 必填
+    'yes': 是
+  sold_instructions_line:
+    alias: 打开app中的“订单”页面，生成一个物流标签并开始打包。如果您有收到装箱单，请记得打印出来并将其附于包装箱内。
+    goat: 打开App中的“订单”页面，生成物流标签并开始打包。
+  stc_carrier_received:
+    alt_text: 包装箱%{box_number}已寄出查验
+    content_item: '尊敬的alias卖家，<br/> <br/> %{courier}已将您的商品寄送至alias进行鉴别查验。您的上架商品将于通过鉴别后24小时内激活。<br/>
+      <br/>温馨提醒，请妥善保管您的%{courier}收据或拍摄收据照片，以防您需要解决任何与物流相关的潜在纠纷。<br/> <br/> %{contact_line}<br/>感谢您使用%{brand_signature}出售商品。<br/>
+      <br/> %{brand_signature} '
+    preheader: 您的商品正寄往alias进行鉴别查验
+    subject: 商品已寄出查验：%{box_number}
+  stc_packaging:
+    faq_1: 在打包商品之前，请阅读我们的<a href='%{link}'>寄售常见问题</a>，确保成功鉴别和交付商品。如果您购买了运输保险，还可在我们的常见问题部分查询为包裹有效投保的<a
+      href='%{link}'>最优方法</a>。
+    greeting_1: 尊敬的alias卖家：
+    greeting_2: 感谢您使用alias寄售商品。
+    guidance: 请按照下述步骤进行操作，以妥善打包您的商品及发货。
+    insurance_1: 如果您购买了运输保险，还可在我们的常见问题部分
+    insurance_2: 查询
+    insurance_3: 为包裹有效投保的最佳做法。
+    preheader: 打包商品并将其寄送至alias
+    step_1: 1.打印预付费且预填地址的物流标签和装箱单 (如适用)。
+    step_2: 2.按照随附的PDF文件中的说明打包商品。确保将每件商品和对应的PDF文件装在指定的包装箱中。如果您要寄送多个包装箱，则需要多个物流标签和PDF文件。请妥善保管PDF文件，如在运输过程中出现问题，则可将其作为购买证明。
+    step_3: 3.拍摄每件商品及其各自的包装箱。
+    step_4: 4.将物流标签贴在相应包装箱的外侧。
+    step_5: 5.将您的包裹交递至物流标签上注明的快递公司。请妥善保管快递公司提供的寄件收据。
+    step_title: 简单五步
+    subject: 物流标签和寄售说明%{shipment_number}
+    thanks: 感谢您使用本平台出售商品。
+  stc_require_packaging_picture:
+    faq_1: 如需进一步了解如何为已投保商品发货，请查阅我们的<a href='%{link}'>最优打包方法</a>。
+    greeting_1: 尊敬的alias卖家：
+    greeting_2: 感谢您使用alias寄售商品。
+    guidance_1: 请按照下述步骤进行操作，以妥善打包您的商品及发货。
+    guidance_2: 请注意，由于此包裹已投保，因此您需要<a href='%{deep_link}'>为商品及其包装拍照</a>，以便接收物流标签。
+    preheader: 接收物流标签：包装箱%{box_number}
+    step_1: 1.为分配至包装箱%{box_number}的每件商品及其包装拍照。
+    step_2: 2.打印预付费且预填地址的物流标签和装箱单 (如适用)。
+    step_3: 3.按照随附PDF文件中的说明打包商品。确保将每件商品和对应的PDF文件装在指定的包装箱中。如果您要寄送多个包装箱，则需要多个物流标签和PDF文件。请妥善保管PDF文件，如在运输过程中出现问题，则可将其作为购买证明。
+    step_4: 4.将物流标签贴在相应包装箱的外侧。
+    step_5: 5.将您的包裹交递至物流标签上注明的快递公司。请妥善保管快递公司提供的寄件收据。
+    step_title: 简单五步
+    subject: 寄售说明
+    thanks: 感谢您使用本平台出售商品。
+  stc_ship_back_to_seller:
+    content: '尊敬的alias卖家，<br/><br/>我们已将您要寄售的商品回寄给您。请在下方查找相应商品的运单追踪信息。<br/><br/> %{ship_back_line}
+      <br/><br/>如果您的账户余额足够支付%{display_money}的运费，该笔费用将直接从您的账户中扣除。否则，我们将从已保存的付款方式中收取。<br/><br/>
+      %{contact_line} <br/><br/>感谢您使用%{brand_signature}出售商品。<br/> <br/> %{brand_signature} '
+    preheader: 追踪您的回寄商品
+    subject: 您的回寄商品已寄出
+  tax_info_qa:
+    answer:
+      AU: 根据澳大利亚法律规定，发往澳大利亚地址的符合条件的订单需征收10%的商品和服务税 (GST)。
+      CN: 根据中国法律规定，发往中华人民共和国地址的符合条件的订单，需征收相关的进口税。
+      'NO': 根据挪威法律规定，运送至挪威地址的符合条件的订单，需缴纳25%的增值税。
+      NZ: 根据新西兰法律规定，发往新西兰地址的符合条件的订单需征收15%的商品和服务税 (GST)。
+      SA: 根据沙特阿拉伯的电子商务法相关规定，GOAT需要对运送至沙特阿拉伯地址的符合条件的订单代收和代缴增值税(VAT)以及其他关税和目的地收费。
+      UK: 根据英国法律规定，发往英国地址的符合条件的订单需征收20%的商品和服务税 (GST)。
+      US: 根据最高法院最近的一项判决，GOAT之类的电子商务市场现在必须按要求向某些州的买家收取销售税。
+    question:
+      AU: 我为什么被收取税费？
+      CN: 我为什么被收取税费？
+      'NO': 我为什么会被收取增值税？
+      NZ: 我为什么被收取税费？
+      SA: 我为什么会被收取增值税？
+      UK: 我为什么会被收取增值税？
+      US: 我为什么被收取销售税？
+  top_questions:
+    calculate_currency_exchange: 您是否会计算外币汇率？
+    cancel_order: 我能否取消我的订单？
+    can_still_buy: 我还能购买此商品吗？
+    how_get_stored: 我如何取得寄存的商品？
+    how_sell_stored: 我如何出售寄存的商品？
+    how_verification_work: 鉴别查验流程如何进行？
+    return_policy: 退货政策是什么？
+    return_policy_goat_storage: 购买GOAT寄存的商品有何退货政策？
+    when_will_receive_order: 我何时可以收到我的订单商品？
+    why_my_order_canceled: 为什么我的订单被取消？
+    will_able_return: 此商品能否退货？
+  tou_violation:
+    content: |-
+      %{username}，您好！<br/> <p>由于您的近期活动违反了平台服务条款，您的账户目前正在接受审查。在此期间，您的任何买卖权益都将被停用。%{seller_policy_html}。</p>
+      <p>平台会及时与您沟通最新的变动 (如有)。</p>
+      <p>感谢您的合作与理解。</p>
+      <p> Account Review团队 | %{brand_signature} </p>
+    seller_policy:
+      alias: 请查阅alias<a href='%{url}'>卖家政策</a>，了解更多信息
+      goat: 请查阅<a href='%{url}'>GOAT的卖家条款</a>，了解更多信息
+    subject: 关于您的账户的重要信息
+  two_months_cancellation_report:
+    exceed_first_month_content: "%{username}，您好！<br/> <br/>您上个月的订单取消率是%{cancellation_rate}。<br/>
+      <br/>一共取消%{canceled_orders_count}笔订单，所产生的费用为%{charged_amount} <br/> <br/> 由于您本月的订单取消率低于%{rate_line}，因此我们将向您返还取消费。金额为%{charged_amount}的款项将于本月第5个工作日记入您的账户。<br/>
+      <br/>您下个月无需因取消任何订单而支付费用。<br/> <br/>温馨提醒，只要您继续确保每个月的订单取消率低于%{rate_line}，次月就无需支付取消费。<br/>
+      <br/>如有任何疑问，敬请咨询您的专属客户经理。<br/> <br/> %{brand_signature}"
+    exceed_second_month_content: "%{username}，您好！<br/> <br/>您上个月的订单取消率是%{cancellation_rate}。<br/>
+      <br/>由于您上个月的订单取消率高于%{rate_line}，因此在接下来的一个月中，您需要为每一笔取消的订单支付10美元的费用。<br/> <br/>温馨提醒，如果您能够确保下个月的订单取消率低于%{rate_line}，则所有取消费会在下个月之后的月初返还给您。<br/>
+      <br/>如需了解履约情况或有任何疑问，敬请咨询您的专属客户经理。<br/> <br/> %{brand_signature}"
+    exceed_two_month_content: "%{username}，您好！<br/> <br/>您上个月的订单取消率是%{cancellation_rate}。<br/>
+      <br/>一共取消%{canceled_orders_count}笔订单，所产生的费用为%{charged_amount} <br/> <br/> 由于您本月的订单取消率高于%{rate_line}，因此在接下来的一个月中，您需要为每一笔取消的订单支付10美元的费用。<br/>
+      <br/>温馨提醒，如果您本月的订单取消率低于%{rate_line}，则所有取消费会在下个日历月的月初返还至您的账户。<br/> <br/>如需了解取消情况或有任何疑问，敬请咨询您的专属客户经理。<br/>
+      <br/> %{brand_signature}"
+    no_exceed_content: "%{username}，您好！<br/> <br/>您上个月的订单取消率是%{cancellation_rate}。<br/>
+      <br/>您的订单取消率低于%{rate_line}，恭喜您仍然满足我们的业务标准。<br/> <br/>您下个月无需因取消任何订单而支付费用。<br/>
+      <br/>如有任何疑问，敬请咨询您的专属客户经理。<br/> <br/> %{brand_signature}"
+    subject: 卖家返现计划—月度报告
+  users:
+    china_phone_not_unique: 此手机号码%{phone}已绑定多个GOAT账户。
+    invalid_china_phone: 用户电话号码%{phone}不属于中国号码。
+    invalid_phone_number: 该用户没有登记手机号码
+    two_factor_message: 你的%{vendor}验证码为%{otp}。该验证码1分钟内有效，请勿泄漏于他人！
+    two_factor_message_new: 您的 %{vendor} 验证码为 %{otp}，1 分钟内有效。绝对不要将该验证码告知他人，工作人员绝不会向您致电或者通过其他方式索要此验证码。请仅在
+      %{vendor} 官方网站及应用程序输入此验证码。
+  user_mailer:
+    account_changes:
+      content: 您的账户信息已变更
+      help_section: 如果此变更并非您本人操作，请通过电子邮件联系我们：
+      preheader: 有人更改了您的GOAT账户。
+      subject: 您的GOAT账户信息已更改
+    auth_charge_failure:
+      content: "%{username}，您好！<br/> <p>很遗憾，您提供的信用卡无效，我们无法在查验您的商品 <a href='%{branch_order_redirect}'>(%{order_number})</a>
+        前向您付款。请放心，您将在商品通过查验之后收到付款。</p> <p>您尾号为%{four_digit_number}的信用卡已从您的账户中移除。</p>
+        <p>请前往app提供新的信用卡，以便在今后适用的订单中享受即时收款。</p> alias "
+      subject: 订单：%{order_number} 信用卡失效
+    goat_login_activity:
+      content: 您好，<br/> <p>我们注意到您已将alias账户关联至您的GOAT账户。如果您没有进行此项操作，请联系support@goat.com。</p>
+        GOAT
+      subject: GOAT账户 - alias关联活动
+    instant_payout_status_disabled_for_negative_event:
+      content: "@%{username}，您好！<br/> <p>由于此订单 (<a href='%{branch_order_redirect}'>%{order_number}</a>)
+        存在问题，您今后只有在售出商品通过查验之后，才能获得付款。</p> %{contact_line}<br/> alias "
+      subject: '订单 #%{order_number} - 您的即时收款状态'
+    instant_payout_status_disabled_for_order:
+      content: "@%{username}，您好！<br/> <p>在我们的团队完成查验之前，我们无法为此订单(<a href='%{branch_order_redirect}'>%{order_number}</a>)付款。</p>
+        %{contact_line}<br/> alias "
+      subject: 订单%{order_number} - 您的即时收款状态
+    legacy_identity_confirmation_instructions:
+      account_activity_timestamp_format: "%Y年%m月%e日 %A %p %l:%M %Z"
+      goat_android_app: Android版GOAT应用程序
+      goat_ios_app: iOS版GOAT应用程序
+      goat_web_site: GOAT网站
+      template_body_line_click: 如果是本人操作，请点击此<a href='%{link}' target='_blank'>链接</a>并在
+        %{expire_after}内登录您的GOAT账户以进行身份验证。
+      template_body_line_faq: 如需了解更多信息，请访问GOAT<a href='https://support.goat.com/hc/zh-cn/sections/115001414528-FAQ'
+        target='_blank'>常见问题解答</a>。
+      template_body_line_notice: 我们注意到您的账户最近存在以下来源的活动：
+      template_body_line_reset: 如果不是本人操作，我们建议您访问此<a href='%{link}' target='_blank'>链接</a>重置密码。
+      template_header: 是您本人操作吗？
+      template_subject: 账户活动
+    notify_owner_user:
+      content_email: 您的电子邮件地址已更改
+      content_encrypted_password: 您的密码已更改
+      content_name: 您的姓名已更改
+      content_phone: 您的电话号码已更改
+      content_size_bigger_than_1: 您的账户信息已更改
+      content_username: 您的用户名已更改
+      subject_email: 您的%{brand_signature}电子邮件已更新
+      subject_encrypted_password: 您的%{brand_signature}密码已更新
+      subject_name: 您的%{brand_signature}账户上的名称已更新
+      subject_phone: 您的%{brand_signature}电话号码已更新
+      subject_size_bigger_than_1: 您的%{brand_signature}账户信息已更改
+      subject_username: 您%{brand_signature}账户中的用户名已更新
+    obo_link:
+      content: "%{username}，您好！<br/> <p>账户关联成功。现在，您可从alias查看所有GOAT上架商品和订单。</p> alias"
+      subject: alias账户关联成功
+    seller_to_buyer_promo:
+      download_goat_app: 下载GOAT应用程序
+      erb_main_copy: 感谢您选择出售商品！您已获得20美元的立减奖励，下次在App中购买200美元以上的商品即可使用此促销代码。
+      erb_secondary_copy: '此促销活动仅对持有有效GOAT卖家账户或与alias-GOAT关联的卖家账户的特定人士（合称为“卖家”）开放。为符合促销代码的领取条件，卖家必须通过GOAT或alias在太平洋时间2021年12月10日星期五上午10:00至太平洋时间2021年12月16日星期四晚上11:59之间出售一双Air
+        Jordan 11 Retro ''Cool Grey'' 2021[SKU: CT8012005]，并且售出的球鞋必须由GOAT于太平洋时间2021年12月30日星期四晚上11:59之前进行鉴定和查验。对于卖家每笔符合条件的销售，系统将在GOAT对所售球鞋进行鉴定和查验后24小时内，向卖家发放20美元的促销代码。每笔符合条件的销售仅限获得一个促销代码；每个符合条件的卖家仅限获得10个促销代码。每个促销代码仅适用于商品价格不低于200美元的订单；每笔订单限用一个促销代码。购物订单必须于太平洋时间2021年12月31日星期五晚上11:59之前在GOAT应用程序上生成。促销代码不可兑换现金，不可在优惠活动中使用，也不可与其他优惠、折扣和促销同时使用。法律禁止的情况下无效。其他例外情况和排除条款可能适用。GOAT保留在GOAT认为必要的情况时，随时暂停、变更或取消本促销活动的权利。'
+      promo_off: 20美元立减
+      show_now: 即刻查看
+      subject: 您已获得20美元的奖励，可在下次购买时使用
+    two_factor_auth_code:
+      email_us: 如果您没有更改您的账户，请通过电子邮件联系我们：
+      preheader: 有人试图更改您的GOAT账户。为了保护您的账户，请在出现提示时输入以下安全代码，以确认更改：
+      security_code: 您的GOAT安全码
+      subject: 确认您的GOAT账户更改
+  verification_link:
+    goat: 进一步了解我们的<a href='https://www.goat.com/verification'>鉴别查验流程</a>。
+  waitlist_added:
+    content: "%{username}，您好！<br/><br/>恭喜！您已进入等候名单，我们将在开放时与您联系！<br/><br/> alias"
+    subject: 您的alias访问权限
+  waitlist_selected:
+    content: "%{username}，您好！<br/><br/> 恭喜！诚邀您通过alias出售服装和球鞋。请前往app，并使用以下邀请码开启体验！<br/><br/>
+      alias"
+    subject: 您的alias访问权限 - 恭喜！
