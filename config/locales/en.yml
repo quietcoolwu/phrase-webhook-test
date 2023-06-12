@@ -40,6 +40,7 @@ en:
     errors:
       messages:
         record_invalid: "Validation failed: %{errors}"
+        record_error_test1: "Record error test1"
   activerecord:
     models:
       order_issue:
